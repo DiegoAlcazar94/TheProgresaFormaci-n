@@ -2,7 +2,7 @@
 <html lang="es" data-bs-theme="dark">
 <head>
   <meta charset="utf-8">
-  <title>NUCLEUS - DAW Cyberpunk</title>
+  <title>THE PROGRESA - DAW Cyberpunk</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Bootstrap -->
@@ -22,26 +22,45 @@
 
 <!-- ================= HEADER ================= -->
 <header class="sticky-top glass border-bottom border-primary-subtle">
-  <div class="container-xl py-3 d-flex justify-content-between align-items-center">
-    <div class="d-flex align-items-center gap-3">
-      <div class="logo text-primary fw-bold">⬢</div>
-      <h2 class="mb-0 fw-bold">THE PROGRESA</h2>
-    </div>
+  <div class="container-xl py-3">
+    <div class="row align-items-center">
 
-    <nav class="d-none d-md-flex gap-4">
-      <a class="nav-link text-secondary" href="#">Inicio</a>
-      <a class="nav-link text-white fw-bold border-bottom border-primary" href="#">DAW Stream</a>
-      <a class="nav-link text-secondary" href="#">Proyectos</a>
-      <a class="nav-link text-secondary" href="#">Contacto</a>
-      <a class="nav-link text-secondary" href="#">Comunidad</a>
-    </nav>
+      <!-- Logo -->
+      <div class="col-auto">
+        <div class="row align-items-center g-3">
+          <div class="col-auto logo text-primary fw-bold">⬢</div>
+          <div class="col-auto">
+            <h2 class="mb-0 fw-bold">THE PROGRESA</h2>
+          </div>
+        </div>
+      </div>
 
-    <div class="d-flex align-items-center gap-3">
-      <button class="btn btn-outline-primary btn-sm neon">
-        <span class="material-symbols-outlined me-1">upload</span>Deploy
-      </button>
-      <img class="rounded-circle border border-primary" width="40"
-        src="https://i.pravatar.cc/100?img=12">
+      <!-- Nav -->
+      <div class="col d-none d-md-block">
+        <div class="row justify-content-center">
+          <div class="col-auto"><a class="nav-link text-secondary" href="#">Inicio</a></div>
+          <div class="col-auto"><a class="nav-link text-white fw-bold border-bottom border-primary" href="#">DAW Stream</a></div>
+          <div class="col-auto"><a class="nav-link text-secondary" href="#">Proyectos</a></div>
+          <div class="col-auto"><a class="nav-link text-secondary" href="#">Contacto</a></div>
+          <div class="col-auto"><a class="nav-link text-secondary" href="#">Comunidad</a></div>
+        </div>
+      </div>
+
+      <!-- User -->
+      <div class="col-auto">
+        <div class="row align-items-center g-2">
+          <div class="col-auto">
+            <button class="btn btn-outline-primary btn-sm neon">
+              <span class="material-symbols-outlined">Deploy</span>
+            </button>
+          </div>
+          <div class="col-auto">
+            <img class="rounded-circle border border-primary" width="40"
+                 src="https://i.pravatar.cc/100?img=12">
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </header>
@@ -49,9 +68,10 @@
 <!-- ================= HERO ================= -->
 <section class="container-xl my-4">
   <div class="hero rounded-4 p-5 position-relative overflow-hidden">
-    <div class="mb-3">
-      <span class="badge bg-danger me-2">Live Session</span>
-      <span class="badge bg-primary">V 2.0.4</span>
+
+    <div class="row mb-3">
+      <div class="col-auto"><span class="badge bg-danger">Live Session</span></div>
+      <div class="col-auto"><span class="badge bg-primary">V 2.0.4</span></div>
     </div>
 
     <h1 class="display-4 fw-black neon-text">
@@ -62,12 +82,18 @@
       Arquitectos del futuro digital. Explora el código de la nueva generación.
     </p>
 
-    <div class="d-flex gap-3 mt-4">
-      <button class="btn btn-primary btn-lg neon">Explorar Repositorios</button>
-      <button class="btn btn-outline-light btn-lg">
-        <span class="material-symbols-outlined me-1">terminal</span>Consola
-      </button>
+    <div class="row mt-4 g-3">
+      <div class="col-auto">
+        <button class="btn btn-primary btn-lg neon">Explorar Repositorios</button>
+      </div>
+      <div class="col-auto">
+        <button class="btn btn-outline-light btn-lg">
+          <span class="material-symbols-outlined me-1">terminal</span>
+          Consola
+        </button>
+      </div>
     </div>
+
   </div>
 </section>
 
@@ -89,13 +115,13 @@
         </div>
 
         <!-- Chips -->
-        <div class="d-flex gap-2 mt-3 overflow-auto">
-          <span class="chip active">All Systems</span>
-          <span class="chip">Frontend</span>
-          <span class="chip">Backend</span>
-          <span class="chip">React</span>
-          <span class="chip">Node</span>
-          <span class="chip">Docker</span>
+        <div class="row mt-3 flex-nowrap overflow-auto">
+          <div class="col-auto"><span class="chip active">All Systems</span></div>
+          <div class="col-auto"><span class="chip">Frontend</span></div>
+          <div class="col-auto"><span class="chip">Backend</span></div>
+          <div class="col-auto"><span class="chip">React</span></div>
+          <div class="col-auto"><span class="chip">Node</span></div>
+          <div class="col-auto"><span class="chip">Docker</span></div>
         </div>
       </div>
 
@@ -103,15 +129,14 @@
       <h3 class="fw-bold mb-3">Proyectos Destacados</h3>
 
       <div class="row g-4">
-        <!-- Project Card -->
         <div class="col-md-6">
           <div class="card bg-card neon-hover h-100">
             <div class="project-img"
               style="background-image:url('https://picsum.photos/600/400?random=1')"></div>
             <div class="card-body">
-              <h5 class="fw-bold">CyberMarket App</h5>
+              <h5 class="fw-bold">Casino App</h5>
               <p class="text-secondary small">
-                SPA e-commerce con React y Redux.
+                Roulette game built with React and Node.js.
               </p>
             </div>
           </div>
@@ -137,10 +162,10 @@
     </section>
 
     <!-- ========= SIDEBAR ========= -->
-    <aside class="col-lg-4 d-flex flex-column gap-4">
+    <aside class="col-lg-4">
 
       <!-- Leaderboard -->
-      <div class="card bg-card p-4">
+      <div class="card bg-card p-4 mb-4">
         <h5 class="fw-bold mb-3">
           <span class="material-symbols-outlined text-warning">trophy</span>
           Top Alumnos
@@ -148,17 +173,17 @@
 
         <div class="leader-item gold">
           <span>#1</span>
-          <strong>Sarah.js</strong>
+          <strong>Diego.C#</strong>
           <span>9850 XP</span>
         </div>
         <div class="leader-item silver">
           <span>#2</span>
-          <strong>Dev_Dave</strong>
+          <strong>Alex.Js</strong>
           <span>8720 XP</span>
         </div>
         <div class="leader-item bronze">
           <span>#3</span>
-          <strong>CSS_Queen</strong>
+          <strong>Charmander.Js</strong>
           <span>8105 XP</span>
         </div>
       </div>
@@ -180,17 +205,24 @@
       </div>
 
     </aside>
+
   </div>
 </main>
 
 <!-- ================= FOOTER ================= -->
 <footer class="bg-black border-top border-secondary mt-5 py-4">
-  <div class="container-xl d-flex justify-content-between flex-wrap gap-3">
-    <span class="text-secondary small">© 2024 NUCLEUS DAW</span>
-    <div class="d-flex gap-3">
-      <a class="text-secondary" href="#">Privacidad</a>
-      <a class="text-secondary" href="#">Términos</a>
-      <a class="text-secondary" href="#">Soporte</a>
+  <div class="container-xl">
+    <div class="row align-items-center gy-3">
+      <div class="col-md">
+        <span class="text-secondary small">© 2024 THE PROGRESA</span>
+      </div>
+      <div class="col-md-auto">
+        <div class="row g-3">
+          <div class="col-auto"><a class="text-secondary" href="#">Privacidad</a></div>
+          <div class="col-auto"><a class="text-secondary" href="#">Términos</a></div>
+          <div class="col-auto"><a class="text-secondary" href="#">Soporte</a></div>
+        </div>
+      </div>
     </div>
   </div>
 </footer>
