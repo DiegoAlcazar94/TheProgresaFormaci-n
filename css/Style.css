@@ -41,9 +41,9 @@ body {
 .hero {
   background:
     linear-gradient(to top, 
-      rgba(37, 89, 244, 0.05), 
-      rgba(255, 255, 255, 0.7), 
-      rgba(248, 249, 250, 0.85)),
+      var(--text-dark), 
+      var(--shadow-sm), 
+      var(--shadow-sm)),
     url("https://cieep.com/wp-content/uploads/2021/06/aulashome-1.jpeg");
   background-size: cover;
   background-position: center;
