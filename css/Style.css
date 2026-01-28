@@ -43,8 +43,8 @@ body {
     linear-gradient(to top, 
       var(--text-dark), 
       var(--shadow-sm), 
-      var(--shadow-sm)),
-    url("https://cieep.com/wp-content/uploads/2021/06/aulashome-1.jpeg");
+      var(--text-dark)),
+    url("https://digitechfp.com/wp-content/uploads/2025/06/malaga-clases-DIGITECH-2-1024x575.png");
   background-size: cover;
   background-position: center;
   border: 1px solid var(--card-border);
@@ -174,6 +174,9 @@ body {
 .yellow { background: #ffbd2e; }
 .green { background: #27c93f; }
 
+.ms-2{
+  color: var(--card)
+}
 .terminal-body {
   padding: 14px;
   font-family: 'Courier New', monospace;
