@@ -50,6 +50,23 @@ body {
   border: 1px solid var(--card-border);
 }
 
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(73, 224, 199, 0.5);
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
 /* Cards */
 .bg-card {
   background: var(--card);
@@ -71,9 +88,9 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, var(--primary), var(--cyan));
+  background: var(--bg);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--bg);
   background-clip: text;
 }
 
