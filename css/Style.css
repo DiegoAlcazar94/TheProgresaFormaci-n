@@ -67,7 +67,7 @@ body {
 /* Text effects */
 .neon-text {
   text-shadow: 0 0 20px rgba(37, 89, 244, 0.3);
-  color: var(--text-dark);
+  color: var(--bg);
 }
 
 .gradient-text {
