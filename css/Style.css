@@ -1,0 +1,137 @@
+:root {
+  --primary: #2559f4;
+  --secondary: #f42588;
+  --bg: #050505;
+  --card: #111318;
+  --cyan: #00f0ff;
+}
+
+/* Base */
+body {
+  background: var(--bg);
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.font-display {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Glass */
+.glass {
+  background: var(--primary);
+  backdrop-filter: blur(10px);
+}
+
+/* Hero */
+.hero {
+  background:
+    linear-gradient(to top, #050505, rgba(5,5,5,.6), rgba(37,89,244,.15)),
+    url("https://picsum.photos/1600/900?blur=1");
+  background-size: cover;
+}
+
+/* Cards */
+.bg-card {
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.neon-hover:hover {
+  box-shadow: 0 0 20px rgba(37,89,244,.5);
+  border-color: var(--primary);
+}
+
+/* Text effects */
+.neon-text {
+  text-shadow: 0 0 10px rgba(37,89,244,.8);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, var(--primary), var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Projects */
+.project-img {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Chips */
+.chip {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,.2);
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.chip.active {
+  background: var(--primary);
+  box-shadow: 0 0 10px rgba(37,89,244,.6);
+}
+
+/* Leaderboard */
+.leader-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  background: rgba(255,255,255,.05);
+}
+
+.gold { border-left: 3px solid gold; }
+.silver { border-left: 3px solid silver; }
+.bronze { border-left: 3px solid #cd7f32; }
+
+/* Terminal */
+.terminal {
+  background: #000;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.1);
+}
+
+.terminal-header {
+  background: #1a1d26;
+  padding: 6px 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.terminal-body {
+  padding: 10px;
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.prompt { color: #00ff88; }
+.accent { color: var(--secondary); }
+.time { color: #666; margin-right: 6px; }
+
+.blink {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Sticky search */
+.search-bar {
+  top: 72px;
+  z-index: 10;
+}
