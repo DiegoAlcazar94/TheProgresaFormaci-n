@@ -18,7 +18,7 @@ body {
 
 /* Glass */
 .glass {
-  background: rgba(17,19,24,.7);
+  background: var(--primary);
   backdrop-filter: blur(10px);
 }
 
