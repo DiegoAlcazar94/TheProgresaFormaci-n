@@ -17,7 +17,6 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/Style.css">
 </head>
-
 <body class="font-display">
 
 <!-- ================= HEADER ================= -->
@@ -29,7 +28,6 @@
       <div class="col-auto">
         <div class="row align-items-center g-3">
             <img src="https://www.micole.net/imagenes/colegio/logo/32624/progresa_200.png" alt="Logo" class="logo-img">
-
           <div class="col-auto">
             <h2 class="mb-0 fw-bold">THE PROGRESA</h2>
           </div>
@@ -40,7 +38,7 @@
       <div class="col d-none d-md-block">
         <div class="row justify-content-center">
           <div class="col-auto"><a class="nav-link text-dark fw-bold border-bottom border-primary" href="#">Inicio</a></div>
-          <div class="col-auto"><a class="nav-link text-secondary" href="#">Proyectos</a></div>
+          <div class="col-auto"><a class="nav-link text-secondary" href="https://github.com" target="_blank">Proyectos</a></div>
           <div class="col-auto"><a class="nav-link text-secondary" href="Pages/contacto.html">Contacto</a></div>
           <div class="col-auto"><a class="nav-link text-secondary" href="Pages/comunidad.html">Comunidad</a></div>
         </div>
@@ -156,9 +154,47 @@
         </div>
       </div>
 
-      <button class="btn btn-outline-secondary w-100 mt-4">
-        Cargar más proyectos
-      </button>
+      <!-- ===== More projects (hidden) ===== -->
+<div id="more-projects" class="row g-4 mt-4 d-none">
+
+  <div class="col-md-6">
+    <div class="card bg-card neon-hover h-100">
+      <div class="project-img"
+           style="background-image:url('https://picsum.photos/500/300?3')"></div>
+      <div class="card-body">
+        <h5 class="fw-bold">API Manager</h5>
+        <p class="text-secondary small">
+          Backend API con Node y Express.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card bg-card neon-hover h-100">
+      <div class="project-img"
+           style="background-image:url('https://picsum.photos/500/300?4')"></div>
+      <div class="card-body">
+        <h5 class="fw-bold">Portfolio Web</h5>
+        <p class="text-secondary small">
+          Web personal con Bootstrap y animaciones.
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+      <button id="load-more-btn" class="btn btn-outline-secondary w-100 mt-4">
+  Cargar más proyectos
+</button>
+
+<button id="close-projects-btn"
+        class="btn btn-outline-danger w-100 mt-2 d-none">
+  Cerrar proyectos
+</button>
+
     </section>
 
     <!-- ========= SIDEBAR ========= -->
