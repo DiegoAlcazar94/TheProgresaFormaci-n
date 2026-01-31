@@ -191,10 +191,14 @@ body {
 .accent { color: var(--secondary); }
 .time { color: #888; margin-right: 8px; }
 
-.blink {
+.ms-2{
+  color: var(--cyan);
+}
+
+/* .blink {
   animation: blink 1s infinite;
   color: #00ff88;
-}
+} */
 
 @keyframes blink {
   50% { opacity: 0; }
