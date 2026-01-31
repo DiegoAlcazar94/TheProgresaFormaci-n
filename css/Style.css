@@ -36,6 +36,12 @@ body {
     rgba(248, 249, 250, 0.95) 100%);
   box-shadow: 0 4px 20px rgba(37, 89, 244, 0.1);
 }
+.logo-img {
+  height: 42px;          /* Tamaño ideal para header */
+  width: auto;           /* Mantiene proporción */
+  object-fit: contain;
+}
+
 
 /* Hero */
 .hero {
