@@ -47,12 +47,15 @@
       <!-- User -->
       <div class="col-auto">
         <div class="row align-items-center g-2">
-          <div class="col-auto">
-            <button class="btn btn-outline-primary btn-sm">
+          <!-- Login Button (visible cuando NO hay sesión) -->
+          <div class="col-auto" id="login-btn-container">
+            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#loginModal">
               <span class="material-symbols-outlined">login</span>
             </button>
           </div>
-          <div class="col-auto dropdown">
+          
+          <!-- User Avatar Dropdown (visible cuando HAY sesión) -->
+          <div class="col-auto dropdown d-none" id="user-avatar-container">
             <img class="rounded-circle border border-primary dropdown-toggle" 
                  width="40"
                  src="https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png" 
@@ -68,8 +71,8 @@
                        src="https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png" 
                        alt="User">
                   <div>
-                    <strong class="d-block">Usuario</strong>
-                    <small class="text-secondary">user@progresa.com</small>
+                    <strong class="d-block" id="user-name">Usuario</strong>
+                    <small class="text-secondary" id="user-email">user@progresa.com</small>
                   </div>
                 </div>
               </li>
@@ -94,7 +97,7 @@
               </li>
               <li><hr class="dropdown-divider"></li>
               <li>
-                <a class="dropdown-item text-danger" href="#">
+                <a class="dropdown-item text-danger" href="#" id="logout-btn">
                   <span class="material-symbols-outlined me-2">logout</span>
                   Cerrar Sesión
                 </a>
@@ -127,7 +130,7 @@
 
     <div class="row mt-4 g-3">
       <div class="col-auto">
-        <a href="https://github.com" target="_blank" class="btn btn-primary btn-lg">Explorar Repositorios</a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1" target="_blank" class="btn btn-primary btn-lg">Explorar Repositorios</a>
       </div>
       <!-- <div class="col-auto">
         <button class="btn btn-outline-light btn-lg">
@@ -207,7 +210,7 @@
       <div class="project-img"
            style="background-image:url('https://picsum.photos/500/300?3')"></div>
       <div class="card-body">
-        <h5 class="fw-bold">API Manager</h5>
+        <h5 class="fw-bold">Lenguaje Página Web</h5>
         <p class="text-secondary small">
           Backend API con Node y Express.
         </p>
@@ -254,17 +257,17 @@
 
         <div class="leader-item gold">
           <span class="fw-bold">#1</span>
-          <strong>Diego.C#</strong>
+          <strong>Gold.D.Roger.C#</strong>
           <span class="text-secondary">9850 XP</span>
         </div>
         <div class="leader-item silver">
           <span class="fw-bold">#2</span>
-          <strong>Alex.Js</strong>
+          <strong>Silver.Fang.Js</strong>
           <span class="text-secondary">8720 XP</span>
         </div>
         <div class="leader-item bronze">
           <span class="fw-bold">#3</span>
-          <strong>Charmander.Js</strong>
+          <strong>Cooper.Mind.Js</strong>
           <span class="text-secondary">8105 XP</span>
         </div>
       </div>
@@ -306,6 +309,61 @@
     </div>
   </div>
 </footer>
+
+<!-- ================= LOGIN MODAL ================= -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-card">
+      <div class="modal-header border-0">
+        <h5 class="modal-title fw-bold" id="loginModalLabel">
+          <span class="material-symbols-outlined align-middle me-2">login</span>
+          Iniciar Sesión
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4">
+        <form id="login-form">
+          <div class="mb-3">
+            <label for="login-email" class="form-label fw-bold">
+              <span class="material-symbols-outlined" style="font-size: 18px; vertical-align: middle;">mail</span>
+              Correo electrónico
+            </label>
+            <input type="email" class="form-control form-control-lg" id="login-email" 
+                   placeholder="tu@email.com" required>
+          </div>
+          
+          <div class="mb-4">
+            <label for="login-password" class="form-label fw-bold">
+              <span class="material-symbols-outlined" style="font-size: 18px; vertical-align: middle;">lock</span>
+              Contraseña
+            </label>
+            <input type="password" class="form-control form-control-lg" id="login-password" 
+                   placeholder="••••••••" required>
+          </div>
+
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="remember-me">
+            <label class="form-check-label" for="remember-me">
+              Recordarme
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg w-100 mb-3">
+            <span class="material-symbols-outlined me-2" style="font-size: 20px; vertical-align: middle;">login</span>
+            Iniciar Sesión
+          </button>
+
+          <div class="text-center">
+            <a href="#" class="text-secondary text-decoration-none small">¿Olvidaste tu contraseña?</a>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer border-0 bg-light">
+        <small class="text-secondary">¿No tienes cuenta? <a href="#" class="text-primary">Regístrate aquí</a></small>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
