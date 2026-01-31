@@ -41,30 +41,13 @@ body {
 .hero {
   background:
     linear-gradient(to top, 
-      var(--text-dark), 
-      var(--shadow-sm), 
-      var(--text-dark)),
-    url("https://digitechfp.com/wp-content/uploads/2025/06/malaga-clases-DIGITECH-2-1024x575.png");
+      rgba(37, 89, 244, 0.05), 
+      rgba(255, 255, 255, 0.7), 
+      rgba(248, 249, 250, 0.85)),
+    url("https://cieep.com/wp-content/uploads/2021/06/aulashome-1.jpeg");
   background-size: cover;
   background-position: center;
   border: 1px solid var(--card-border);
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(73, 224, 199, 0.5);
-  z-index: 0;
-  border-radius: inherit;
-}
-
-.hero > * {
-  position: relative;
-  z-index: 1;
 }
 
 /* Cards */
@@ -84,13 +67,13 @@ body {
 /* Text effects */
 .neon-text {
   text-shadow: 0 0 20px rgba(37, 89, 244, 0.3);
-  color: var(--bg);
+  color: var(--text-dark);
 }
 
 .gradient-text {
-  background: var(--bg);
+  background: linear-gradient(90deg, var(--primary), var(--cyan));
   -webkit-background-clip: text;
-  color: var(--bg);
+  -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
@@ -191,9 +174,6 @@ body {
 .yellow { background: #ffbd2e; }
 .green { background: #27c93f; }
 
-.ms-2{
-  color: var(--card)
-}
 .terminal-body {
   padding: 14px;
   font-family: 'Courier New', monospace;
