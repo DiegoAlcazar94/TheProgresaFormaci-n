@@ -3,57 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Contacto - THE PROGRESA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;900&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    
     <link rel="stylesheet" href="css/Style.css">
 </head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="index.html">Contacto</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" href="comunidad.html">Comunidad</a></li>
-                <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
-            </ul>
+<body class="font-display">
+
+<!-- ================= HEADER ================= -->
+<header class="sticky-top glass border-bottom border-primary-subtle">
+    <div class="container-xl py-3">
+        <div class="row align-items-center">
+
+            <!-- Logo -->
+            <div class="col-auto">
+                <div class="row align-items-center g-3">
+                    <div class="col-auto logo text-primary fw-bold">⬢</div>
+                    <div class="col-auto">
+                        <h2 class="mb-0 fw-bold">THE PROGRESA</h2>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nav -->
+            <div class="col d-none d-md-block">
+                <div class="row justify-content-center">
+                    <div class="col-auto"><a class="nav-link text-secondary" href="index.html">Inicio</a></div>
+                    <div class="col-auto"><a class="nav-link text-secondary" href="#">DAW Stream</a></div>
+                    <div class="col-auto"><a class="nav-link text-secondary" href="#">Proyectos</a></div>
+                    <div class="col-auto"><a class="nav-link text-dark fw-bold border-bottom border-primary" href="contacto.html">Contacto</a></div>
+                    <div class="col-auto"><a class="nav-link text-secondary" href="comunidad.html">Comunidad</a></div>
+                </div>
+            </div>
+
+            <!-- User -->
+            <div class="col-auto">
+                <div class="row align-items-center g-2">
+                    <div class="col-auto">
+                        <button class="btn btn-outline-primary btn-sm">
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </button>
+                    </div>
+                    <div class="col-auto">
+                        <img class="rounded-circle border border-primary" width="40"
+                             src="https://i.pravatar.cc/100?img=12" alt="User avatar">
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-</nav>
-<main class="container my-5">
-    <h1 class="text-center mb-4">Contacto</h1>
+</header>
+
+<!-- ================= MAIN ================= -->
+<main class="container-xl my-5">
+    <!-- Header Section -->
+    <div class="text-center mb-5">
+        <div class="row justify-content-center mb-3">
+            <div class="col-auto">
+                <span class="badge bg-primary px-4 py-2">
+                    <span class="material-symbols-outlined" style="font-size: 16px; vertical-align: middle;">mail</span>
+                    Contacto
+                </span>
+            </div>
+        </div>
+        <h1 class="display-4 fw-bold neon-text mb-3">
+            Contáctanos
+        </h1>
+        <p class="text-secondary fs-5 col-md-6 mx-auto">
+            ¿Tienes alguna pregunta o sugerencia? Nos encantaría escucharte.
+        </p>
+    </div>
 
     <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card p-4 bg-dark text-white border-secondary">
+        <div class="col-lg-6 col-md-8">
+            <div class="card bg-card p-4 p-md-5 neon-hover">
                 <form>
-                    <div class="mb-3">
-                        <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" placeholder="Tu nombre">
+                    <div class="mb-4">
+                        <label for="nombre" class="form-label fw-bold">
+                            <span class="material-symbols-outlined" style="font-size: 18px; vertical-align: middle;">person</span>
+                            Nombre
+                        </label>
+                        <input type="text" class="form-control form-control-lg" id="nombre" 
+                               placeholder="Tu nombre completo" required>
                     </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Correo electrónico</label>
-                        <input type="email" class="form-control" id="email" placeholder="tucorreo@ejemplo.com">
+
+                    <div class="mb-4">
+                        <label for="email" class="form-label fw-bold">
+                            <span class="material-symbols-outlined" style="font-size: 18px; vertical-align: middle;">mail</span>
+                            Correo electrónico
+                        </label>
+                        <input type="email" class="form-control form-control-lg" id="email" 
+                               placeholder="tucorreo@ejemplo.com" required>
                     </div>
-                    <div class="mb-3">
-                        <label for="mensaje" class="form-label">Mensaje</label>
-                        <textarea class="form-control" id="mensaje" rows="4" placeholder="Escribe tu mensaje aquí"></textarea>
+
+                    <div class="mb-4">
+                        <label for="asunto" class="form-label fw-bold">
+                            <span class="material-symbols-outlined" style="font-size: 18px; vertical-align: middle;">subject</span>
+                            Asunto
+                        </label>
+                        <input type="text" class="form-control form-control-lg" id="asunto" 
+                               placeholder="¿De qué se trata tu mensaje?">
                     </div>
-                    <button type="submit" class="btn btn-primary w-100">Enviar</button>
+
+                    <div class="mb-4">
+                        <label for="mensaje" class="form-label fw-bold">
+                            <span class="material-symbols-outlined" style="font-size: 18px; vertical-align: middle;">description</span>
+                            Mensaje
+                        </label>
+                        <textarea class="form-control form-control-lg" id="mensaje" rows="6" 
+                                  placeholder="Escribe tu mensaje aquí..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg w-100">
+                        <span class="material-symbols-outlined me-2" style="font-size: 20px; vertical-align: middle;">send</span>
+                        Enviar mensaje
+                    </button>
                 </form>
+            </div>
+
+            <!-- Contact Info Cards -->
+            <div class="row g-3 mt-4">
+                <div class="col-md-6">
+                    <div class="card bg-card p-3 text-center">
+                        <span class="material-symbols-outlined text-primary mb-2" style="font-size: 32px;">mail</span>
+                        <h6 class="fw-bold mb-1">Email</h6>
+                        <a href="mailto:info@progresa.com" class="text-secondary text-decoration-none small">
+                            info@progresa.com
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card bg-card p-3 text-center">
+                        <span class="material-symbols-outlined text-primary mb-2" style="font-size: 32px;">location_on</span>
+                        <h6 class="fw-bold mb-1">Ubicación</h6>
+                        <p class="text-secondary small mb-0">Madrid, España</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </main>
-<footer class="py-4 border-top border-secondary mt-5">
-    <div class="container text-center">
-        <p class="text-muted mb-0 small">2026 NUCLEUS DAW. Todos los derechos reservados.</p>
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-black border-top border-secondary mt-5 py-4">
+    <div class="container-xl">
+        <div class="row align-items-center gy-3">
+            <div class="col-md">
+                <span class="text-secondary small">© 2024 THE PROGRESA - Progresa Digitech FP</span>
+            </div>
+            <div class="col-md-auto">
+                <div class="row g-3">
+                    <div class="col-auto"><a class="text-secondary text-decoration-none" href="#">Privacidad</a></div>
+                    <div class="col-auto"><a class="text-secondary text-decoration-none" href="#">Términos</a></div>
+                    <div class="col-auto"><a class="text-secondary text-decoration-none" href="#">Soporte</a></div>
+                </div>
+            </div>
+        </div>
     </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
