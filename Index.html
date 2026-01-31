@@ -52,9 +52,54 @@
               <span class="material-symbols-outlined">login</span>
             </button>
           </div>
-          <div class="col-auto">
-            <img class="rounded-circle border border-primary" width="40"
-                 src="https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png" alt="User avatar">
+          <div class="col-auto dropdown">
+            <img class="rounded-circle border border-primary dropdown-toggle" 
+                 width="40"
+                 src="https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png" 
+                 alt="User avatar"
+                 id="userDropdown"
+                 data-bs-toggle="dropdown"
+                 aria-expanded="false"
+                 style="cursor: pointer;">
+            <ul class="dropdown-menu dropdown-menu-end user-dropdown" aria-labelledby="userDropdown">
+              <li class="dropdown-header">
+                <div class="d-flex align-items-center">
+                  <img class="rounded-circle me-2" width="32" 
+                       src="https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png" 
+                       alt="User">
+                  <div>
+                    <strong class="d-block">Usuario</strong>
+                    <small class="text-secondary">user@progresa.com</small>
+                  </div>
+                </div>
+              </li>
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                <a class="dropdown-item" href="#">
+                  <span class="material-symbols-outlined me-2">person</span>
+                  Mi Perfil
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">
+                  <span class="material-symbols-outlined me-2">settings</span>
+                  Configuración
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">
+                  <span class="material-symbols-outlined me-2">emoji_events</span>
+                  Mis Logros
+                </a>
+              </li>
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                <a class="dropdown-item text-danger" href="#">
+                  <span class="material-symbols-outlined me-2">logout</span>
+                  Cerrar Sesión
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -82,7 +127,7 @@
 
     <div class="row mt-4 g-3">
       <div class="col-auto">
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1" target="_blank" class="btn btn-primary btn-lg">Explorar Repositorios</a>
+        <a href="https://github.com" target="_blank" class="btn btn-primary btn-lg">Explorar Repositorios</a>
       </div>
       <!-- <div class="col-auto">
         <button class="btn btn-outline-light btn-lg">
@@ -209,17 +254,17 @@
 
         <div class="leader-item gold">
           <span class="fw-bold">#1</span>
-          <strong>Orecret.C#</strong>
+          <strong>Diego.C#</strong>
           <span class="text-secondary">9850 XP</span>
         </div>
         <div class="leader-item silver">
           <span class="fw-bold">#2</span>
-          <strong>SilverFang.Js</strong>
+          <strong>Alex.Js</strong>
           <span class="text-secondary">8720 XP</span>
         </div>
         <div class="leader-item bronze">
           <span class="fw-bold">#3</span>
-          <strong>Coopermind.Js</strong>
+          <strong>Charmander.Js</strong>
           <span class="text-secondary">8105 XP</span>
         </div>
       </div>
