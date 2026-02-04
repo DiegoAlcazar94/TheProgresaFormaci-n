@@ -12,6 +12,36 @@
   --shadow-sm: rgba(37, 89, 244, 0.08);
 }
 
+/* Dark Mode Variables - usando atributo data-theme */
+:root[data-theme="dark"] {
+  --primary: #5a8fff;
+  --primary-light: #7ba3ff;
+  --secondary: #ff5bb3;
+  --bg: #0f1419;
+  --bg-white: #1a1f2e;
+  --card: #1f2937;
+  --card-border: #2d3748;
+  --cyan: #00d9ff;
+  --text-dark: #e4e6eb;
+  --text-muted: #9ca3af;
+  --shadow-sm: rgba(90, 143, 255, 0.1);
+}
+
+/* Dark Mode Variables - usando clase body (respaldo) */
+body.theme-dark {
+  --primary: #5a8fff !important;
+  --primary-light: #7ba3ff !important;
+  --secondary: #ff5bb3 !important;
+  --bg: #0f1419 !important;
+  --bg-white: #1a1f2e !important;
+  --card: #1f2937 !important;
+  --card-border: #2d3748 !important;
+  --cyan: #00d9ff !important;
+  --text-dark: #e4e6eb !important;
+  --text-muted: #9ca3af !important;
+  --shadow-sm: rgba(90, 143, 255, 0.1) !important;
+}
+
 /* Base */
 body {
   background: var(--bg);
@@ -28,6 +58,13 @@ body {
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
+  color: var(--text-dark);
+}
+
+:root[data-theme="dark"] .glass,
+body.theme-dark .glass {
+  background: rgba(15, 20, 25, 0.9);
+  border-color: var(--card-border);
 }
 
 .glass.scrolled {
@@ -35,6 +72,14 @@ body {
     rgba(255, 255, 255, 0.98) 0%, 
     rgba(248, 249, 250, 0.95) 100%);
   box-shadow: 0 4px 20px rgba(37, 89, 244, 0.1);
+}
+
+:root[data-theme="dark"] .glass.scrolled,
+body.theme-dark .glass.scrolled {
+  background: linear-gradient(180deg, 
+    rgba(20, 25, 30, 0.98) 0%, 
+    rgba(15, 20, 25, 0.95) 100%);
+  box-shadow: 0 4px 20px rgba(90, 143, 255, 0.15);
 }
 .logo-img {
   height: 42px;          /* Tamaño ideal para header */
@@ -50,6 +95,20 @@ body {
       rgba(37, 89, 244, 0.05), 
       rgba(255, 255, 255, 0.7), 
       rgba(248, 249, 250, 0.85)),
+    url("https://cieep.com/wp-content/uploads/2021/06/aulashome-1.jpeg");
+  background-size: cover;
+  background-position: center;
+  border: 1px solid var(--card-border);
+  transition: all 0.3s ease;
+}
+
+:root[data-theme="dark"] .hero,
+body.theme-dark .hero {
+  background:
+    linear-gradient(to top, 
+      rgba(90, 143, 255, 0.1), 
+      rgba(26, 31, 46, 0.8), 
+      rgba(15, 20, 25, 0.9)),
     url("https://cieep.com/wp-content/uploads/2021/06/aulashome-1.jpeg");
   background-size: cover;
   background-position: center;
@@ -292,6 +351,15 @@ body {
 /* Footer */
 footer {
   background: var(--text-dark);
+  color: var(--bg);
+  transition: all 0.3s ease;
+}
+
+:root[data-theme="dark"] footer,
+body.theme-dark footer {
+  background: #0a0d12;
+  color: var(--text-dark);
+  border-top: 1px solid var(--card-border);
 }
 
 /* Logo */
@@ -311,4 +379,219 @@ footer {
 
 .nav-link:hover {
   color: var(--primary) !important;
+}
+
+/* ========== THEME TOGGLE BUTTON ========== */
+.theme-toggle-btn {
+  background: none;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: relative;
+  color: var(--text-dark);
+  padding: 0;
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(37, 89, 244, 0.4);
+}
+
+.theme-toggle-btn:active {
+  transform: scale(0.95);
+}
+
+.theme-toggle-btn svg {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  color: var(--text-dark);
+  transition: all 0.4s ease;
+  opacity: 1;
+}
+
+.sun-icon {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.moon-icon {
+  opacity: 0;
+  transform: rotate(-180deg);
+}
+
+/* Cuando está en dark mode */
+:root[data-theme="dark"] .sun-icon,
+body.theme-dark .sun-icon {
+  opacity: 0;
+  transform: rotate(180deg);
+}
+
+:root[data-theme="dark"] .moon-icon,
+body.theme-dark .moon-icon {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+@keyframes rotateSun {
+  0% {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes rotateMoon {
+  0% {
+    opacity: 0;
+    transform: rotate(-180deg);
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}
+
+/* Transición suave en todos los elementos */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ========== BOOTSTRAP DARK MODE OVERRIDES ========== */
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-light);
+  border-color: var(--primary-light);
+}
+
+.btn-outline-primary {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+:root[data-theme="dark"] .btn-outline-primary,
+body.theme-dark .btn-outline-primary {
+  color: var(--primary-light);
+  border-color: var(--primary-light);
+}
+
+:root[data-theme="dark"] .btn-outline-primary:hover,
+body.theme-dark .btn-outline-primary:hover {
+  background-color: var(--primary-light);
+}
+
+/* Dropdowns */
+.dropdown-menu {
+  background-color: var(--card);
+  border-color: var(--card-border);
+}
+
+.dropdown-item {
+  color: var(--text-dark);
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: var(--bg);
+  color: var(--primary);
+}
+
+.dropdown-divider {
+  border-color: var(--card-border);
+}
+
+/* Badges */
+.badge {
+  background-color: var(--primary) !important;
+  color: white;
+}
+
+/* Borders */
+.border-bottom {
+  border-color: var(--card-border) !important;
+}
+
+/* Links */
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--primary-light);
+  text-decoration: underline;
+}
+
+/* Nav links con soporte a tema */
+.nav-link {
+  color: var(--text-dark);
+}
+
+.nav-link.text-secondary {
+  color: var(--text-muted) !important;
+}
+
+.nav-link.text-dark {
+  color: var(--text-dark) !important;
+}
+
+/* ========== ASEGURAR QUE BOOTSTRAP NO SOBRESCRIBA ========== */
+.text-dark {
+  color: var(--text-dark) !important;
+}
+
+.text-light {
+  color: var(--bg-white) !important;
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+.bg-white,
+.bg-light {
+  background-color: var(--bg-white) !important;
+}
+
+.bg-dark {
+  background-color: var(--card) !important;
+}
+
+/* Modals y popovers */
+.modal-content {
+  background-color: var(--bg-white);
+  color: var(--text-dark);
+  border-color: var(--card-border);
+}
+
+.modal-header {
+  background-color: var(--bg-white);
+  border-color: var(--card-border);
+  color: var(--text-dark);
+}
+
+.modal-body {
+  background-color: var(--bg-white);
+  color: var(--text-dark);
 }

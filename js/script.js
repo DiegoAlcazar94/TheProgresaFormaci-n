@@ -1,6 +1,44 @@
-// Funcionalidad para cargar más proyectos en el index
+// ========== THEME TOGGLE FUNCTIONALITY ==========
 document.addEventListener('DOMContentLoaded', function() {
-  // Obtener elementos
+  console.log('Script cargado - Inicializando tema');
+  
+  const themeToggle = document.getElementById('theme-toggle');
+  const root = document.documentElement;
+  const body = document.body;
+  
+  console.log('Botón encontrado:', themeToggle ? 'Sí' : 'No');
+  
+  // Obtener tema guardado o detectar preferencia del sistema
+  const savedTheme = localStorage.getItem('theme') || 
+                     (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  
+  console.log('Tema a aplicar:', savedTheme);
+  
+  // Aplicar tema inicial
+  root.setAttribute('data-theme', savedTheme);
+  body.classList.add('theme-' + savedTheme);
+  console.log('Atributo data-theme establecido a:', root.getAttribute('data-theme'));
+  console.log('Clase body:', body.className);
+  
+  // Event listener para el botón toggle
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function() {
+      const currentTheme = root.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      console.log('Click detectado - Tema actual:', currentTheme, '- Nuevo tema:', newTheme);
+      
+      root.setAttribute('data-theme', newTheme);
+      body.classList.remove('theme-' + currentTheme);
+      body.classList.add('theme-' + newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      console.log('Tema actualizado a:', root.getAttribute('data-theme'));
+      console.log('Clase body actualizada:', body.className);
+    });
+  }
+  
+  // ========== CARGAR MÁS PROYECTOS ==========
   const loadMoreBtn = document.getElementById('load-more-btn');
   const closeProjectsBtn = document.getElementById('close-projects-btn');
   const moreProjects = document.getElementById('more-projects');

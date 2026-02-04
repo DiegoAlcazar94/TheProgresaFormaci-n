@@ -37,11 +37,31 @@
       <!-- Nav -->
       <div class="col d-none d-md-block">
         <div class="row justify-content-center">
-          <div class="col-auto"><a class="nav-link text-dark fw-bold border-bottom border-primary" href="#">Inicio</a></div>
-          <div class="col-auto"><a class="nav-link text-secondary" href="https://github.com" target="_blank">Proyectos</a></div>
-          <div class="col-auto"><a class="nav-link text-secondary" href="Pages/contacto.html">Contacto</a></div>
-          <div class="col-auto"><a class="nav-link text-secondary" href="Pages/comunidad.html">Comunidad</a></div>
+          <div class="col-auto"><a class="nav-link fw-bold border-bottom border-primary" href="#" style="color: var(--text-dark);">Inicio</a></div>
+          <div class="col-auto"><a class="nav-link" href="https://github.com" target="_blank" style="color: var(--text-muted);">Proyectos</a></div>
+          <div class="col-auto"><a class="nav-link" href="Pages/contacto.html" style="color: var(--text-muted);">Contacto</a></div>
+          <div class="col-auto"><a class="nav-link" href="Pages/comunidad.html" style="color: var(--text-muted);">Comunidad</a></div>
         </div>
+      </div>
+
+      <!-- Theme Toggle -->
+      <div class="col-auto">
+        <button id="theme-toggle" class="theme-toggle-btn" title="Cambiar tema">
+          <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
       </div>
 
       <!-- User -->
@@ -72,7 +92,7 @@
                        alt="User">
                   <div>
                     <strong class="d-block" id="user-name">Usuario</strong>
-                    <small class="text-secondary" id="user-email">user@progresa.com</small>
+                    <small id="user-email" style="color: var(--text-muted);">user@progresa.com</small>
                   </div>
                 </div>
               </li>
@@ -123,7 +143,7 @@
       DAW <span class="gradient-text">NETRUNNERS</span>
     </h1>
 
-    <p class="text-dark fs-5 col-md-7 fw-medium">
+    <p class="fs-5 col-md-7 fw-medium" style="color: var(--text-dark);">
       Arquitectos del futuro digital. Explora el código de la nueva generación.
     </p>
 
@@ -357,8 +377,8 @@
           </div>
         </form>
       </div>
-      <div class="modal-footer border-0 bg-light">
-        <small class="text-secondary">¿No tienes cuenta? <a href="#" class="text-primary">Regístrate aquí</a></small>
+      <div class="modal-footer border-0" style="background: var(--bg-white);">
+        <small style="color: var(--text-muted);">¿No tienes cuenta? <a href="#" style="color: var(--primary);">Regístrate aquí</a></small>
       </div>
     </div>
   </div>
