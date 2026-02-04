@@ -2,11 +2,11 @@
 document.addEventListener('DOMContentLoaded', function() {
   console.log('Script cargado - Inicializando tema');
   
-  const themeToggle = document.getElementById('theme-toggle');
+  const themeToggles = Array.from(document.querySelectorAll('.theme-toggle-btn'));
   const root = document.documentElement;
   const body = document.body;
   
-  console.log('Botón encontrado:', themeToggle ? 'Sí' : 'No');
+  console.log('Botones toggle encontrados:', themeToggles.length);
   
   // Obtener tema guardado o detectar preferencia del sistema
   const savedTheme = localStorage.getItem('theme') || 
@@ -20,23 +20,43 @@ document.addEventListener('DOMContentLoaded', function() {
   console.log('Atributo data-theme establecido a:', root.getAttribute('data-theme'));
   console.log('Clase body:', body.className);
   
-  // Event listener para el botón toggle
-  if (themeToggle) {
-    themeToggle.addEventListener('click', function() {
-      const currentTheme = root.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      
-      console.log('Click detectado - Tema actual:', currentTheme, '- Nuevo tema:', newTheme);
-      
-      root.setAttribute('data-theme', newTheme);
-      body.classList.remove('theme-' + currentTheme);
-      body.classList.add('theme-' + newTheme);
-      localStorage.setItem('theme', newTheme);
-      
-      console.log('Tema actualizado a:', root.getAttribute('data-theme'));
-      console.log('Clase body actualizada:', body.className);
+  // Event listener para los botones toggle (soporta múltiples botones)
+  if (themeToggles.length) {
+    themeToggles.forEach(btn => {
+      btn.addEventListener('click', function() {
+        const currentTheme = root.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        console.log('Click detectado - Tema actual:', currentTheme, '- Nuevo tema:', newTheme);
+
+        root.setAttribute('data-theme', newTheme);
+        body.classList.remove('theme-' + currentTheme);
+        body.classList.add('theme-' + newTheme);
+        localStorage.setItem('theme', newTheme);
+
+        // actualizar UI dependiente del tema
+        updateDisplay();
+
+        console.log('Tema actualizado a:', root.getAttribute('data-theme'));
+        console.log('Clase body actualizada:', body.className);
+      });
     });
   }
+
+  // Update display elements if present (moved from test.html/prueba.html)
+  function updateDisplay() {
+    const currentTheme = root.getAttribute('data-theme');
+    const statusEl = document.getElementById('status');
+    const themeValueEl = document.getElementById('theme-value');
+
+    if (statusEl) statusEl.textContent = currentTheme === 'dark' ? 'Oscuro' : 'Luz';
+    if (themeValueEl) themeValueEl.textContent = currentTheme;
+  }
+
+  // Call once on init
+  updateDisplay();
+
+  // No extra single-element listeners needed; updateDisplay called after toggle above
   
   // ========== CARGAR MÁS PROYECTOS ==========
   const loadMoreBtn = document.getElementById('load-more-btn');

@@ -3,50 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Test Theme Toggle</title>
-  <style>
-    :root {
-      --bg: #ffffff;
-      --text-dark: #1a1d26;
-    }
-
-    :root[data-theme="dark"] {
-      --bg: #0f1419;
-      --text-dark: #e4e6eb;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text-dark);
-      font-family: Arial, sans-serif;
-      transition: background 0.3s, color 0.3s;
-      padding: 20px;
-    }
-
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      background: #2559f4;
-      color: white;
-      border: none;
-      border-radius: 5px;
-    }
-
-    button:hover {
-      background: #4a7ff7;
-    }
-
-    h1 {
-      margin-top: 20px;
-    }
-
-    .info {
-      background: rgba(0, 0, 0, 0.1);
-      padding: 15px;
-      border-radius: 5px;
-      margin-top: 20px;
-    }
-  </style>
+  <link rel="stylesheet" href="css/Style.css">
 </head>
 <body>
   <h1>Test de Tema Día/Noche</h1>
@@ -58,37 +15,6 @@
     <p>data-theme: <code id="theme-value">light</code></p>
   </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const button = document.getElementById('theme-toggle');
-      const root = document.documentElement;
-      const statusEl = document.getElementById('status');
-      const themeValueEl = document.getElementById('theme-value');
-
-      // Obtener tema guardado
-      const savedTheme = localStorage.getItem('theme') || 'light';
-      root.setAttribute('data-theme', savedTheme);
-      updateDisplay();
-
-      // Event listener
-      button.addEventListener('click', function() {
-        const currentTheme = root.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
-        console.log('Tema anterior:', currentTheme);
-        console.log('Nuevo tema:', newTheme);
-        
-        root.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateDisplay();
-      });
-
-      function updateDisplay() {
-        const currentTheme = root.getAttribute('data-theme');
-        statusEl.textContent = currentTheme === 'dark' ? 'Oscuro' : 'Luz';
-        themeValueEl.textContent = currentTheme;
-      }
-    });
-  </script>
+  <script src="js/script.js"></script>
 </body>
 </html>
