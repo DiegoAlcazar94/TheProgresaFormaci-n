@@ -12,10 +12,57 @@
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     
-    <link rel="stylesheet" href="../css/Style.css">
-    
     <style>
-        /* Animaciones para miembros */
+        :root {
+            --primary: #2559f4;
+            --secondary: #6c757d;
+            --dark: #0a0a0a;
+            --light: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+        }
+
+        .bg-card {
+            background: #1a1a1a;
+            border: 1px solid rgba(37, 89, 244, 0.2);
+        }
+
+        .glass {
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary), #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .neon-text {
+            text-shadow: 0 0 10px rgba(37, 89, 244, 0.5);
+        }
+
+        .neon-hover {
+            transition: all 0.3s ease;
+        }
+
+        .neon-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(37, 89, 244, 0.3);
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        /* Animaciones */
         @keyframes slideInUp {
             from {
                 opacity: 0;
@@ -27,28 +74,6 @@
             }
         }
 
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
         @keyframes zoomIn {
             from {
                 opacity: 0;
@@ -57,17 +82,6 @@
             to {
                 opacity: 1;
                 transform: scale(1);
-            }
-        }
-
-        @keyframes fadeInRotate {
-            from {
-                opacity: 0;
-                transform: rotate(-5deg) scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: rotate(0) scale(1);
             }
         }
 
@@ -85,106 +99,173 @@
             }
         }
 
-        @keyframes scaleHover {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.05); }
-        }
-
-        @keyframes rotateAvatar {
-            from { transform: rotate(-5deg); }
-            to { transform: rotate(5deg); }
-        }
-
-        @keyframes badgePulse {
-            0%, 100% { 
-                transform: scale(1);
-                filter: drop-shadow(0 0 0px rgba(255, 193, 7, 0.6));
-            }
-            50% { 
-                transform: scale(1.1);
-                filter: drop-shadow(0 0 8px rgba(255, 193, 7, 0.8));
-            }
-        }
-
-        @keyframes tilt {
-            0%, 100% { transform: perspective(1000px) rotateX(0deg) rotateY(0deg); }
-            50% { transform: perspective(1000px) rotateX(2deg) rotateY(2deg); }
-        }
-
-        @keyframes glow {
-            0%, 100% {
-                text-shadow: 0 0 5px rgba(37, 89, 244, 0.5);
-            }
-            50% {
-                text-shadow: 0 0 15px rgba(37, 89, 244, 0.8), 0 0 25px rgba(0, 212, 255, 0.6);
-            }
-        }
-
-        @keyframes shimmer {
-            0% { background-position: -1000px 0; }
-            100% { background-position: 1000px 0; }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
         .member-animated {
             animation: slideInUp 0.6s ease-out forwards;
-            animation-delay: calc(0.1s * var(--index, 1));
+            opacity: 0;
         }
-        
-        .member-animated .card {
-            transition: all 0.3s ease;
-        }
-        
-        .member-animated .card:hover {
-            animation: scaleHover 0.4s ease-in-out forwards;
-        }
-        
-        .member-animated img {
-            transition: transform 0.3s ease;
-        }
-        
-        .member-animated:hover img {
-            animation: rotateAvatar 0.6s ease-in-out;
-        }
-        
+
+        .member-animated:nth-child(1) { animation-delay: 0.05s; }
+        .member-animated:nth-child(2) { animation-delay: 0.1s; }
+        .member-animated:nth-child(3) { animation-delay: 0.15s; }
+        .member-animated:nth-child(4) { animation-delay: 0.2s; }
+        .member-animated:nth-child(5) { animation-delay: 0.25s; }
+        .member-animated:nth-child(6) { animation-delay: 0.3s; }
+
         .member-card {
             cursor: pointer;
+            transition: all 0.3s ease;
         }
-        
-        /* Estilos para badges y mejoras */
-        .badge-skill {
-            background: linear-gradient(90deg, var(--primary), #00d4ff);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            margin-right: 8px;
-            margin-bottom: 8px;
+
+        .member-card:hover {
+            transform: scale(1.05);
         }
-        
-        .progress-bar-custom {
-            height: 6px;
-            background: linear-gradient(90deg, var(--primary), #00d4ff);
-            border-radius: 3px;
-            margin-top: 4px;
+
+        /* Estilos del Carrusel - CORREGIDOS */
+        #membersCarousel {
+            background: rgba(26, 26, 26, 0.5);
+            border-radius: 16px;
+            padding: 20px;
         }
-        
-        .medal-gold { color: #FFD700; font-size: 32px; }
-        .medal-silver { color: #C0C0C0; font-size: 32px; }
-        .medal-bronze { color: #CD7F32; font-size: 32px; }
-        
-        .status-badge {
-            display: inline-block;
+
+        .carousel-item {
+            padding: 20px;
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .carousel-member-card {
+            max-width: 500px;
+            margin: 0 auto;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, rgba(37, 89, 244, 0.15), rgba(0, 212, 255, 0.08));
+            border: 2px solid rgba(37, 89, 244, 0.4);
+            border-radius: 16px;
+            padding: 30px;
+        }
+
+        .carousel-member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(37, 89, 244, 0.4);
+            border-color: var(--primary);
+        }
+
+        .carousel-member-card .member-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid var(--primary);
+            margin: 0 auto 20px;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .carousel-member-card:hover .member-avatar {
+            transform: scale(1.1);
+        }
+
+        .carousel-member-card .member-info {
+            text-align: center;
+        }
+
+        .carousel-member-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .carousel-member-stats .stat {
+            padding: 15px;
+            background: rgba(37, 89, 244, 0.8);
+            color: white;
+            border-radius: 10px;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .carousel-member-stats .stat:hover {
+            transform: scale(1.05);
+            background: var(--primary);
+        }
+
+        .carousel-member-stats .stat strong {
+            display: block;
+            font-size: 20px;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        /* Controles del carrusel mejorados */
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 50px;
+            height: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.9;
+        }
+
+        .carousel-control-prev {
+            left: 10px;
+        }
+
+        .carousel-control-next {
+            right: 10px;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: var(--primary);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            background-size: 60%;
+        }
+
+        .carousel-control-prev:hover,
+        .carousel-control-next:hover {
+            opacity: 1;
+        }
+
+        /* Indicadores del carrusel */
+        .carousel-indicators {
+            bottom: -40px;
+        }
+
+        .carousel-indicators [data-bs-target] {
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background: #4ade80;
-            margin-right: 8px;
+            background-color: rgba(37, 89, 244, 0.5);
+            border: none;
         }
-        
+
+        .carousel-indicators .active {
+            background-color: var(--primary);
+            transform: scale(1.3);
+        }
+
+        .btn-view-profile {
+            background: linear-gradient(135deg, var(--primary), #00d4ff);
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .btn-view-profile:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(37, 89, 244, 0.4);
+            color: white;
+        }
+
+        /* Top 3 Ranking */
         .top-member-card {
             position: relative;
             padding: 24px;
@@ -195,354 +276,103 @@
             transition: all 0.3s ease;
             animation: zoomIn 0.6s ease-out;
         }
-        
+
         .top-member-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 12px 24px rgba(37, 89, 244, 0.2);
-            background: linear-gradient(135deg, rgba(37, 89, 244, 0.15), rgba(0, 212, 255, 0.1));
-            animation: float 3s ease-in-out infinite;
         }
-        
+
         .top-member-card img {
             width: 100px;
             height: 100px;
             border-radius: 50%;
             border: 3px solid var(--primary);
             margin-bottom: 16px;
-            transition: transform 0.3s ease;
-            animation: slideInLeft 0.6s ease-out;
-        }
-        
-        .top-member-card:hover img {
-            transform: scale(1.1) rotate(5deg);
-            animation: bounce 0.6s ease-in-out;
         }
 
-        /* Medals con animación */
-        .top-member-card > div:first-child {
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        /* Stats en Top 3 */
-        .top-member-card strong {
-            animation: slideInRight 0.6s ease-out;
-        }
-
-        /* Estilos por rol */
-        .role-badge {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-top: 8px;
-        }
-
-        .role-fullstack { background: linear-gradient(135deg, #2559f4, #00d4ff); color: white; }
-        .role-backend { background: linear-gradient(135deg, #f42588, #ff6b9d); color: white; }
-        .role-frontend { background: linear-gradient(135deg, #00d4ff, #00a8cc); color: white; }
-        .role-react { background: linear-gradient(135deg, #61dafb, #2196F3); color: white; }
-        .role-data { background: linear-gradient(135deg, #4ade80, #22c55e); color: white; }
-        .role-mobile { background: linear-gradient(135deg, #f59e0b, #f97316); color: white; }
-        .role-ios { background: linear-gradient(135deg, #6366f1, #3b82f6); color: white; }
-
-        /* Animación de entrada mejorada para Top 3 */
-        .top-member-card {
-            animation: slideInUp 0.6s ease-out forwards;
-        }
-
-        /* Efecto glow para miembros en línea */
-        .member-online::after {
-            content: '';
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            background: #4ade80;
-            border: 2px solid white;
-            border-radius: 50%;
-            top: 10px;
-            right: 10px;
-            animation: pulse-green 2s infinite;
-        }
-
-        @keyframes pulse-green {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7); }
-            50% { box-shadow: 0 0 0 6px rgba(74, 222, 128, 0); }
-        }
-
-        .member-card {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .member-card:hover {
-            animation: tilt 0.6s ease-in-out;
-        }
-
-        .member-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--primary), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .member-card:hover::before {
-            opacity: 1;
-            animation: shimmer 2s infinite;
-        }
-
-        /* Animaciones para badges */
-        .badge-skill {
-            animation: fadeInRotate 0.5s ease-out;
-            transition: all 0.3s ease;
-        }
-
-        .badge-skill:hover {
-            animation: badgePulse 1s ease-in-out forwards;
-            transform: scale(1.1);
-        }
-
-        /* Estilo de badges mejorado */
-        .badge {
-            position: relative;
-            animation: fadeInRotate 0.5s ease-out;
-        }
-
-        .badge:hover {
-            animation: bounce 0.6s ease-in-out;
-        }
-
-        /* Animación para nombre en modal */
-        .modal-title {
-            animation: glow 2s ease-in-out infinite;
-        }
-
-        /* Card flotante */
-        .member-card {
-            animation: slideInUp 0.6s ease-out forwards;
-        }
-
-        .member-card:nth-child(1) { animation-delay: 0.05s; }
-        .member-card:nth-child(2) { animation-delay: 0.1s; }
-        .member-card:nth-child(3) { animation-delay: 0.15s; }
-        .member-card:nth-child(4) { animation-delay: 0.2s; }
-        .member-card:nth-child(5) { animation-delay: 0.25s; }
-        .member-card:nth-child(6) { animation-delay: 0.3s; }
-        .member-card:nth-child(7) { animation-delay: 0.35s; }
-        .member-card:nth-child(8) { animation-delay: 0.4s; }
-        .member-card:nth-child(9) { animation-delay: 0.45s; }
-        .member-card:nth-child(n+10) { animation-delay: 0.5s; }
-
-        /* Botón mejorado en modal */
-        .modal-footer .btn-primary {
-            background: linear-gradient(135deg, var(--primary), #00d4ff);
-            border: none;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .modal-footer .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(37, 89, 244, 0.3);
-            animation: bounce 0.6s ease-in-out;
-        }
-
-        /* Inputs con animación */
-        .form-control, .form-select {
-            transition: all 0.3s ease;
-            animation: slideInUp 0.5s ease-out;
-        }
-
-        .form-control:focus, .form-select:focus {
-            box-shadow: 0 0 0 0.2rem rgba(37, 89, 244, 0.25);
-            animation: glow 0.6s ease-in-out;
-            transform: scale(1.02);
-        }
-
-        /* Progress bar animada */
-        .progress-bar {
-            animation: slideInLeft 0.8s ease-out;
-            background: linear-gradient(90deg, var(--primary), #00d4ff);
-        }
-
-        /* Header con animación */
-        header {
-            animation: slideInDown 0.6s ease-out;
-        }
-
-        @keyframes slideInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Modal con entrada */
+        /* Modal Styles */
         .modal-content {
-            animation: zoomIn 0.4s ease-out;
+            background: #1a1a1a;
+            border: 1px solid rgba(37, 89, 244, 0.3);
+            color: white;
         }
 
-        /* Líneas decorativas */
-        .border-primary {
-            position: relative;
+        .modal-header {
+            border-bottom: 1px solid rgba(37, 89, 244, 0.3);
         }
 
-        .border-primary::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
+        .modal-footer {
+            border-top: 1px solid rgba(37, 89, 244, 0.3);
+        }
+
+        .badge-skill {
             background: linear-gradient(90deg, var(--primary), #00d4ff);
-            transition: width 0.3s ease;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            display: inline-block;
         }
 
-        .border-primary:hover::after {
-            width: 100%;
-            animation: shimmer 0.6s ease-out;
+        .progress {
+            background-color: rgba(37, 89, 244, 0.2);
         }
 
-        /* Carrusel de miembros */
-        .carousel-item {
-            padding: 40px 20px;
+        .progress-bar {
+            background: linear-gradient(90deg, var(--primary), #00d4ff);
+        }
+
+        /* Dropdown styles */
+        .dropdown-menu {
+            background: #1a1a1a;
+            border: 1px solid rgba(37, 89, 244, 0.3);
+        }
+
+        .dropdown-item {
+            color: white;
+        }
+
+        .dropdown-item:hover {
+            background: rgba(37, 89, 244, 0.2);
+            color: white;
+        }
+
+        .dropdown-divider {
+            border-color: rgba(37, 89, 244, 0.3);
+        }
+
+        /* Estilos adicionales para el carrusel */
+        .carousel-inner {
             min-height: 400px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            animation: fadeInRotate 0.6s ease-out;
-        }
-
-        .carousel-member-card {
-            position: relative;
-            max-width: 350px;
-            margin: 0 auto;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .carousel-member-card:hover {
-            transform: scale(1.05) translateY(-10px);
-            box-shadow: 0 20px 40px rgba(37, 89, 244, 0.3);
-        }
-
-        .carousel-member-card .member-avatar {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 4px solid var(--primary);
-            margin: 0 auto 20px;
-            transition: transform 0.3s ease;
-            animation: zoomIn 0.6s ease-out;
-        }
-
-        .carousel-member-card:hover .member-avatar {
-            transform: scale(1.15) rotate(10deg);
-        }
-
-        .carousel-member-card .member-info {
-            text-align: center;
-            padding: 20px;
-            background: linear-gradient(135deg, rgba(37, 89, 244, 0.08), rgba(0, 212, 255, 0.05));
-            border-radius: 12px;
-            border: 1px solid rgba(37, 89, 244, 0.2);
         }
 
         .carousel-member-card h5 {
-            animation: slideInUp 0.5s ease-out;
+            font-size: 24px;
+            margin-bottom: 8px;
         }
 
-        .carousel-member-card p {
-            animation: slideInUp 0.6s ease-out;
+        .carousel-member-card .text-muted {
+            color: #888 !important;
+            font-size: 14px;
         }
 
-        .carousel-member-stats {
-            display: flex;
-            justify-content: space-around;
-            gap: 10px;
-            margin-top: 15px;
-            animation: slideInUp 0.7s ease-out;
-        }
-
-        .carousel-member-stats .stat {
-            flex: 1;
-            padding: 10px;
-            background: var(--primary);
-            color: white;
-            border-radius: 8px;
-            font-size: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .carousel-member-stats .stat:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 12px rgba(37, 89, 244, 0.4);
-        }
-
-        .carousel-member-stats .stat strong {
-            display: block;
-            font-size: 16px;
-            margin-bottom: 5px;
-        }
-
-        /* Controles del carrusel */
-        .carousel-control-prev-icon,
-        .carousel-control-next-icon {
-            filter: brightness(0) saturate(100%) invert(1);
-        }
-
-        .carousel-control-prev,
-        .carousel-control-next {
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
-        }
-
-        .carousel-control-prev:hover,
-        .carousel-control-next:hover {
-            opacity: 1;
-        }
-
-        /* Botón de Ver Perfil en carrusel */
-        .btn-view-profile {
-            background: linear-gradient(135deg, var(--primary), #00d4ff);
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            margin-top: 15px;
-        }
-
-        .btn-view-profile:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(37, 89, 244, 0.3);
-            color: white;
-            text-decoration: none;
+        .carousel-member-card .bio-text {
+            color: #aaa;
+            font-size: 13px;
+            line-height: 1.6;
+            margin: 15px 0;
         }
     </style>
 </head>
-<body class="font-display">
+<body>
 
 <!-- ================= HEADER ================= -->
 <header class="sticky-top glass border-bottom border-primary-subtle">
     <div class="container-xl py-3">
         <div class="row align-items-center">
-
-            <!-- Logo -->
             <div class="col-auto">
                 <div class="row align-items-center g-3">
                     <img src="https://www.micole.net/imagenes/colegio/logo/32624/progresa_200.png"
@@ -553,17 +383,15 @@
                 </div>
             </div>
 
-            <!-- Nav -->
             <div class="col d-none d-md-block">
                 <div class="row justify-content-center">
                     <div class="col-auto"><a class="nav-link text-secondary" href="../index.html">Inicio</a></div>
                     <div class="col-auto"><a class="nav-link text-secondary" href="https://github.com" target="_blank">Proyectos</a></div>
                     <div class="col-auto"><a class="nav-link text-secondary" href="contacto.html">Contacto</a></div>
-                    <div class="col-auto"><a class="nav-link text-dark fw-bold border-bottom border-primary" href="comunidad.html">Comunidad</a></div>
+                    <div class="col-auto"><a class="nav-link text-light fw-bold border-bottom border-primary" href="comunidad.html">Comunidad</a></div>
                 </div>
             </div>
 
-            <!-- User -->
             <div class="col-auto">
                 <div class="row align-items-center g-2">
                     <div class="col-auto dropdown">
@@ -575,7 +403,7 @@
                              data-bs-toggle="dropdown"
                              aria-expanded="false"
                              style="cursor: pointer;">
-                        <ul class="dropdown-menu dropdown-menu-end user-dropdown" aria-labelledby="userDropdown">
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                             <li class="dropdown-header">
                                 <div class="d-flex align-items-center">
                                     <img class="rounded-circle me-2" width="32" 
@@ -588,31 +416,10 @@
                                 </div>
                             </li>
                             <li><hr class="dropdown-divider"></li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <span class="material-symbols-outlined me-2">person</span>
-                                    Mi Perfil
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <span class="material-symbols-outlined me-2">settings</span>
-                                    Configuración
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <span class="material-symbols-outlined me-2">emoji_events</span>
-                                    Mis Logros
-                                </a>
-                            </li>
+                            <li><a class="dropdown-item" href="#"><span class="material-symbols-outlined me-2">person</span>Mi Perfil</a></li>
+                            <li><a class="dropdown-item" href="#"><span class="material-symbols-outlined me-2">settings</span>Configuración</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li>
-                                <a class="dropdown-item text-danger" href="#">
-                                    <span class="material-symbols-outlined me-2">logout</span>
-                                    Cerrar Sesión
-                                </a>
-                            </li>
+                            <li><a class="dropdown-item text-danger" href="#"><span class="material-symbols-outlined me-2">logout</span>Cerrar Sesión</a></li>
                         </ul>
                     </div>
                     <div class="col-auto">
@@ -622,7 +429,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </header>
@@ -644,14 +450,14 @@
         <div class="row g-3 align-items-center">
             <div class="col-md-6">
                 <div class="input-group">
-                    <span class="input-group-text bg-white border-primary">
+                    <span class="input-group-text bg-dark border-primary text-white">
                         <span class="material-symbols-outlined">search</span>
                     </span>
-                    <input type="text" id="searchInput" class="form-control border-primary" placeholder="Buscar por nombre o rol...">
+                    <input type="text" id="searchInput" class="form-control bg-dark border-primary text-white" placeholder="Buscar por nombre o rol...">
                 </div>
             </div>
             <div class="col-md-3">
-                <select id="filterRole" class="form-select border-primary">
+                <select id="filterRole" class="form-select bg-dark border-primary text-white">
                     <option value="">Todos los roles</option>
                     <option value="Fullstack">Fullstack</option>
                     <option value="Backend">Backend</option>
@@ -662,7 +468,7 @@
                 </select>
             </div>
             <div class="col-md-3">
-                <select id="sortBy" class="form-select border-primary">
+                <select id="sortBy" class="form-select bg-dark border-primary text-white">
                     <option value="xp">Ordenar por XP</option>
                     <option value="proyectos">Por Proyectos</option>
                     <option value="stars">Por Stars</option>
@@ -705,19 +511,22 @@
         </div>
     </div>
 
-    <!-- Miembros Carrusel -->
+    <!-- Miembros Carrusel MEJORADO -->
     <div class="mb-5">
-        <h3 class="fw-bold mb-4">👥 Conoce a Nuestros Miembros</h3>
+        <h3 class="fw-bold mb-4 text-center">👥 Conoce a Nuestros Miembros</h3>
         <div id="membersCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators" id="carouselIndicators">
+                <!-- Se llenará dinámicamente -->
+            </div>
             <div class="carousel-inner" id="carouselContent">
                 <!-- Se llenará dinámicamente -->
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#membersCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon bg-primary rounded" aria-hidden="true"></span>
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Anterior</span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#membersCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon bg-primary rounded" aria-hidden="true"></span>
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Siguiente</span>
             </button>
         </div>
@@ -726,212 +535,12 @@
     <!-- Members Grid -->
     <h3 class="fw-bold mb-4">Miembros Destacados</h3>
     <div class="row g-4" id="membersContainer">
-        <!-- Se llenará dinámicamente con JavaScript -->
+        <!-- Se llenará dinámicamente -->
     </div>
 
     <!-- Load More Button -->
     <div class="text-center mt-5">
-        <button class="btn btn-outline-secondary btn-lg px-5">
-            <span class="material-symbols-outlined me-2" style="font-size: 20px; vertical-align: middle;">refresh</span>
-            Cargar más miembros
-        </button>
-    </div>
-</main>
-
-<!-- ================= MEMBER MODAL ================= -->
-                <div class="card-body text-center p-4">
-                    <img src="https://i.pravatar.cc/100?img=1" 
-                         class="rounded-circle border border-primary mb-3" 
-                         width="80" height="80" alt="Sarah.js">
-                    <h5 class="fw-bold mb-1">Sarah.js</h5>
-                    <p class="text-secondary small mb-3">Fullstack Master</p>
-                    <div class="mb-3">
-                        <span class="badge bg-primary">9850 XP</span>
-                    </div>
-                    <div class="row g-2">
-                        <div class="col-6">
-                            <div class="small">
-                                <span class="material-symbols-outlined text-primary" style="font-size: 16px; vertical-align: middle;">code</span>
-                                <strong class="ms-1">42</strong>
-                                <div class="text-secondary" style="font-size: 10px;">Proyectos</div>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="small">
-                                <span class="material-symbols-outlined text-primary" style="font-size: 16px; vertical-align: middle;">star</span>
-                                <strong class="ms-1">156</strong>
-                                <div class="text-secondary" style="font-size: 10px;">Stars</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Member 2 -->
-        <div class="col-md-4 col-sm-6 member-animated" style="--index: 2;">
-            <div class="card bg-card neon-hover h-100 member-card" data-member="diego" data-bs-toggle="modal" data-bs-target="#memberModal">
-                <div class="card-body text-center p-4">
-                    <img src="https://i.pravatar.cc/100?img=33" 
-                         class="rounded-circle border border-primary mb-3" 
-                         width="80" height="80" alt="Diego.C#">
-                    <h5 class="fw-bold mb-1">Diego.C#</h5>
-                    <p class="text-secondary small mb-3">Backend Developer</p>
-                    <div class="mb-3">
-                        <span class="badge bg-primary">9250 XP</span>
-                    </div>
-                    <div class="row g-2">
-                        <div class="col-6">
-                            <div class="small">
-                                <span class="material-symbols-outlined text-primary" style="font-size: 16px; vertical-align: middle;">code</span>
-                                <strong class="ms-1">38</strong>
-                                <div class="text-secondary" style="font-size: 10px;">Proyectos</div>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="small">
-                                <span class="material-symbols-outlined text-primary" style="font-size: 16px; vertical-align: middle;">star</span>
-                                <strong class="ms-1">142</strong>
-                                <div class="text-secondary" style="font-size: 10px;">Stars</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Member 3 -->
-        <div class="col-md-4 col-sm-6 member-animated" style="--index: 3;">
-            <div class="card bg-card neon-hover h-100 member-card" data-member="alex" data-bs-toggle="modal" data-bs-target="#memberModal">
-                <div class="card-body text-center p-4">
-                    <img src="https://i.pravatar.cc/100?img=45" 
-                         class="rounded-circle border border-primary mb-3" 
-                         width="80" height="80" alt="Alex.Js">
-                    <h5 class="fw-bold mb-1">Alex.Js</h5>
-                    <p class="text-secondary small mb-3">Frontend Specialist</p>
-                    <div class="mb-3">
-                        <span class="badge bg-primary">8720 XP</span>
-                    </div>
-                    <div class="row g-2">
-                        <div class="col-6">
-                            <div class="small">
-                                <span class="material-symbols-outlined text-primary" style="font-size: 16px; vertical-align: middle;">code</span>
-                                <strong class="ms-1">35</strong>
-                                <div class="text-secondary" style="font-size: 10px;">Proyectos</div>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="small">
-                                <span class="material-symbols-outlined text-primary" style="font-size: 16px; vertical-align: middle;">star</span>
-                                <strong class="ms-1">128</strong>
-                                <div class="text-secondary" style="font-size: 10px;">Stars</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Member 4 -->
-        <div class="col-md-4 col-sm-6 member-animated" style="--index: 4;">
-            <div class="card bg-card neon-hover h-100 member-card" data-member="charmander" data-bs-toggle="modal" data-bs-target="#memberModal">
-                <div class="card-body text-center p-4">
-                    <img src="https://i.pravatar.cc/100?img=27" 
-                         class="rounded-circle border border-primary mb-3" 
-                         width="80" height="80" alt="Charmander.Js">
-                    <h5 class="fw-bold mb-1">Charmander.Js</h5>
-                    <p class="text-secondary small mb-3">React Developer</p>
-                    <div class="mb-3">
-                        <span class="badge bg-primary">8105 XP</span>
-                    </div>
-                    <div class="row g-2">
-                        <div class="col-6">
-                            <div class="small">
-                                <span class="material-symbols-outlined text-primary" style="font-size: 16px; vertical-align: middle;">code</span>
-                                <strong class="ms-1">30</strong>
-                                <div class="text-secondary" style="font-size: 10px;">Proyectos</div>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="small">
-                                <span class="material-symbols-outlined text-primary" style="font-size: 16px; vertical-align: middle;">star</span>
-                                <strong class="ms-1">115</strong>
-                                <div class="text-secondary" style="font-size: 10px;">Stars</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Member 5 -->
-        <div class="col-md-4 col-sm-6 member-animated" style="--index: 5;">
-            <div class="card bg-card neon-hover h-100 member-card" data-member="maria" data-bs-toggle="modal" data-bs-target="#memberModal">
-                <div class="card-body text-center p-4">
-                    <img src="https://i.pravatar.cc/100?img=15" 
-                         class="rounded-circle border border-primary mb-3" 
-                         width="80" height="80" alt="Maria.Py">
-                    <h5 class="fw-bold mb-1">Maria.Py</h5>
-                    <p class="text-secondary small mb-3">Data Analyst</p>
-                    <div class="mb-3">
-                        <span class="badge bg-primary">7890 XP</span>
-                    </div>
-                    <div class="row g-2">
-                        <div class="col-6">
-                            <div class="small">
-                                <span class="material-symbols-outlined text-primary" style="font-size: 16px; vertical-align: middle;">code</span>
-                                <strong class="ms-1">28</strong>
-                                <div class="text-secondary" style="font-size: 10px;">Proyectos</div>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="small">
-                                <span class="material-symbols-outlined text-primary" style="font-size: 16px; vertical-align: middle;">star</span>
-                                <strong class="ms-1">98</strong>
-                                <div class="text-secondary" style="font-size: 10px;">Stars</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Member 6 -->
-        <div class="col-md-4 col-sm-6 member-animated" style="--index: 6;">
-            <div class="card bg-card neon-hover h-100 member-card" data-member="carlos" data-bs-toggle="modal" data-bs-target="#memberModal">
-                <div class="card-body text-center p-4">
-                    <img src="https://i.pravatar.cc/100?img=52" 
-                         class="rounded-circle border border-primary mb-3" 
-                         width="80" height="80" alt="Carlos.Java">
-                    <h5 class="fw-bold mb-1">Carlos.Java</h5>
-                    <p class="text-secondary small mb-3">Mobile Developer</p>
-                    <div class="mb-3">
-                        <span class="badge bg-primary">7650 XP</span>
-                    </div>
-                    <div class="row g-2">
-                        <div class="col-6">
-                            <div class="small">
-                                <span class="material-symbols-outlined text-primary" style="font-size: 16px; vertical-align: middle;">code</span>
-                                <strong class="ms-1">25</strong>
-                                <div class="text-secondary" style="font-size: 10px;">Proyectos</div>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="small">
-                                <span class="material-symbols-outlined text-primary" style="font-size: 16px; vertical-align: middle;">star</span>
-                                <strong class="ms-1">87</strong>
-                                <div class="text-secondary" style="font-size: 10px;">Stars</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Load More Button -->
-    <div class="text-center mt-5">
-        <button class="btn btn-outline-secondary btn-lg px-5">
+        <button class="btn btn-outline-light btn-lg px-5">
             <span class="material-symbols-outlined me-2" style="font-size: 20px; vertical-align: middle;">refresh</span>
             Cargar más miembros
         </button>
@@ -949,7 +558,7 @@
                         <h5 class="modal-title fw-bold mb-0" id="modalName"></h5>
                         <p class="text-muted small mb-0" id="modalRole"></p>
                     </div>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
             </div>
             <div class="modal-body">
@@ -963,7 +572,7 @@
                         <small class="text-muted"><span id="modalXPPct">0</span>%</small>
                     </div>
                     <div class="progress" style="height: 12px;">
-                        <div id="levelProgress" class="progress-bar" style="background: linear-gradient(90deg, var(--primary), #00d4ff);"></div>
+                        <div id="levelProgress" class="progress-bar"></div>
                     </div>
                 </div>
                 
@@ -1001,21 +610,15 @@
                 
                 <!-- Habilidades -->
                 <h6 class="fw-bold mb-3">Habilidades</h6>
-                <div id="modalSkills" class="mb-4">
-                    <!-- Se llena dinámicamente -->
-                </div>
+                <div id="modalSkills" class="mb-4"></div>
                 
                 <!-- Proyectos Recientes -->
                 <h6 class="fw-bold mb-3">Proyectos Recientes</h6>
-                <div id="modalProyectos" class="mb-4">
-                    <!-- Se llena dinámicamente -->
-                </div>
+                <div id="modalProyectos" class="mb-4"></div>
                 
                 <!-- Badges/Logros -->
                 <h6 class="fw-bold mb-3">Distintivos</h6>
-                <div id="modalBadges" class="mb-4">
-                    <!-- Se llena dinámicamente -->
-                </div>
+                <div id="modalBadges" class="mb-4"></div>
             </div>
             <div class="modal-footer border-top">
                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -1047,15 +650,14 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../js/script.js"></script>
 
 <script>
-    // Datos de miembros con información adicional
+    // Datos de miembros
     const membersData = {
         sarah: {
             name: 'Sarah.js',
             role: 'Fullstack Master',
-            avatar: 'https://i.pravatar.cc/100?img=1',
+            avatar: 'https://i.pravatar.cc/150?img=1',
             xp: 9850,
             nivel: 12,
             achievements: 8,
@@ -1073,7 +675,7 @@
         diego: {
             name: 'Diego.C#',
             role: 'Backend Developer',
-            avatar: 'https://i.pravatar.cc/100?img=33',
+            avatar: 'https://i.pravatar.cc/150?img=33',
             xp: 9250,
             nivel: 11,
             achievements: 7,
@@ -1091,7 +693,7 @@
         alex: {
             name: 'Alex.Js',
             role: 'Frontend Specialist',
-            avatar: 'https://i.pravatar.cc/100?img=45',
+            avatar: 'https://i.pravatar.cc/150?img=45',
             xp: 8720,
             nivel: 10,
             achievements: 6,
@@ -1109,7 +711,7 @@
         charmander: {
             name: 'Charmander.Js',
             role: 'React Developer',
-            avatar: 'https://i.pravatar.cc/100?img=27',
+            avatar: 'https://i.pravatar.cc/150?img=27',
             xp: 8105,
             nivel: 9,
             achievements: 5,
@@ -1127,7 +729,7 @@
         maria: {
             name: 'Maria.Py',
             role: 'Data Analyst',
-            avatar: 'https://i.pravatar.cc/100?img=15',
+            avatar: 'https://i.pravatar.cc/150?img=15',
             xp: 7890,
             nivel: 9,
             achievements: 5,
@@ -1145,7 +747,7 @@
         carlos: {
             name: 'Carlos.Java',
             role: 'Mobile Developer',
-            avatar: 'https://i.pravatar.cc/100?img=52',
+            avatar: 'https://i.pravatar.cc/150?img=52',
             xp: 7650,
             nivel: 8,
             achievements: 4,
@@ -1163,11 +765,11 @@
         lucas: {
             name: 'Lucas.Go',
             role: 'Fullstack Developer',
-            avatar: 'https://i.pravatar.cc/100?img=42',
+            avatar: 'https://i.pravatar.cc/150?img=42',
             xp: 7420,
             nivel: 8,
             achievements: 4,
-            bio: 'Desarrollador Go especializado en sistemas concurrentes y APIs de alto rendimiento. Entusiasta de cloud-native.',
+            bio: 'Desarrollador Go especializado en sistemas concurrentes y APIs de alto rendimiento.',
             proyectos: 26,
             stars: 94,
             badges: ['Concurrency Master', 'Cloud Native', 'Performance Pro'],
@@ -1181,11 +783,11 @@
         emma: {
             name: 'Emma.Py',
             role: 'Data Scientist',
-            avatar: 'https://i.pravatar.cc/100?img=8',
+            avatar: 'https://i.pravatar.cc/150?img=8',
             xp: 7310,
             nivel: 8,
             achievements: 5,
-            bio: 'Data Scientist apasionada por el machine learning e IA. Ganadora de múltiples hackathons de datos.',
+            bio: 'Data Scientist apasionada por el machine learning e IA. Ganadora de múltiples hackathons.',
             proyectos: 22,
             stars: 89,
             badges: ['ML Innovator', 'Data Visualization', 'Research Pioneer'],
@@ -1195,465 +797,153 @@
                 { title: 'Data Mining Tool', desc: 'Herramienta de minería de datos' }
             ],
             skills: ['Python', 'TensorFlow', 'PyTorch', 'Scikit-learn', 'Jupyter', 'Pandas', 'Statistics', 'Neural Networks']
-        },
-        javier: {
-            name: 'Javier.Ts',
-            role: 'Frontend Developer',
-            avatar: 'https://i.pravatar.cc/100?img=39',
-            xp: 6950,
-            nivel: 7,
-            achievements: 4,
-            bio: 'Frontend Developer apasionado por TypeScript y accesibilidad web. Enfoque en crear interfaces inclusivas.',
-            proyectos: 24,
-            stars: 76,
-            badges: ['Accessibility Master', 'TypeScript Expert', 'PWA Specialist'],
-            proyectosRecientes: [
-                { title: 'Accessible Dashboard', desc: 'Dashboard con soporte a ARIA' },
-                { title: 'PWA App', desc: 'Progressive Web App offline-first' },
-                { title: 'Component Kit', desc: 'Kit de componentes accesibles' }
-            ],
-            skills: ['TypeScript', 'React', 'Accessibility', 'PWA', 'WCAG', 'Webpack', 'Tailwind', 'Next.js']
-        },
-        olivia: {
-            name: 'Olivia.Swift',
-            role: 'iOS Developer',
-            avatar: 'https://i.pravatar.cc/100?img=12',
-            xp: 6820,
-            nivel: 7,
-            achievements: 3,
-            bio: 'Desarrolladora iOS especializada en SwiftUI y diseño nativo. Creadora de 3 apps en App Store.',
-            proyectos: 19,
-            stars: 71,
-            badges: ['App Store Hero', 'SwiftUI Master', 'Design Enthusiast'],
-            proyectosRecientes: [
-                { title: 'Fitness Tracker', desc: 'App de seguimiento de fitness' },
-                { title: 'Notes App', desc: 'Aplicación de notas sincronizada' },
-                { title: 'Weather Pro', desc: 'App de clima con IA' }
-            ],
-            skills: ['Swift', 'SwiftUI', 'Core Data', 'CloudKit', 'ARKit', 'Combine', 'XCode', 'TestFlight']
-        },
-        sofia: {
-            name: 'Sofia.Rust',
-            role: 'Backend Developer',
-            avatar: 'https://i.pravatar.cc/100?img=2',
-            xp: 6750,
-            nivel: 7,
-            achievements: 4,
-            bio: 'Desarrolladora Rust especializada en sistemas seguros y eficientes. Experta en concurrencia y memory safety.',
-            proyectos: 21,
-            stars: 79,
-            badges: ['Rust Master', 'Memory Safety Expert', 'System Architect'],
-            proyectosRecientes: [
-                { title: 'Web Server', desc: 'Servidor HTTP ultra rápido en Rust' },
-                { title: 'CLI Tool', desc: 'Herramienta de línea de comandos' },
-                { title: 'Protocol Handler', desc: 'Manejador de protocolos personalizado' }
-            ],
-            skills: ['Rust', 'WebAssembly', 'Linux', 'Networking', 'Tokio', 'System Design', 'Performance', 'Security']
-        },
-        miguel: {
-            name: 'Miguel.Java',
-            role: 'Backend Developer',
-            avatar: 'https://i.pravatar.cc/100?img=34',
-            xp: 6680,
-            nivel: 7,
-            achievements: 3,
-            bio: 'Ingeniero Java con experiencia en sistemas empresariales. Especialista en Spring Framework y patrones de diseño.',
-            proyectos: 20,
-            stars: 74,
-            badges: ['Enterprise Expert', 'Spring Master', 'Design Patterns Pro'],
-            proyectosRecientes: [
-                { title: 'Spring Boot App', desc: 'Aplicación empresarial con Spring' },
-                { title: 'Message Queue', desc: 'Sistema de colas de mensajes' },
-                { title: 'Payment Gateway', desc: 'Pasarela de pagos segura' }
-            ],
-            skills: ['Java', 'Spring Boot', 'Hibernate', 'Kafka', 'Docker', 'Microservicios', 'JUnit', 'Maven']
-        },
-        carolina: {
-            name: 'Carolina.Vue',
-            role: 'Frontend Developer',
-            avatar: 'https://i.pravatar.cc/100?img=5',
-            xp: 6520,
-            nivel: 6,
-            achievements: 3,
-            bio: 'Desarrolladora frontend especializada en Vue.js y experiencia de usuario. Creadora de sitios web modernos.',
-            proyectos: 19,
-            stars: 68,
-            badges: ['Vue Master', 'UX Designer', 'Component Creator'],
-            proyectosRecientes: [
-                { title: 'E-Learning Platform', desc: 'Plataforma de educación online' },
-                { title: 'Admin Dashboard', desc: 'Dashboard administrativo con Vue' },
-                { title: 'Analytics App', desc: 'Aplicación de análisis en tiempo real' }
-            ],
-            skills: ['Vue.js', 'Nuxt.js', 'JavaScript', 'CSS3', 'Figma', 'SEO', 'Performance', 'Testing']
-        },
-        andres: {
-            name: 'Andres.DevOps',
-            role: 'DevOps Engineer',
-            avatar: 'https://i.pravatar.cc/100?img=41',
-            xp: 6430,
-            nivel: 6,
-            achievements: 3,
-            bio: 'Ingeniero DevOps con especialidad en infraestructura en la nube. Experto en CI/CD y automatización.',
-            proyectos: 18,
-            stars: 65,
-            badges: ['Cloud Expert', 'Automation Master', 'Infrastructure Pro'],
-            proyectosRecientes: [
-                { title: 'CI/CD Pipeline', desc: 'Pipeline de integración continua' },
-                { title: 'Kubernetes Cluster', desc: 'Clúster de Kubernetes en AWS' },
-                { title: 'Monitoring System', desc: 'Sistema de monitoreo centralizado' }
-            ],
-            skills: ['Kubernetes', 'Docker', 'AWS', 'CI/CD', 'Terraform', 'Jenkins', 'ELK Stack', 'Prometheus']
-        },
-        isabella: {
-            name: 'Isabella.ML',
-            role: 'Machine Learning Engineer',
-            avatar: 'https://i.pravatar.cc/100?img=10',
-            xp: 6350,
-            nivel: 6,
-            achievements: 3,
-            bio: 'Ingeniera de Machine Learning con enfoque en NLP y Computer Vision. Publicadora de papers en conferences.',
-            proyectos: 17,
-            stars: 62,
-            badges: ['ML Researcher', 'NLP Expert', 'Vision Specialist'],
-            proyectosRecientes: [
-                { title: 'Text Classification', desc: 'Modelo de clasificación de textos con NLP' },
-                { title: 'Image Recognition', desc: 'Sistema de reconocimiento de imágenes' },
-                { title: 'Recommendation Engine', desc: 'Motor de recomendaciones con IA' }
-            ],
-            skills: ['Python', 'TensorFlow', 'PyTorch', 'NLP', 'Computer Vision', 'Scikit-learn', 'Pandas', 'OpenCV']
-        },
-        david: {
-            name: 'David.Node',
-            role: 'Fullstack Developer',
-            avatar: 'https://i.pravatar.cc/100?img=47',
-            xp: 6280,
-            nivel: 6,
-            achievements: 2,
-            bio: 'Desarrollador fullstack con experiencia en Node.js y React. Apasionado por crear aplicaciones escalables.',
-            proyectos: 17,
-            stars: 59,
-            badges: ['Node Expert', 'Async Master', 'Real-Time Specialist'],
-            proyectosRecientes: [
-                { title: 'Real-Time Chat', desc: 'Chat en tiempo real con Socket.io' },
-                { title: 'API Gateway', desc: 'Gateway de APIs con Node.js' },
-                { title: 'Streaming Server', desc: 'Servidor de streaming de video' }
-            ],
-            skills: ['Node.js', 'Express', 'WebSocket', 'MongoDB', 'Redis', 'GraphQL', 'AWS', 'Docker']
-        },
-        natalia: {
-            name: 'Natalia.Design',
-            role: 'UX/UI Designer',
-            avatar: 'https://i.pravatar.cc/100?img=7',
-            xp: 6150,
-            nivel: 6,
-            achievements: 2,
-            bio: 'Diseñadora UX/UI con pasión por crear interfaces hermosas e intuitivas. Premiada en concursos de diseño.',
-            proyectos: 16,
-            stars: 56,
-            badges: ['Design Award Winner', 'UX Expert', 'Prototyping Master'],
-            proyectosRecientes: [
-                { title: 'Mobile App UI', desc: 'Diseño completo de aplicación móvil' },
-                { title: 'Web Design', desc: 'Rediseño de sitio web corporativo' },
-                { title: 'Design System', desc: 'Sistema de diseño para startup' }
-            ],
-            skills: ['Figma', 'Adobe XD', 'Prototyping', 'User Research', 'Wireframing', 'Animation', 'Web Design', 'Accessibility']
-        },
-        ramon: {
-            name: 'Ramon.Scala',
-            role: 'Backend Developer',
-            avatar: 'https://i.pravatar.cc/100?img=43',
-            xp: 6080,
-            nivel: 6,
-            achievements: 2,
-            bio: 'Desarrollador Scala especializado en procesamiento de datos masivos. Experto en Apache Spark y streaming.',
-            proyectos: 15,
-            stars: 53,
-            badges: ['Big Data Expert', 'Scala Master', 'Spark Specialist'],
-            proyectosRecientes: [
-                { title: 'Data Pipeline', desc: 'Pipeline ETL con Apache Spark' },
-                { title: 'Stream Processor', desc: 'Procesador de streaming en tiempo real' },
-                { title: 'Analytics Platform', desc: 'Plataforma de análisis de Big Data' }
-            ],
-            skills: ['Scala', 'Apache Spark', 'Hadoop', 'Hive', 'Kafka', 'Scala Functional', 'Distributed Computing', 'AWS']
-        },
-        lucia: {
-            name: 'Lucia.QA',
-            role: 'QA Engineer',
-            avatar: 'https://i.pravatar.cc/100?img=14',
-            xp: 5920,
-            nivel: 5,
-            achievements: 2,
-            bio: 'Ingeniera QA especializada en automatización de pruebas. Experta en testing de aplicaciones web y móviles.',
-            proyectos: 14,
-            stars: 48,
-            badges: ['Testing Expert', 'Automation Master', 'Quality Advocate'],
-            proyectosRecientes: [
-                { title: 'Test Automation', desc: 'Suite de automatización con Selenium' },
-                { title: 'Mobile Testing', desc: 'Testing de aplicaciones móviles' },
-                { title: 'Performance Testing', desc: 'Pruebas de rendimiento y carga' }
-            ],
-            skills: ['Selenium', 'Cypress', 'Jest', 'TestNG', 'JMeter', 'API Testing', 'Automation', 'Manual Testing']
-        },
-        jorge: {
-            name: 'Jorge.Elixir',
-            role: 'Backend Developer',
-            avatar: 'https://i.pravatar.cc/100?img=46',
-            xp: 5850,
-            nivel: 5,
-            achievements: 2,
-            bio: 'Desarrollador Elixir apasionado por la concurrencia y la escalabilidad. Experto en Phoenix Framework.',
-            proyectos: 13,
-            stars: 45,
-            badges: ['Elixir Master', 'Concurrency Pro', 'Phoenix Expert'],
-            proyectosRecientes: [
-                { title: 'Chat Application', desc: 'App de chat en tiempo real con Elixir' },
-                { title: 'Websocket Server', desc: 'Servidor WebSocket escalable' },
-                { title: 'IoT Platform', desc: 'Plataforma IoT con Elixir' }
-            ],
-            skills: ['Elixir', 'Phoenix', 'Erlang', 'OTP', 'Ecto', 'Real-Time', 'Concurrent Systems', 'Distributed']
-        },
-        pamela: {
-            name: 'Pamela.Ruby',
-            role: 'Fullstack Developer',
-            avatar: 'https://i.pravatar.cc/100?img=4',
-            xp: 5780,
-            nivel: 5,
-            achievements: 2,
-            bio: 'Desarrolladora Ruby on Rails con 6 años de experiencia. Especialista en startups y MVPs.',
-            proyectos: 12,
-            stars: 42,
-            badges: ['Rails Master', 'Startup Expert', 'Community Leader'],
-            proyectosRecientes: [
-                { title: 'Startup Platform', desc: 'Plataforma para startups con Rails' },
-                { title: 'E-Commerce', desc: 'Tienda online completa con Rails' },
-                { title: 'CMS System', desc: 'Sistema de gestión de contenidos' }
-            ],
-            skills: ['Ruby', 'Rails', 'PostgreSQL', 'Redis', 'Sidekiq', 'RSpec', 'Docker', 'AWS']
-        },
-        fernando: {
-            name: 'Fernando.C++',
-            role: 'Backend Developer',
-            avatar: 'https://i.pravatar.cc/100?img=48',
-            xp: 5710,
-            nivel: 5,
-            achievements: 3,
-            bio: 'Ingeniero C++ especializado en sistemas de alto rendimiento. Experto en optimización.',
-            proyectos: 11,
-            stars: 40,
-            badges: ['Performance Master', 'C++ Expert', 'System Programmer'],
-            proyectosRecientes: [
-                { title: 'Game Engine', desc: 'Motor gráfico de bajo nivel' },
-                { title: 'Trading System', desc: 'Sistema de trading de alto rendimiento' },
-                { title: 'Media Server', desc: 'Servidor de streaming de media' }
-            ],
-            skills: ['C++', 'OpenGL', 'DirectX', 'SIMD', 'Optimization', 'Linux', 'Low-level', 'Performance']
-        },
-        alejandra: {
-            name: 'Alejandra.Kotlin',
-            role: 'Mobile Developer',
-            avatar: 'https://i.pravatar.cc/100?img=9',
-            xp: 5640,
-            nivel: 5,
-            achievements: 2,
-            bio: 'Desarrolladora Android especializada en Kotlin. Creadora de apps con millones de descargas.',
-            proyectos: 11,
-            stars: 38,
-            badges: ['Kotlin Master', 'Android Champion', 'Play Store Pro'],
-            proyectosRecientes: [
-                { title: 'Video Player', desc: 'Reproductor de video nativo' },
-                { title: 'Music App', desc: 'Aplicación de música streaming' },
-                { title: 'File Manager', desc: 'Gestor de archivos avanzado' }
-            ],
-            skills: ['Kotlin', 'Android Native', 'Jetpack Compose', 'Firebase', 'Room', 'Coroutines', 'MVVM', 'Clean Architecture']
-        },
-        carlos2: {
-            name: 'Carlos.PHP',
-            role: 'Backend Developer',
-            avatar: 'https://i.pravatar.cc/100?img=50',
-            xp: 5580,
-            nivel: 5,
-            achievements: 2,
-            bio: 'Desarrollador PHP con experiencia en aplicaciones empresariales. Experto en Laravel y Symfony.',
-            proyectos: 10,
-            stars: 36,
-            badges: ['Laravel Master', 'Web Expert', 'Backend Pro'],
-            proyectosRecientes: [
-                { title: 'ERP System', desc: 'Sistema ERP empresarial completo' },
-                { title: 'CRM Platform', desc: 'Plataforma CRM con Laravel' },
-                { title: 'API Gateway', desc: 'Gateway de APIs con Laravel' }
-            ],
-            skills: ['PHP', 'Laravel', 'Symfony', 'MySQL', 'Redis', 'Eloquent', 'Composer', 'REST API']
-        },
-        veronica: {
-            name: 'Veronica.Android',
-            role: 'Mobile Developer',
-            avatar: 'https://i.pravatar.cc/100?img=11',
-            xp: 5510,
-            nivel: 5,
-            achievements: 2,
-            bio: 'Desarrolladora Android especializada en Material Design. Ganadora de Google Play awards.',
-            proyectos: 10,
-            stars: 34,
-            badges: ['Material Design Expert', 'Google Play Award', 'Mobile Innovator'],
-            proyectosRecientes: [
-                { title: 'Health Tracker', desc: 'App de tracking de salud' },
-                { title: 'Social Network', desc: 'Red social móvil nativa' },
-                { title: 'Productivity App', desc: 'App de productividad' }
-            ],
-            skills: ['Android', 'Material Design', 'Kotlin', 'Java', 'Firebase', 'Wear OS', 'Retrofit', 'Room']
-        },
-        marco: {
-            name: 'Marco.GraphQL',
-            role: 'Fullstack Developer',
-            avatar: 'https://i.pravatar.cc/100?img=51',
-            xp: 5450,
-            nivel: 4,
-            achievements: 2,
-            bio: 'Desarrollador fullstack especializado en GraphQL. Arquitecto de APIs modernas.',
-            proyectos: 9,
-            stars: 32,
-            badges: ['GraphQL Master', 'API Architect', 'Modern Stack Pro'],
-            proyectosRecientes: [
-                { title: 'GraphQL Server', desc: 'Servidor GraphQL escalable' },
-                { title: 'API Gateway', desc: 'Gateway GraphQL con Apollo' },
-                { title: 'Real-time App', desc: 'Aplicación en tiempo real' }
-            ],
-            skills: ['GraphQL', 'Apollo', 'Node.js', 'React', 'MongoDB', 'Subscriptions', 'Federation', 'Schema Design']
-        },
-        diana: {
-            name: 'Diana.Golang',
-            role: 'Backend Developer',
-            avatar: 'https://i.pravatar.cc/100?img=6',
-            xp: 5380,
-            nivel: 4,
-            achievements: 2,
-            bio: 'Desarrolladora Go con experiencia en microsservicios. Especialista en concurrencia.',
-            proyectos: 9,
-            stars: 30,
-            badges: ['Go Expert', 'Microservices Master', 'Concurrency Pro'],
-            proyectosRecientes: [
-                { title: 'Load Balancer', desc: 'Balanceador de carga en Go' },
-                { title: 'Service Mesh', desc: 'Malla de servicios con Go' },
-                { title: 'CLI Tools', desc: 'Herramientas CLI de alto rendimiento' }
-            ],
-            skills: ['Go', 'gRPC', 'Kubernetes', 'Docker', 'Microservices', 'Concurrency', 'Protocol Buffers', 'Cloud']
-        },
-        gabriel: {
-            name: 'Gabriel.WebGL',
-            role: 'Frontend Developer',
-            avatar: 'https://i.pravatar.cc/100?img=53',
-            xp: 5310,
-            nivel: 4,
-            achievements: 2,
-            bio: 'Desarrollador frontend especializado en WebGL y gráficos 3D. Creador de experiencias inmersivas.',
-            proyectos: 8,
-            stars: 28,
-            badges: ['WebGL Master', '3D Graphics Expert', 'Creative Developer'],
-            proyectosRecientes: [
-                { title: '3D Viewer', desc: 'Visor 3D con WebGL' },
-                { title: 'Interactive Website', desc: 'Sitio web interactivo 3D' },
-                { title: 'Game Engine Web', desc: 'Motor de juegos para web' }
-            ],
-            skills: ['WebGL', 'Three.js', 'Babylon.js', 'GLSL', 'Canvas', 'JavaScript', 'Graphics', 'Animation']
-        },
-        ana: {
-            name: 'Ana.Security',
-            role: 'Backend Developer',
-            avatar: 'https://i.pravatar.cc/100?img=3',
-            xp: 5240,
-            nivel: 4,
-            achievements: 2,
-            bio: 'Especialista en ciberseguridad y encriptación. Experta en auditorías de seguridad.',
-            proyectos: 8,
-            stars: 26,
-            badges: ['Security Expert', 'Encryption Master', 'Cyber Guardian'],
-            proyectosRecientes: [
-                { title: 'Encryption Library', desc: 'Librería de encriptación segura' },
-                { title: 'Auth System', desc: 'Sistema de autenticación seguro' },
-                { title: 'Firewall Manager', desc: 'Gestor de firewall avanzado' }
-            ],
-            skills: ['Security', 'Encryption', 'OpenSSL', 'JWT', 'OAuth2', 'Penetration Testing', 'Cryptography', 'Audit']
-        },
-        pedro: {
-            name: 'Pedro.Blockchain',
-            role: 'Backend Developer',
-            avatar: 'https://i.pravatar.cc/100?img=54',
-            xp: 5170,
-            nivel: 4,
-            achievements: 1,
-            bio: 'Desarrollador blockchain especializado en Smart Contracts. Experto en Web3.',
-            proyectos: 7,
-            stars: 24,
-            badges: ['Blockchain Pioneer', 'Smart Contract Expert', 'Web3 Developer'],
-            proyectosRecientes: [
-                { title: 'Smart Contract', desc: 'Contrato inteligente ERC-20' },
-                { title: 'DeFi Protocol', desc: 'Protocolo DeFi completo' },
-                { title: 'NFT Marketplace', desc: 'Marketplace de NFTs' }
-            ],
-            skills: ['Solidity', 'Web3.js', 'Hardhat', 'Ethereum', 'Smart Contracts', 'DeFi', 'NFTs', 'Blockchain']
-        },
-        jessica: {
-            name: 'Jessica.Svelte',
-            role: 'Frontend Developer',
-            avatar: 'https://i.pravatar.cc/100?img=13',
-            xp: 5100,
-            nivel: 4,
-            achievements: 1,
-            bio: 'Desarrolladora Svelte apasionada por crear interfaces reactivas. Especialista en SvelteKit.',
-            proyectos: 7,
-            stars: 22,
-            badges: ['Svelte Master', 'Reactive Expert', 'Modern Frontend'],
-            proyectosRecientes: [
-                { title: 'SvelteKit App', desc: 'Aplicación fullstack con SvelteKit' },
-                { title: 'Component Library', desc: 'Librería de componentes Svelte' },
-                { title: 'Animation Studio', desc: 'Estudio de animaciones' }
-            ],
-            skills: ['Svelte', 'SvelteKit', 'JavaScript', 'CSS', 'Animations', 'Stores', 'TypeScript', 'Bundling']
         }
     };
 
-    // Función para renderizar carrusel de miembros
+    // Función para abrir el modal
+    function openMemberModal(memberId) {
+        const member = membersData[memberId];
+        
+        if (!member) {
+            console.error('Member not found:', memberId);
+            return;
+        }
+        
+        // Actualizar datos del modal
+        document.getElementById('modalAvatar').src = member.avatar;
+        document.getElementById('modalName').textContent = member.name;
+        document.getElementById('modalRole').textContent = member.role;
+        document.getElementById('modalBio').textContent = member.bio;
+        document.getElementById('modalProjects').textContent = member.proyectos;
+        document.getElementById('modalStars').textContent = member.stars;
+        document.getElementById('modalXP').textContent = member.xp;
+        document.getElementById('modalLevel').textContent = member.nivel;
+        document.getElementById('modalAchievements').textContent = member.achievements;
+        
+        // Calcular porcentaje de XP
+        const xpPct = Math.round((member.xp % 1000) / 10);
+        document.getElementById('modalXPPct').textContent = xpPct;
+        document.getElementById('levelProgress').style.width = xpPct + '%';
+        
+        // Proyectos recientes
+        const proyectosHTML = member.proyectosRecientes.map(p => `
+            <div class="card bg-card mb-2">
+                <div class="card-body p-3">
+                    <h6 class="fw-bold mb-1">${p.title}</h6>
+                    <small class="text-muted">${p.desc}</small>
+                </div>
+            </div>
+        `).join('');
+        document.getElementById('modalProyectos').innerHTML = proyectosHTML;
+        
+        // Skills
+        const skillsHTML = member.skills.map(s => `<span class="badge badge-skill">${s}</span>`).join('');
+        document.getElementById('modalSkills').innerHTML = skillsHTML;
+        
+        // Badges
+        const badgesHTML = member.badges.map(b => `
+            <span class="badge bg-warning text-dark me-2 mb-2">
+                <span class="material-symbols-outlined" style="font-size: 14px; vertical-align: middle;">emoji_events</span>
+                ${b}
+            </span>
+        `).join('');
+        document.getElementById('modalBadges').innerHTML = badgesHTML;
+        
+        // Abrir el modal
+        const modal = new bootstrap.Modal(document.getElementById('memberModal'));
+        modal.show();
+    }
+
+    // Función para renderizar el carrusel - MEJORADA
     function renderMembersCarousel() {
-        const container = document.getElementById('carouselContent');
+        const carouselContent = document.getElementById('carouselContent');
+        const carouselIndicators = document.getElementById('carouselIndicators');
         const memberEntries = Object.entries(membersData);
         
-        const html = memberEntries.map((entry, idx) => {
+        let indicatorsHTML = '';
+        let carouselHTML = '';
+        
+        memberEntries.forEach((entry, idx) => {
             const [id, member] = entry;
             const isActive = idx === 0 ? 'active' : '';
-            return `
+            
+            // Indicadores
+            indicatorsHTML += `
+                <button type="button" data-bs-target="#membersCarousel" data-bs-slide-to="${idx}" 
+                        class="${isActive}" aria-current="${isActive ? 'true' : 'false'}" aria-label="Slide ${idx + 1}"></button>
+            `;
+            
+            // Slides del carrusel
+            carouselHTML += `
                 <div class="carousel-item ${isActive}">
-                    <div class="carousel-member-card bg-card p-4 rounded-3 shadow-sm" data-member="${id}" data-bs-toggle="modal" data-bs-target="#memberModal">
+                    <div class="carousel-member-card" onclick="openMemberModal('${id}')">
                         <img src="${member.avatar}" alt="${member.name}" class="member-avatar">
                         <div class="member-info">
-                            <h5 class="fw-bold mb-1">${member.name}</h5>
-                            <p class="text-muted small mb-3">${member.role}</p>
+                            <h5 class="fw-bold">${member.name}</h5>
+                            <p class="text-muted small mb-2">${member.role}</p>
+                            <p class="bio-text">${member.bio.substring(0, 120)}...</p>
                             
                             <div class="carousel-member-stats">
                                 <div class="stat">
                                     <strong>${member.xp}</strong>
-                                    XP
+                                    <span>XP</span>
                                 </div>
                                 <div class="stat">
                                     <strong>${member.proyectos}</strong>
-                                    Proyectos
+                                    <span>Proyectos</span>
                                 </div>
                                 <div class="stat">
                                     <strong>${member.stars}</strong>
-                                    Stars
+                                    <span>Stars</span>
                                 </div>
                             </div>
                             
-                            <button class="btn btn-view-profile w-100 mt-3" onclick="openMemberModalCarousel('${id}')">
-                                <span class="material-symbols-outlined me-2" style="font-size: 18px; vertical-align: middle;">person</span>
+                            <button class="btn btn-view-profile" onclick="event.stopPropagation(); openMemberModal('${id}')">
+                                <span class="material-symbols-outlined me-2" style="font-size: 16px; vertical-align: middle;">person</span>
                                 Ver Perfil Completo
                             </button>
                         </div>
                     </div>
                 </div>
             `;
+        });
+        
+        carouselIndicators.innerHTML = indicatorsHTML;
+        carouselContent.innerHTML = carouselHTML;
+    }
+
+    // Función para renderizar el Top 3
+    function renderTop3() {
+        const sorted = Object.entries(membersData)
+            .sort((a, b) => b[1].xp - a[1].xp)
+            .slice(0, 3);
+        
+        const medals = ['🥇', '🥈', '🥉'];
+        const topHtml = sorted.map((entry, idx) => {
+            const [id, member] = entry;
+            return `
+                <div class="col-md-4">
+                    <div class="top-member-card" onclick="openMemberModal('${id}')" style="cursor: pointer;">
+                        <div style="font-size: 48px; margin-bottom: 8px;">${medals[idx]}</div>
+                        <img src="${member.avatar}" alt="${member.name}">
+                        <h5 class="fw-bold mb-1">${member.name}</h5>
+                        <p class="text-muted small mb-3">${member.role}</p>
+                        <div class="row g-2 text-center">
+                            <div class="col-6">
+                                <small class="text-muted d-block">XP</small>
+                                <strong>${member.xp}</strong>
+                            </div>
+                            <div class="col-6">
+                                <small class="text-muted d-block">Nivel</small>
+                                <strong>${member.nivel}</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
         }).join('');
         
-        container.innerHTML = html;
+        document.getElementById('topRanking').innerHTML = topHtml;
     }
 
     // Función para renderizar todos los miembros
@@ -1663,10 +953,9 @@
         
         const html = memberEntries.map((entry, idx) => {
             const [id, member] = entry;
-            const delayIndex = idx + 1;
             return `
-                <div class="col-md-4 col-sm-6 member-animated" style="--index: ${delayIndex};">
-                    <div class="card bg-card neon-hover h-100 member-card" data-member="${id}" data-bs-toggle="modal" data-bs-target="#memberModal">
+                <div class="col-md-4 col-sm-6 member-animated">
+                    <div class="card bg-card neon-hover h-100 member-card" onclick="openMemberModal('${id}')">
                         <div class="card-body text-center p-4">
                             <img src="${member.avatar}" 
                                  class="rounded-circle border border-primary mb-3" 
@@ -1699,222 +988,87 @@
         }).join('');
         
         container.innerHTML = html;
-        
-        // Agregar event listeners a todas las tarjetas
-        document.querySelectorAll('.member-card').forEach(card => {
-            card.addEventListener('click', openMemberModal);
-        });
     }
 
-    // Función para renderizar Top 3
-    function renderTop3() {
-        const sorted = Object.entries(membersData)
-            .sort((a, b) => b[1].xp - a[1].xp)
-            .slice(0, 3);
-        
-        const medals = ['🥇', '🥈', '🥉'];
-        const topHtml = sorted.map((entry, idx) => {
-            const member = entry[1];
-            const id = entry[0];
-            return `
-                <div class="col-md-4">
-                    <div class="top-member-card member-card cursor-pointer" data-member="${id}" data-bs-toggle="modal" data-bs-target="#memberModal" style="cursor: pointer;">
-                        <div style="font-size: 48px; margin-bottom: 8px;">${medals[idx]}</div>
-                        <img src="${member.avatar}" alt="${member.name}">
-                        <h5 class="fw-bold mb-1">${member.name}</h5>
-                        <p class="text-muted small mb-3">${member.role}</p>
-                        <div class="row g-2 text-center">
-                            <div class="col-6">
-                                <small class="text-muted d-block">XP</small>
-                                <strong>${member.xp}</strong>
-                            </div>
-                            <div class="col-6">
-                                <small class="text-muted d-block">Nivel</small>
-                                <strong>${member.nivel}</strong>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }).join('');
-        
-        document.getElementById('topRanking').innerHTML = topHtml;
-        
-        // Agregar event listeners a las tarjetas del Top 3
-        document.querySelectorAll('#topRanking .member-card').forEach(card => {
-            card.addEventListener('click', openMemberModal);
-        });
-    }
-
-    // Función para renderizar miembros filtrados
-    function renderMembers(membersToShow = membersData) {
-        const container = document.querySelector('[data-member]')?.closest('.row') || document.querySelector('.row:has(.member-animated)');
-        if (!container) return;
-        
-        // Reordenar según filtro
-        const sortBy = document.getElementById('sortBy')?.value || 'xp';
-        const sorted = Object.entries(membersToShow).sort((a, b) => {
-            if (sortBy === 'xp') return b[1].xp - a[1].xp;
-            if (sortBy === 'proyectos') return b[1].proyectos - a[1].proyectos;
-            if (sortBy === 'stars') return b[1].stars - a[1].stars;
-            if (sortBy === 'nombre') return a[1].name.localeCompare(b[1].name);
-            return 0;
-        });
-        
-        // Solo renderizar (filtrado ya está hecho en el evento)
-    }
-
-    // Búsqueda y Filtrado
-    document.getElementById('searchInput')?.addEventListener('input', function(e) {
+    // Búsqueda y filtrado
+    document.getElementById('searchInput').addEventListener('input', function(e) {
         const query = e.target.value.toLowerCase();
         const filterRole = document.getElementById('filterRole').value;
         
         document.querySelectorAll('.member-animated').forEach(card => {
-            const member = card.querySelector('.member-card')?.getAttribute('data-member');
-            const memberData = membersData[member];
-            
-            if (!memberData) return;
-            
-            const matchSearch = memberData.name.toLowerCase().includes(query) || memberData.role.toLowerCase().includes(query);
-            const matchRole = !filterRole || memberData.role.includes(filterRole);
+            const cardText = card.textContent.toLowerCase();
+            const matchSearch = cardText.includes(query);
+            const matchRole = !filterRole || cardText.includes(filterRole.toLowerCase());
             
             card.style.display = (matchSearch && matchRole) ? '' : 'none';
         });
     });
 
-    document.getElementById('filterRole')?.addEventListener('change', function(e) {
+    document.getElementById('filterRole').addEventListener('change', function(e) {
         const filterRole = e.target.value;
         const searchQuery = document.getElementById('searchInput').value.toLowerCase();
         
         document.querySelectorAll('.member-animated').forEach(card => {
-            const member = card.querySelector('.member-card')?.getAttribute('data-member');
-            const memberData = membersData[member];
-            
-            if (!memberData) return;
-            
-            const matchSearch = memberData.name.toLowerCase().includes(searchQuery) || memberData.role.toLowerCase().includes(searchQuery);
-            const matchRole = !filterRole || memberData.role.includes(filterRole);
+            const cardText = card.textContent.toLowerCase();
+            const matchSearch = cardText.includes(searchQuery);
+            const matchRole = !filterRole || cardText.includes(filterRole.toLowerCase());
             
             card.style.display = (matchSearch && matchRole) ? '' : 'none';
         });
     });
 
-    document.getElementById('sortBy')?.addEventListener('change', function(e) {
+    document.getElementById('sortBy').addEventListener('change', function(e) {
         const sortBy = e.target.value;
-        const container = document.querySelector('.row:has(.member-animated)');
+        const container = document.getElementById('membersContainer');
         const cards = Array.from(container.querySelectorAll('.member-animated'));
         
         cards.sort((a, b) => {
-            const memberA = a.querySelector('.member-card')?.getAttribute('data-member');
-            const memberB = b.querySelector('.member-card')?.getAttribute('data-member');
-            const dataA = membersData[memberA];
-            const dataB = membersData[memberB];
+            const getNumber = (card, type) => {
+                const text = card.textContent;
+                if (type === 'xp') {
+                    const match = text.match(/(\d+)\s*XP/);
+                    return match ? parseInt(match[1]) : 0;
+                }
+                if (type === 'proyectos') {
+                    const match = text.match(/(\d+)\s*Proyectos/);
+                    return match ? parseInt(match[1]) : 0;
+                }
+                if (type === 'stars') {
+                    const match = text.match(/(\d+)\s*Stars/);
+                    return match ? parseInt(match[1]) : 0;
+                }
+                return 0;
+            };
             
-            if (sortBy === 'xp') return dataB.xp - dataA.xp;
-            if (sortBy === 'proyectos') return dataB.proyectos - dataA.proyectos;
-            if (sortBy === 'stars') return dataB.stars - dataA.stars;
-            if (sortBy === 'nombre') return dataA.name.localeCompare(dataB.name);
-            return 0;
+            if (sortBy === 'nombre') {
+                const nameA = a.querySelector('h5').textContent;
+                const nameB = b.querySelector('h5').textContent;
+                return nameA.localeCompare(nameB);
+            }
+            
+            return getNumber(b, sortBy) - getNumber(a, sortBy);
         });
         
         cards.forEach(card => container.appendChild(card));
     });
 
-    // Función para abrir modal con datos del miembro
-    function openMemberModal(e) {
-        const memberId = e.currentTarget.getAttribute('data-member');
-        const member = membersData[memberId];
+    // Inicializar al cargar la página
+    document.addEventListener('DOMContentLoaded', function() {
+        renderMembersCarousel();
+        renderTop3();
+        renderAllMembers();
         
-        if (member) {
-            document.getElementById('modalAvatar').src = member.avatar;
-            document.getElementById('modalName').textContent = member.name;
-            document.getElementById('modalRole').textContent = member.role;
-            document.getElementById('modalBio').textContent = member.bio;
-            document.getElementById('modalProjects').textContent = member.proyectos;
-            document.getElementById('modalStars').textContent = member.stars;
-            document.getElementById('modalXP').textContent = member.xp;
-            document.getElementById('modalLevel').textContent = member.nivel;
-            document.getElementById('modalAchievements').textContent = member.achievements;
-            document.getElementById('modalXPPct').textContent = Math.round((member.xp % 1000) / 10);
-            document.getElementById('levelProgress').style.width = Math.round((member.xp % 1000) / 10) + '%';
-            
-            // Proyectos
-            const proyectosHTML = member.proyectosRecientes.map(p => `
-                <div class="card bg-card mb-2">
-                    <div class="card-body p-3">
-                        <h6 class="fw-bold mb-1">${p.title}</h6>
-                        <small class="text-muted">${p.desc}</small>
-                    </div>
-                </div>
-            `).join('');
-            document.getElementById('modalProyectos').innerHTML = proyectosHTML;
-            
-            // Skills con estilos mejorados
-            const skillsHTML = member.skills.map(s => `<span class="badge badge-skill">${s}</span>`).join('');
-            document.getElementById('modalSkills').innerHTML = skillsHTML;
-            
-            // Badges/Logros
-            const badgesHTML = member.badges.map(b => `
-                <span class="badge bg-warning text-dark me-2 mb-2">
-                    <span class="material-symbols-outlined" style="font-size: 14px; vertical-align: middle;">emoji_events</span>
-                    ${b}
-                </span>
-            `).join('');
-            document.getElementById('modalBadges').innerHTML = badgesHTML;
-        }
-    }
-
-    // Función para abrir modal desde el carrusel
-    function openMemberModalCarousel(memberId) {
-        const member = membersData[memberId];
-        
-        if (member) {
-            document.getElementById('modalAvatar').src = member.avatar;
-            document.getElementById('modalName').textContent = member.name;
-            document.getElementById('modalRole').textContent = member.role;
-            document.getElementById('modalBio').textContent = member.bio;
-            document.getElementById('modalProjects').textContent = member.proyectos;
-            document.getElementById('modalStars').textContent = member.stars;
-            document.getElementById('modalXP').textContent = member.xp;
-            document.getElementById('modalLevel').textContent = member.nivel;
-            document.getElementById('modalAchievements').textContent = member.achievements;
-            document.getElementById('modalXPPct').textContent = Math.round((member.xp % 1000) / 10);
-            document.getElementById('levelProgress').style.width = Math.round((member.xp % 1000) / 10) + '%';
-            
-            // Proyectos
-            const proyectosHTML = member.proyectosRecientes.map(p => `
-                <div class="card bg-card mb-2">
-                    <div class="card-body p-3">
-                        <h6 class="fw-bold mb-1">${p.title}</h6>
-                        <small class="text-muted">${p.desc}</small>
-                    </div>
-                </div>
-            `).join('');
-            document.getElementById('modalProyectos').innerHTML = proyectosHTML;
-            
-            // Skills con estilos mejorados
-            const skillsHTML = member.skills.map(s => `<span class="badge badge-skill">${s}</span>`).join('');
-            document.getElementById('modalSkills').innerHTML = skillsHTML;
-            
-            // Badges/Logros
-            const badgesHTML = member.badges.map(b => `
-                <span class="badge bg-warning text-dark me-2 mb-2">
-                    <span class="material-symbols-outlined" style="font-size: 14px; vertical-align: middle;">emoji_events</span>
-                    ${b}
-                </span>
-            `).join('');
-            document.getElementById('modalBadges').innerHTML = badgesHTML;
-            
-            // Abrir modal
-            const modal = new bootstrap.Modal(document.getElementById('memberModal'));
-            modal.show();
-        }
-    }
-
-    // Event listeners para abrir modal (miembros regulares)
-    // Inicializar página
-    renderAllMembers();
-    renderMembersCarousel();
-    renderTop3();
+        // Inicializar el carrusel de Bootstrap
+        const carouselElement = document.getElementById('membersCarousel');
+        const carousel = new bootstrap.Carousel(carouselElement, {
+            interval: 4000,  // Cambia cada 4 segundos
+            wrap: true,
+            keyboard: true,
+            pause: 'hover',  // Se pausa al hacer hover
+            ride: 'carousel'  // Inicia automáticamente
+        });
+    });
 </script>
+
+</body>
 </html>
