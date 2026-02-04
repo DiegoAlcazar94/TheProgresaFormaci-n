@@ -13,6 +13,64 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     
     <link rel="stylesheet" href="../css/Style.css">
+    
+    <style>
+        /* Animaciones para miembros */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 2px 8px rgba(37, 89, 244, 0.1);
+            }
+            50% {
+                box-shadow: 0 4px 20px rgba(37, 89, 244, 0.25);
+            }
+        }
+        
+        @keyframes scaleHover {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+        
+        @keyframes rotateAvatar {
+            from { transform: rotate(-5deg); }
+            to { transform: rotate(5deg); }
+        }
+        
+        .member-animated {
+            animation: slideInUp 0.6s ease-out forwards;
+            animation-delay: calc(0.1s * var(--index, 1));
+        }
+        
+        .member-animated .card {
+            transition: all 0.3s ease;
+        }
+        
+        .member-animated .card:hover {
+            animation: scaleHover 0.4s ease-in-out forwards;
+        }
+        
+        .member-animated img {
+            transition: transform 0.3s ease;
+        }
+        
+        .member-animated:hover img {
+            animation: rotateAvatar 0.6s ease-in-out;
+        }
+        
+        .member-card {
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body class="font-display">
 
@@ -155,8 +213,8 @@
     <h3 class="fw-bold mb-4">Miembros Destacados</h3>
     <div class="row g-4">
         <!-- Member 1 -->
-        <div class="col-md-4 col-sm-6">
-            <div class="card bg-card neon-hover h-100">
+        <div class="col-md-4 col-sm-6 member-animated" style="--index: 1;">
+            <div class="card bg-card neon-hover h-100 member-card" data-member="sarah" data-bs-toggle="modal" data-bs-target="#memberModal">
                 <div class="card-body text-center p-4">
                     <img src="https://i.pravatar.cc/100?img=1" 
                          class="rounded-circle border border-primary mb-3" 
@@ -187,8 +245,8 @@
         </div>
 
         <!-- Member 2 -->
-        <div class="col-md-4 col-sm-6">
-            <div class="card bg-card neon-hover h-100">
+        <div class="col-md-4 col-sm-6 member-animated" style="--index: 2;">
+            <div class="card bg-card neon-hover h-100 member-card" data-member="diego" data-bs-toggle="modal" data-bs-target="#memberModal">
                 <div class="card-body text-center p-4">
                     <img src="https://i.pravatar.cc/100?img=33" 
                          class="rounded-circle border border-primary mb-3" 
@@ -219,8 +277,8 @@
         </div>
 
         <!-- Member 3 -->
-        <div class="col-md-4 col-sm-6">
-            <div class="card bg-card neon-hover h-100">
+        <div class="col-md-4 col-sm-6 member-animated" style="--index: 3;">
+            <div class="card bg-card neon-hover h-100 member-card" data-member="alex" data-bs-toggle="modal" data-bs-target="#memberModal">
                 <div class="card-body text-center p-4">
                     <img src="https://i.pravatar.cc/100?img=45" 
                          class="rounded-circle border border-primary mb-3" 
@@ -251,8 +309,8 @@
         </div>
 
         <!-- Member 4 -->
-        <div class="col-md-4 col-sm-6">
-            <div class="card bg-card neon-hover h-100">
+        <div class="col-md-4 col-sm-6 member-animated" style="--index: 4;">
+            <div class="card bg-card neon-hover h-100 member-card" data-member="charmander" data-bs-toggle="modal" data-bs-target="#memberModal">
                 <div class="card-body text-center p-4">
                     <img src="https://i.pravatar.cc/100?img=27" 
                          class="rounded-circle border border-primary mb-3" 
@@ -283,8 +341,8 @@
         </div>
 
         <!-- Member 5 -->
-        <div class="col-md-4 col-sm-6">
-            <div class="card bg-card neon-hover h-100">
+        <div class="col-md-4 col-sm-6 member-animated" style="--index: 5;">
+            <div class="card bg-card neon-hover h-100 member-card" data-member="maria" data-bs-toggle="modal" data-bs-target="#memberModal">
                 <div class="card-body text-center p-4">
                     <img src="https://i.pravatar.cc/100?img=15" 
                          class="rounded-circle border border-primary mb-3" 
@@ -315,8 +373,8 @@
         </div>
 
         <!-- Member 6 -->
-        <div class="col-md-4 col-sm-6">
-            <div class="card bg-card neon-hover h-100">
+        <div class="col-md-4 col-sm-6 member-animated" style="--index: 6;">
+            <div class="card bg-card neon-hover h-100 member-card" data-member="carlos" data-bs-toggle="modal" data-bs-target="#memberModal">
                 <div class="card-body text-center p-4">
                     <img src="https://i.pravatar.cc/100?img=52" 
                          class="rounded-circle border border-primary mb-3" 

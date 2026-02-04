@@ -312,3 +312,101 @@ footer {
 .nav-link:hover {
   color: var(--primary) !important;
 }
+
+/* ================= ANIMATIONS ================= */
+
+/* Fade in up animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-badge {
+  animation: fadeInUp 0.6s ease-out 0.1s both;
+}
+
+.animate-title {
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.animate-subtitle {
+  animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+.animate-stat {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.animate-members-title {
+  animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+/* Scale up animation for cards */
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.card {
+  animation: scaleUp 0.5s ease-out;
+}
+
+/* Spin animation for loading */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ================= MEMBER CARDS STYLES ================= */
+
+.member-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.member-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(37, 89, 244, 0.2);
+}
+
+/* Modal enhancements */
+.modal-content {
+  box-shadow: 0 10px 40px rgba(37, 89, 244, 0.15);
+  border-radius: 12px;
+}
+
+.modal-header {
+  border-radius: 12px 12px 0 0;
+}
+
+/* Badge enhancements in modals */
+.modal-body .badge {
+  font-size: 12px;
+  padding: 8px 16px;
+  margin: 4px;
+}
+
+/* Counter animation - smooth increase */
+.counter {
+  font-variant-numeric: tabular-nums;
+}
