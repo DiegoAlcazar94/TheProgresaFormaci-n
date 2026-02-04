@@ -426,6 +426,15 @@ body.theme-dark footer {
   transform: rotate(-180deg);
 }
 
+/* Colores específicos para el icono: sol (claro) y luna (oscuro) */
+.sun-icon { color: #ffcc33; }
+.moon-icon { color: #f1f5f9; }
+
+:root[data-theme="dark"] .sun-icon,
+body.theme-dark .sun-icon {
+  color: #ffd57a;
+}
+
 /* Cuando está en dark mode */
 :root[data-theme="dark"] .sun-icon,
 body.theme-dark .sun-icon {
