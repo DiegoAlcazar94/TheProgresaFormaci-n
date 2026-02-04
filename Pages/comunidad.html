@@ -414,6 +414,76 @@
     </div>
 </main>
 
+<!-- ================= MEMBER MODAL ================= -->
+<div class="modal fade" id="memberModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary bg-opacity-10 border-primary">
+                <div class="d-flex align-items-center w-100">
+                    <img id="modalAvatar" src="" alt="Avatar" class="rounded-circle border border-primary me-3" width="80" height="80">
+                    <div class="flex-grow-1">
+                        <h5 class="modal-title fw-bold mb-0" id="modalName"></h5>
+                        <p class="text-muted small mb-0" id="modalRole"></p>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <!-- Descripción -->
+                <p id="modalBio" class="text-secondary mb-4"></p>
+                
+                <!-- Stats -->
+                <div class="row g-3 mb-4">
+                    <div class="col-md-3">
+                        <div class="card bg-card p-3 text-center">
+                            <span class="material-symbols-outlined text-primary mb-2" style="font-size: 28px;">code</span>
+                            <h4 class="fw-bold mb-0" id="modalProjects">0</h4>
+                            <small class="text-muted">Proyectos</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-card p-3 text-center">
+                            <span class="material-symbols-outlined text-primary mb-2" style="font-size: 28px;">star</span>
+                            <h4 class="fw-bold mb-0" id="modalStars">0</h4>
+                            <small class="text-muted">Stars</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-card p-3 text-center">
+                            <span class="material-symbols-outlined text-primary mb-2" style="font-size: 28px;">flash_on</span>
+                            <h4 class="fw-bold mb-0" id="modalXP">0</h4>
+                            <small class="text-muted">XP</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-card p-3 text-center">
+                            <span class="material-symbols-outlined text-primary mb-2" style="font-size: 28px;">trending_up</span>
+                            <h4 class="fw-bold mb-0" id="modalLevel">0</h4>
+                            <small class="text-muted">Nivel</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Proyectos Recientes -->
+                <h6 class="fw-bold mb-3">Proyectos Recientes</h6>
+                <div id="modalProyectos" class="mb-4">
+                    <!-- Se llena dinámicamente -->
+                </div>
+                
+                <!-- Skills -->
+                <h6 class="fw-bold mb-3">Habilidades</h6>
+                <div id="modalSkills" class="mb-3">
+                    <!-- Se llena dinámicamente -->
+                </div>
+            </div>
+            <div class="modal-footer border-top">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Ver Perfil Completo</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- ================= FOOTER ================= -->
 <footer class="bg-black border-top border-secondary mt-5 py-4">
     <div class="container-xl">
@@ -434,5 +504,141 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../js/script.js"></script>
-</body>
+
+<script>
+    // Datos de miembros con información adicional
+    const membersData = {
+        sarah: {
+            name: 'Sarah.js',
+            role: 'Fullstack Master',
+            avatar: 'https://i.pravatar.cc/100?img=1',
+            xp: 9850,
+            nivel: 12,
+            bio: 'Desarrolladora fullstack apasionada por crear aplicaciones web escalables. Con más de 5 años de experiencia en JavaScript, React y Node.js.',
+            proyectos: 42,
+            stars: 156,
+            proyectosRecientes: [
+                { title: 'E-Commerce Dashboard', desc: 'Panel de admin con gráficos en tiempo real' },
+                { title: 'Chat App', desc: 'Aplicación de chat con WebSockets' },
+                { title: 'Blog Platform', desc: 'Plataforma de blogs con CMS integrado' }
+            ],
+            skills: ['JavaScript', 'React', 'Node.js', 'MongoDB', 'Docker', 'AWS']
+        },
+        diego: {
+            name: 'Diego.C#',
+            role: 'Backend Developer',
+            avatar: 'https://i.pravatar.cc/100?img=33',
+            xp: 9250,
+            nivel: 11,
+            bio: 'Especialista en backend con enfoque en arquitectura de microservicios. Experto en C# y .NET Framework.',
+            proyectos: 38,
+            stars: 142,
+            proyectosRecientes: [
+                { title: 'API REST', desc: 'API escalable con .NET 6' },
+                { title: 'Sistema de Autenticación', desc: 'OAuth2 con JWT tokens' },
+                { title: 'Database Optimizer', desc: 'Herramienta de optimización SQL' }
+            ],
+            skills: ['C#', '.NET', 'SQL Server', 'Docker', 'Kubernetes', 'Microservicios']
+        },
+        alex: {
+            name: 'Alex.Js',
+            role: 'Frontend Specialist',
+            avatar: 'https://i.pravatar.cc/100?img=45',
+            xp: 8720,
+            nivel: 10,
+            bio: 'Diseñador frontend dedicado a crear experiencias de usuario increíbles. Experto en CSS animations y UX.',
+            proyectos: 35,
+            stars: 128,
+            proyectosRecientes: [
+                { title: 'UI Component Library', desc: 'Librería de componentes reutilizables' },
+                { title: 'Design System', desc: 'Sistema de diseño completo' },
+                { title: 'Portfolio Website', desc: 'Sitio personal con animaciones avanzadas' }
+            ],
+            skills: ['CSS3', 'SASS', 'Figma', 'Vue.js', 'Tailwind CSS', 'Animations']
+        },
+        charmander: {
+            name: 'Charmander.Js',
+            role: 'React Developer',
+            avatar: 'https://i.pravatar.cc/100?img=27',
+            xp: 8105,
+            nivel: 9,
+            bio: 'Desarrollador React especializado en aplicaciones de alto rendimiento. Contribuidor activo en proyectos open source.',
+            proyectos: 30,
+            stars: 115,
+            proyectosRecientes: [
+                { title: 'React Testing Library', desc: 'Suite de testing para componentes' },
+                { title: 'State Management', desc: 'Sistema de estado con Redux' },
+                { title: 'Performance Analyzer', desc: 'Herramienta de análisis de rendimiento' }
+            ],
+            skills: ['React', 'Redux', 'Testing', 'GraphQL', 'Next.js', 'Performance']
+        },
+        maria: {
+            name: 'Maria.Py',
+            role: 'Data Analyst',
+            avatar: 'https://i.pravatar.cc/100?img=15',
+            xp: 7890,
+            nivel: 9,
+            bio: 'Analista de datos con pasión por convertir datos en insights. Experta en Python y visualización de datos.',
+            proyectos: 28,
+            stars: 98,
+            proyectosRecientes: [
+                { title: 'Data Dashboard', desc: 'Dashboard interactivo con Plotly' },
+                { title: 'ML Model', desc: 'Modelo de predicción con TensorFlow' },
+                { title: 'Analytics Engine', desc: 'Motor de análisis de datos en tiempo real' }
+            ],
+            skills: ['Python', 'Pandas', 'Matplotlib', 'Machine Learning', 'SQL', 'Data Viz']
+        },
+        carlos: {
+            name: 'Carlos.Java',
+            role: 'Mobile Developer',
+            avatar: 'https://i.pravatar.cc/100?img=52',
+            xp: 7650,
+            nivel: 8,
+            bio: 'Desarrollador móvil enfocado en crear apps nativas de alta calidad. Especialista en Android e iOS.',
+            proyectos: 25,
+            stars: 87,
+            proyectosRecientes: [
+                { title: 'Fitness App', desc: 'Aplicación de entrenamiento personalizado' },
+                { title: 'Banking App', desc: 'App segura de banca móvil' },
+                { title: 'Social Network', desc: 'Red social con chat en tiempo real' }
+            ],
+            skills: ['Java', 'Kotlin', 'Swift', 'Firebase', 'ARKit', 'Android Native']
+        }
+    };
+
+    // Event listener para abrir modal con datos del miembro
+    document.querySelectorAll('.member-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+            const memberId = this.getAttribute('data-member');
+            const member = membersData[memberId];
+            
+            if (member) {
+                // Llenar modal con datos
+                document.getElementById('modalAvatar').src = member.avatar;
+                document.getElementById('modalName').textContent = member.name;
+                document.getElementById('modalRole').textContent = member.role;
+                document.getElementById('modalBio').textContent = member.bio;
+                document.getElementById('modalProjects').textContent = member.proyectos;
+                document.getElementById('modalStars').textContent = member.stars;
+                document.getElementById('modalXP').textContent = member.xp;
+                document.getElementById('modalLevel').textContent = member.nivel;
+                
+                // Proyectos recientes
+                const proyectosHTML = member.proyectosRecientes.map(p => `
+                    <div class="card bg-card mb-2">
+                        <div class="card-body p-3">
+                            <h6 class="fw-bold mb-1">${p.title}</h6>
+                            <small class="text-muted">${p.desc}</small>
+                        </div>
+                    </div>
+                `).join('');
+                document.getElementById('modalProyectos').innerHTML = proyectosHTML;
+                
+                // Skills
+                const skillsHTML = member.skills.map(s => `<span class="badge bg-primary me-2 mb-2">${s}</span>`).join('');
+                document.getElementById('modalSkills').innerHTML = skillsHTML;
+            }
+        });
+    });
+</script>
 </html>
