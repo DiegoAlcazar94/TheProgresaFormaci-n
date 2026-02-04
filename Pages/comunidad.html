@@ -15,51 +15,74 @@
     <style>
         :root {
             --primary: #2559f4;
-            --secondary: #6c757d;
-            --dark: #0a0a0a;
-            --light: #f8f9fa;
+            --primary-light: #4a7ff7;
+            --secondary: #f42588;
+            --bg: #f8f9fa;
+            --bg-white: #ffffff;
+            --card: #ffffff;
+            --card-border: #e1e8f0;
+            --cyan: #00d4ff;
+            --text-dark: #1a1d26;
+            --text-muted: #6c757d;
+            --shadow-sm: rgba(37, 89, 244, 0.08);
         }
 
+        /* Base */
         body {
+            background: var(--bg);
+            font-family: 'Noto Sans', sans-serif;
+            color: var(--text-dark);
+        }
+
+        .font-display {
             font-family: 'Space Grotesk', sans-serif;
-            background-color: #0a0a0a;
-            color: #ffffff;
         }
 
-        .bg-card {
-            background: #1a1a1a;
-            border: 1px solid rgba(37, 89, 244, 0.2);
-        }
-
+        /* Glass Header */
         .glass {
-            background: rgba(26, 26, 26, 0.8);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
         }
 
-        .gradient-text {
-            background: linear-gradient(135deg, var(--primary), #00d4ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .glass.scrolled {
+            background: linear-gradient(180deg, 
+                rgba(255, 255, 255, 0.98) 0%, 
+                rgba(248, 249, 250, 0.95) 100%);
+            box-shadow: 0 4px 20px rgba(37, 89, 244, 0.1);
         }
 
-        .neon-text {
-            text-shadow: 0 0 10px rgba(37, 89, 244, 0.5);
+        .logo-img {
+            height: 42px;
+            width: auto;
+            object-fit: contain;
         }
 
-        .neon-hover {
+        /* Cards */
+        .bg-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 2px 8px var(--shadow-sm);
             transition: all 0.3s ease;
         }
 
         .neon-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(37, 89, 244, 0.3);
+            box-shadow: 0 4px 20px rgba(37, 89, 244, 0.15);
+            border-color: var(--primary-light);
+            transform: translateY(-2px);
         }
 
-        .logo-img {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
+        /* Text effects */
+        .neon-text {
+            text-shadow: 0 0 20px rgba(37, 89, 244, 0.3);
+            color: var(--text-dark);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         /* Animaciones */
@@ -85,17 +108,14 @@
             }
         }
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                box-shadow: 0 2px 8px rgba(37, 89, 244, 0.1);
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
-            50% {
-                box-shadow: 0 4px 20px rgba(37, 89, 244, 0.25);
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
@@ -117,14 +137,17 @@
         }
 
         .member-card:hover {
-            transform: scale(1.05);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(37, 89, 244, 0.2);
         }
 
-        /* Estilos del Carrusel - CORREGIDOS */
+        /* Estilos del Carrusel */
         #membersCarousel {
-            background: rgba(26, 26, 26, 0.5);
+            background: var(--card);
             border-radius: 16px;
             padding: 20px;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 2px 8px var(--shadow-sm);
         }
 
         .carousel-item {
@@ -137,15 +160,15 @@
             margin: 0 auto;
             cursor: pointer;
             transition: all 0.3s ease;
-            background: linear-gradient(135deg, rgba(37, 89, 244, 0.15), rgba(0, 212, 255, 0.08));
-            border: 2px solid rgba(37, 89, 244, 0.4);
+            background: linear-gradient(135deg, rgba(37, 89, 244, 0.05), rgba(0, 212, 255, 0.03));
+            border: 2px solid var(--card-border);
             border-radius: 16px;
             padding: 30px;
         }
 
         .carousel-member-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(37, 89, 244, 0.4);
+            box-shadow: 0 15px 35px rgba(37, 89, 244, 0.15);
             border-color: var(--primary);
         }
 
@@ -176,7 +199,7 @@
 
         .carousel-member-stats .stat {
             padding: 15px;
-            background: rgba(37, 89, 244, 0.8);
+            background: var(--primary);
             color: white;
             border-radius: 10px;
             font-size: 13px;
@@ -186,7 +209,7 @@
 
         .carousel-member-stats .stat:hover {
             transform: scale(1.05);
-            background: var(--primary);
+            background: var(--primary-light);
         }
 
         .carousel-member-stats .stat strong {
@@ -196,7 +219,7 @@
             font-weight: 700;
         }
 
-        /* Controles del carrusel mejorados */
+        /* Controles del carrusel */
         .carousel-control-prev,
         .carousel-control-next {
             width: 50px;
@@ -237,7 +260,7 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background-color: rgba(37, 89, 244, 0.5);
+            background-color: rgba(37, 89, 244, 0.3);
             border: none;
         }
 
@@ -247,7 +270,7 @@
         }
 
         .btn-view-profile {
-            background: linear-gradient(135deg, var(--primary), #00d4ff);
+            background: linear-gradient(135deg, var(--primary), var(--cyan));
             border: none;
             color: white;
             padding: 12px 24px;
@@ -270,7 +293,7 @@
             position: relative;
             padding: 24px;
             border-radius: 12px;
-            background: linear-gradient(135deg, rgba(37, 89, 244, 0.1), rgba(0, 212, 255, 0.05));
+            background: linear-gradient(135deg, rgba(37, 89, 244, 0.05), rgba(0, 212, 255, 0.03));
             border: 2px solid var(--primary);
             text-align: center;
             transition: all 0.3s ease;
@@ -292,54 +315,58 @@
 
         /* Modal Styles */
         .modal-content {
-            background: #1a1a1a;
-            border: 1px solid rgba(37, 89, 244, 0.3);
-            color: white;
+            background: var(--bg-white);
+            border: 1px solid var(--card-border);
+            color: var(--text-dark);
+            box-shadow: 0 10px 40px rgba(37, 89, 244, 0.15);
+            border-radius: 12px;
         }
 
         .modal-header {
-            border-bottom: 1px solid rgba(37, 89, 244, 0.3);
+            border-bottom: 1px solid var(--card-border);
+            border-radius: 12px 12px 0 0;
         }
 
         .modal-footer {
-            border-top: 1px solid rgba(37, 89, 244, 0.3);
+            border-top: 1px solid var(--card-border);
         }
 
         .badge-skill {
-            background: linear-gradient(90deg, var(--primary), #00d4ff);
-            padding: 6px 12px;
+            background: linear-gradient(90deg, var(--primary), var(--cyan));
+            padding: 8px 16px;
             border-radius: 20px;
             font-size: 12px;
-            margin-right: 8px;
-            margin-bottom: 8px;
+            margin: 4px;
             display: inline-block;
+            color: white;
         }
 
         .progress {
-            background-color: rgba(37, 89, 244, 0.2);
+            background-color: rgba(37, 89, 244, 0.1);
         }
 
         .progress-bar {
-            background: linear-gradient(90deg, var(--primary), #00d4ff);
+            background: linear-gradient(90deg, var(--primary), var(--cyan));
         }
 
         /* Dropdown styles */
         .dropdown-menu {
-            background: #1a1a1a;
-            border: 1px solid rgba(37, 89, 244, 0.3);
+            background: var(--bg-white);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 4px 12px var(--shadow-sm);
         }
 
         .dropdown-item {
-            color: white;
+            color: var(--text-dark);
         }
 
         .dropdown-item:hover {
-            background: rgba(37, 89, 244, 0.2);
-            color: white;
+            background: rgba(37, 89, 244, 0.05);
+            color: var(--primary);
         }
 
         .dropdown-divider {
-            border-color: rgba(37, 89, 244, 0.3);
+            border-color: var(--card-border);
         }
 
         /* Estilos adicionales para el carrusel */
@@ -352,22 +379,149 @@
         .carousel-member-card h5 {
             font-size: 24px;
             margin-bottom: 8px;
+            color: var(--text-dark);
         }
 
         .carousel-member-card .text-muted {
-            color: #888 !important;
+            color: var(--text-muted) !important;
             font-size: 14px;
         }
 
         .carousel-member-card .bio-text {
-            color: #aaa;
+            color: var(--text-muted);
             font-size: 13px;
             line-height: 1.6;
             margin: 15px 0;
         }
+
+        /* Buttons */
+        .btn-primary {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            border-color: var(--primary-light);
+            box-shadow: 0 4px 12px rgba(37, 89, 244, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-primary {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .btn-outline-light {
+            border-color: var(--card-border);
+            color: var(--text-dark);
+            background: var(--bg-white);
+        }
+
+        .btn-outline-light:hover {
+            background: var(--bg);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline-secondary {
+            border-color: var(--card-border);
+            color: var(--text-muted);
+        }
+
+        .btn-outline-secondary:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        /* Input styling */
+        .form-control {
+            background: var(--bg-white);
+            border-color: var(--card-border);
+            color: var(--text-dark);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.2rem rgba(37, 89, 244, 0.15);
+            background: var(--bg-white);
+            color: var(--text-dark);
+        }
+
+        .form-control::placeholder {
+            color: var(--text-muted);
+        }
+
+        .input-group-text {
+            background: var(--bg-white);
+            border-color: var(--card-border);
+            color: var(--text-dark);
+        }
+
+        .form-select {
+            background: var(--bg-white);
+            border-color: var(--card-border);
+            color: var(--text-dark);
+        }
+
+        .form-select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.2rem rgba(37, 89, 244, 0.15);
+        }
+
+        /* Nav links */
+        .nav-link {
+            transition: all 0.2s ease;
+            color: var(--text-muted);
+        }
+
+        .nav-link:hover {
+            color: var(--primary) !important;
+        }
+
+        /* Text colors */
+        .text-secondary {
+            color: var(--text-muted) !important;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+        }
+
+        /* Badges */
+        .badge {
+            font-weight: 500;
+            padding: 6px 12px;
+        }
+
+        .bg-primary {
+            background-color: var(--primary) !important;
+        }
+
+        /* Modal body badges */
+        .modal-body .badge {
+            font-size: 12px;
+            padding: 8px 16px;
+            margin: 4px;
+        }
+
+        .btn-close {
+            filter: invert(0);
+        }
     </style>
 </head>
-<body>
+<body class="font-display">
 
 <!-- ================= HEADER ================= -->
 <header class="sticky-top glass border-bottom border-primary-subtle">
@@ -385,10 +539,10 @@
 
             <div class="col d-none d-md-block">
                 <div class="row justify-content-center">
-                    <div class="col-auto"><a class="nav-link text-secondary" href="../index.html">Inicio</a></div>
-                    <div class="col-auto"><a class="nav-link text-secondary" href="https://github.com" target="_blank">Proyectos</a></div>
-                    <div class="col-auto"><a class="nav-link text-secondary" href="contacto.html">Contacto</a></div>
-                    <div class="col-auto"><a class="nav-link text-light fw-bold border-bottom border-primary" href="comunidad.html">Comunidad</a></div>
+                    <div class="col-auto"><a class="nav-link" href="../index.html">Inicio</a></div>
+                    <div class="col-auto"><a class="nav-link" href="https://github.com" target="_blank">Proyectos</a></div>
+                    <div class="col-auto"><a class="nav-link" href="contacto.html">Contacto</a></div>
+                    <div class="col-auto"><a class="nav-link fw-bold border-bottom border-primary" style="color: var(--primary) !important;" href="comunidad.html">Comunidad</a></div>
                 </div>
             </div>
 
@@ -450,14 +604,14 @@
         <div class="row g-3 align-items-center">
             <div class="col-md-6">
                 <div class="input-group">
-                    <span class="input-group-text bg-dark border-primary text-white">
+                    <span class="input-group-text border-primary">
                         <span class="material-symbols-outlined">search</span>
                     </span>
-                    <input type="text" id="searchInput" class="form-control bg-dark border-primary text-white" placeholder="Buscar por nombre o rol...">
+                    <input type="text" id="searchInput" class="form-control border-primary" placeholder="Buscar por nombre o rol...">
                 </div>
             </div>
             <div class="col-md-3">
-                <select id="filterRole" class="form-select bg-dark border-primary text-white">
+                <select id="filterRole" class="form-select border-primary">
                     <option value="">Todos los roles</option>
                     <option value="Fullstack">Fullstack</option>
                     <option value="Backend">Backend</option>
@@ -468,7 +622,7 @@
                 </select>
             </div>
             <div class="col-md-3">
-                <select id="sortBy" class="form-select bg-dark border-primary text-white">
+                <select id="sortBy" class="form-select border-primary">
                     <option value="xp">Ordenar por XP</option>
                     <option value="proyectos">Por Proyectos</option>
                     <option value="stars">Por Stars</option>
@@ -511,7 +665,7 @@
         </div>
     </div>
 
-    <!-- Miembros Carrusel MEJORADO -->
+    <!-- Miembros Carrusel -->
     <div class="mb-5">
         <h3 class="fw-bold mb-4 text-center">👥 Conoce a Nuestros Miembros</h3>
         <div id="membersCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -540,7 +694,7 @@
 
     <!-- Load More Button -->
     <div class="text-center mt-5">
-        <button class="btn btn-outline-light btn-lg px-5">
+        <button class="btn btn-outline-secondary btn-lg px-5">
             <span class="material-symbols-outlined me-2" style="font-size: 20px; vertical-align: middle;">refresh</span>
             Cargar más miembros
         </button>
@@ -558,7 +712,7 @@
                         <h5 class="modal-title fw-bold mb-0" id="modalName"></h5>
                         <p class="text-muted small mb-0" id="modalRole"></p>
                     </div>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
             </div>
             <div class="modal-body">
@@ -854,7 +1008,7 @@
         modal.show();
     }
 
-    // Función para renderizar el carrusel - MEJORADA
+    // Función para renderizar el carrusel
     function renderMembersCarousel() {
         const carouselContent = document.getElementById('carouselContent');
         const carouselIndicators = document.getElementById('carouselIndicators');
