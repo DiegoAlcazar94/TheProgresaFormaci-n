@@ -27,7 +27,6 @@
             --shadow-sm: rgba(37, 89, 244, 0.08);
         }
 
-        /* Base */
         body {
             background: var(--bg);
             font-family: 'Noto Sans', sans-serif;
@@ -38,18 +37,10 @@
             font-family: 'Space Grotesk', sans-serif;
         }
 
-        /* Glass Header */
         .glass {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
-        }
-
-        .glass.scrolled {
-            background: linear-gradient(180deg, 
-                rgba(255, 255, 255, 0.98) 0%, 
-                rgba(248, 249, 250, 0.95) 100%);
-            box-shadow: 0 4px 20px rgba(37, 89, 244, 0.1);
         }
 
         .logo-img {
@@ -58,7 +49,6 @@
             object-fit: contain;
         }
 
-        /* Cards */
         .bg-card {
             background: var(--card);
             border: 1px solid var(--card-border);
@@ -72,7 +62,6 @@
             transform: translateY(-2px);
         }
 
-        /* Text effects */
         .neon-text {
             text-shadow: 0 0 20px rgba(37, 89, 244, 0.3);
             color: var(--text-dark);
@@ -85,7 +74,6 @@
             background-clip: text;
         }
 
-        /* Animaciones */
         @keyframes slideInUp {
             from {
                 opacity: 0;
@@ -105,17 +93,6 @@
             to {
                 opacity: 1;
                 transform: scale(1);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
             }
         }
 
@@ -141,7 +118,6 @@
             box-shadow: 0 12px 24px rgba(37, 89, 244, 0.2);
         }
 
-        /* Estilos del Carrusel */
         #membersCarousel {
             background: var(--card);
             border-radius: 16px;
@@ -219,7 +195,6 @@
             font-weight: 700;
         }
 
-        /* Controles del carrusel */
         .carousel-control-prev,
         .carousel-control-next {
             width: 50px;
@@ -229,13 +204,8 @@
             opacity: 0.9;
         }
 
-        .carousel-control-prev {
-            left: 10px;
-        }
-
-        .carousel-control-next {
-            right: 10px;
-        }
+        .carousel-control-prev { left: 10px; }
+        .carousel-control-next { right: 10px; }
 
         .carousel-control-prev-icon,
         .carousel-control-next-icon {
@@ -246,12 +216,6 @@
             background-size: 60%;
         }
 
-        .carousel-control-prev:hover,
-        .carousel-control-next:hover {
-            opacity: 1;
-        }
-
-        /* Indicadores del carrusel */
         .carousel-indicators {
             bottom: -40px;
         }
@@ -279,7 +243,6 @@
             transition: all 0.3s ease;
             margin-top: 20px;
             width: 100%;
-            font-size: 14px;
         }
 
         .btn-view-profile:hover {
@@ -288,16 +251,13 @@
             color: white;
         }
 
-        /* Top 3 Ranking */
         .top-member-card {
-            position: relative;
             padding: 24px;
             border-radius: 12px;
             background: linear-gradient(135deg, rgba(37, 89, 244, 0.05), rgba(0, 212, 255, 0.03));
             border: 2px solid var(--primary);
             text-align: center;
             transition: all 0.3s ease;
-            animation: zoomIn 0.6s ease-out;
         }
 
         .top-member-card:hover {
@@ -313,22 +273,14 @@
             margin-bottom: 16px;
         }
 
-        /* Modal Styles */
         .modal-content {
             background: var(--bg-white);
             border: 1px solid var(--card-border);
             color: var(--text-dark);
-            box-shadow: 0 10px 40px rgba(37, 89, 244, 0.15);
-            border-radius: 12px;
         }
 
         .modal-header {
             border-bottom: 1px solid var(--card-border);
-            border-radius: 12px 12px 0 0;
-        }
-
-        .modal-footer {
-            border-top: 1px solid var(--card-border);
         }
 
         .badge-skill {
@@ -337,7 +289,6 @@
             border-radius: 20px;
             font-size: 12px;
             margin: 4px;
-            display: inline-block;
             color: white;
         }
 
@@ -349,11 +300,9 @@
             background: linear-gradient(90deg, var(--primary), var(--cyan));
         }
 
-        /* Dropdown styles */
         .dropdown-menu {
             background: var(--bg-white);
             border: 1px solid var(--card-border);
-            box-shadow: 0 4px 12px var(--shadow-sm);
         }
 
         .dropdown-item {
@@ -365,11 +314,6 @@
             color: var(--primary);
         }
 
-        .dropdown-divider {
-            border-color: var(--card-border);
-        }
-
-        /* Estilos adicionales para el carrusel */
         .carousel-inner {
             min-height: 400px;
             display: flex;
@@ -394,92 +338,28 @@
             margin: 15px 0;
         }
 
-        /* Buttons */
         .btn-primary {
             background: var(--primary);
             border-color: var(--primary);
             color: white;
-            transition: all 0.3s ease;
         }
 
         .btn-primary:hover {
             background: var(--primary-light);
             border-color: var(--primary-light);
-            box-shadow: 0 4px 12px rgba(37, 89, 244, 0.3);
-            transform: translateY(-2px);
         }
 
-        .btn-outline-primary {
-            border-color: var(--primary);
-            color: var(--primary);
-            background: transparent;
-        }
-
-        .btn-outline-primary:hover {
-            background: var(--primary);
-            border-color: var(--primary);
-            color: white;
-        }
-
-        .btn-outline-light {
-            border-color: var(--card-border);
-            color: var(--text-dark);
-            background: var(--bg-white);
-        }
-
-        .btn-outline-light:hover {
-            background: var(--bg);
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        .btn-outline-secondary {
-            border-color: var(--card-border);
-            color: var(--text-muted);
-        }
-
-        .btn-outline-secondary:hover {
-            background: var(--primary);
-            border-color: var(--primary);
-            color: white;
-        }
-
-        /* Input styling */
-        .form-control {
+        .form-control, .form-select, .input-group-text {
             background: var(--bg-white);
             border-color: var(--card-border);
             color: var(--text-dark);
         }
 
-        .form-control:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 0.2rem rgba(37, 89, 244, 0.15);
-            background: var(--bg-white);
-            color: var(--text-dark);
-        }
-
-        .form-control::placeholder {
-            color: var(--text-muted);
-        }
-
-        .input-group-text {
-            background: var(--bg-white);
-            border-color: var(--card-border);
-            color: var(--text-dark);
-        }
-
-        .form-select {
-            background: var(--bg-white);
-            border-color: var(--card-border);
-            color: var(--text-dark);
-        }
-
-        .form-select:focus {
+        .form-control:focus, .form-select:focus {
             border-color: var(--primary);
             box-shadow: 0 0 0 0.2rem rgba(37, 89, 244, 0.15);
         }
 
-        /* Nav links */
         .nav-link {
             transition: all 0.2s ease;
             color: var(--text-muted);
@@ -489,107 +369,37 @@
             color: var(--primary) !important;
         }
 
-        /* Text colors */
-        .text-secondary {
-            color: var(--text-muted) !important;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--text-dark);
-        }
-
-        /* Badges */
-        .badge {
-            font-weight: 500;
-            padding: 6px 12px;
-        }
-
         .bg-primary {
             background-color: var(--primary) !important;
-        }
-
-        /* Modal body badges */
-        .modal-body .badge {
-            font-size: 12px;
-            padding: 8px 16px;
-            margin: 4px;
-        }
-
-        .btn-close {
-            filter: invert(0);
         }
     </style>
 </head>
 <body class="font-display">
 
-<!-- ================= HEADER ================= -->
-<header class="sticky-top glass border-bottom border-primary-subtle">
+<header class="sticky-top glass border-bottom">
     <div class="container-xl py-3">
         <div class="row align-items-center">
             <div class="col-auto">
                 <div class="row align-items-center g-3">
-                    <img src="https://www.micole.net/imagenes/colegio/logo/32624/progresa_200.png"
-                         alt="Logo" class="logo-img">
+                    <img src="https://www.micole.net/imagenes/colegio/logo/32624/progresa_200.png" alt="Logo" class="logo-img">
                     <div class="col-auto">
                         <h2 class="mb-0 fw-bold">THE PROGRESA</h2>
                     </div>
                 </div>
             </div>
-
             <div class="col d-none d-md-block">
                 <div class="row justify-content-center">
                     <div class="col-auto"><a class="nav-link" href="../index.html">Inicio</a></div>
-                    <div class="col-auto"><a class="nav-link" href="https://github.com" target="_blank">Proyectos</a></div>
-                    <div class="col-auto"><a class="nav-link" href="contacto.html">Contacto</a></div>
-                    <div class="col-auto"><a class="nav-link fw-bold border-bottom border-primary" style="color: var(--primary) !important;" href="comunidad.html">Comunidad</a></div>
-                </div>
-            </div>
-
-            <div class="col-auto">
-                <div class="row align-items-center g-2">
-                    <div class="col-auto dropdown">
-                        <img class="rounded-circle border border-primary dropdown-toggle" 
-                             width="40"
-                             src="https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png" 
-                             alt="User avatar"
-                             id="userDropdown"
-                             data-bs-toggle="dropdown"
-                             aria-expanded="false"
-                             style="cursor: pointer;">
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                            <li class="dropdown-header">
-                                <div class="d-flex align-items-center">
-                                    <img class="rounded-circle me-2" width="32" 
-                                         src="https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png" 
-                                         alt="User">
-                                    <div>
-                                        <strong class="d-block">Usuario</strong>
-                                        <small class="text-secondary">user@progresa.com</small>
-                                    </div>
-                                </div>
-                            </li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#"><span class="material-symbols-outlined me-2">person</span>Mi Perfil</a></li>
-                            <li><a class="dropdown-item" href="#"><span class="material-symbols-outlined me-2">settings</span>Configuración</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item text-danger" href="#"><span class="material-symbols-outlined me-2">logout</span>Cerrar Sesión</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-auto">
-                        <button class="btn btn-outline-primary btn-sm">
-                            <span class="material-symbols-outlined">login</span>
-                        </button>
-                    </div>
+                    <div class="col-auto"><a class="nav-link" href="#">Proyectos</a></div>
+                    <div class="col-auto"><a class="nav-link" href="#">Contacto</a></div>
+                    <div class="col-auto"><a class="nav-link fw-bold border-bottom border-primary" style="color: var(--primary) !important;">Comunidad</a></div>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- ================= MAIN ================= -->
 <main class="container-xl my-5">
-    <!-- Header Section -->
     <div class="text-center mb-5">
         <h1 class="display-4 fw-bold neon-text mb-3">
             Nuestra <span class="gradient-text">Comunidad</span>
@@ -599,7 +409,6 @@
         </p>
     </div>
 
-    <!-- Búsqueda y Filtros -->
     <div class="card bg-card p-4 mb-5">
         <div class="row g-3 align-items-center">
             <div class="col-md-6">
@@ -616,9 +425,6 @@
                     <option value="Fullstack">Fullstack</option>
                     <option value="Backend">Backend</option>
                     <option value="Frontend">Frontend</option>
-                    <option value="React">React</option>
-                    <option value="Data">Data</option>
-                    <option value="Mobile">Mobile</option>
                 </select>
             </div>
             <div class="col-md-3">
@@ -626,13 +432,11 @@
                     <option value="xp">Ordenar por XP</option>
                     <option value="proyectos">Por Proyectos</option>
                     <option value="stars">Por Stars</option>
-                    <option value="nombre">Por Nombre</option>
                 </select>
             </div>
         </div>
     </div>
 
-    <!-- Stats Cards -->
     <div class="row g-3 mb-5">
         <div class="col-md-4">
             <div class="card bg-card p-4 text-center neon-hover">
@@ -657,57 +461,35 @@
         </div>
     </div>
 
-    <!-- Top 3 Ranking -->
     <div class="mb-5">
         <h3 class="fw-bold mb-4">🏆 Ranking Top 3</h3>
-        <div class="row g-3" id="topRanking">
-            <!-- Se llenará dinámicamente -->
-        </div>
+        <div class="row g-3" id="topRanking"></div>
     </div>
 
-    <!-- Miembros Carrusel -->
     <div class="mb-5">
         <h3 class="fw-bold mb-4 text-center">👥 Conoce a Nuestros Miembros</h3>
         <div id="membersCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators" id="carouselIndicators">
-                <!-- Se llenará dinámicamente -->
-            </div>
-            <div class="carousel-inner" id="carouselContent">
-                <!-- Se llenará dinámicamente -->
-            </div>
+            <div class="carousel-indicators" id="carouselIndicators"></div>
+            <div class="carousel-inner" id="carouselContent"></div>
             <button class="carousel-control-prev" type="button" data-bs-target="#membersCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Anterior</span>
+                <span class="carousel-control-prev-icon"></span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#membersCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Siguiente</span>
+                <span class="carousel-control-next-icon"></span>
             </button>
         </div>
     </div>
 
-    <!-- Members Grid -->
     <h3 class="fw-bold mb-4">Miembros Destacados</h3>
-    <div class="row g-4" id="membersContainer">
-        <!-- Se llenará dinámicamente -->
-    </div>
-
-    <!-- Load More Button -->
-    <div class="text-center mt-5">
-        <button class="btn btn-outline-secondary btn-lg px-5">
-            <span class="material-symbols-outlined me-2" style="font-size: 20px; vertical-align: middle;">refresh</span>
-            Cargar más miembros
-        </button>
-    </div>
+    <div class="row g-4" id="membersContainer"></div>
 </main>
 
-<!-- ================= MEMBER MODAL ================= -->
 <div class="modal fade" id="memberModal" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header bg-primary bg-opacity-10 border-primary">
+            <div class="modal-header bg-primary bg-opacity-10">
                 <div class="d-flex align-items-center w-100">
-                    <img id="modalAvatar" src="" alt="Avatar" class="rounded-circle border border-primary me-3" width="80" height="80">
+                    <img id="modalAvatar" src="" class="rounded-circle border border-primary me-3" width="80" height="80">
                     <div class="flex-grow-1">
                         <h5 class="modal-title fw-bold mb-0" id="modalName"></h5>
                         <p class="text-muted small mb-0" id="modalRole"></p>
@@ -716,10 +498,7 @@
                 </div>
             </div>
             <div class="modal-body">
-                <!-- Descripción -->
                 <p id="modalBio" class="text-secondary mb-4"></p>
-                
-                <!-- Barra de Nivel -->
                 <div class="mb-4">
                     <div class="d-flex justify-content-between mb-2">
                         <strong>Nivel <span id="modalLevel">0</span></strong>
@@ -729,8 +508,6 @@
                         <div id="levelProgress" class="progress-bar"></div>
                     </div>
                 </div>
-                
-                <!-- Stats Principales -->
                 <div class="row g-3 mb-4">
                     <div class="col-md-3">
                         <div class="card bg-card p-3 text-center">
@@ -750,7 +527,7 @@
                         <div class="card bg-card p-3 text-center">
                             <span class="material-symbols-outlined text-primary mb-2" style="font-size: 28px;">flash_on</span>
                             <h4 class="fw-bold mb-0" id="modalXP">0</h4>
-                            <small class="text-muted">XP Total</small>
+                            <small class="text-muted">XP</small>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -761,467 +538,315 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Habilidades -->
                 <h6 class="fw-bold mb-3">Habilidades</h6>
                 <div id="modalSkills" class="mb-4"></div>
-                
-                <!-- Proyectos Recientes -->
                 <h6 class="fw-bold mb-3">Proyectos Recientes</h6>
                 <div id="modalProyectos" class="mb-4"></div>
-                
-                <!-- Badges/Logros -->
                 <h6 class="fw-bold mb-3">Distintivos</h6>
                 <div id="modalBadges" class="mb-4"></div>
             </div>
-            <div class="modal-footer border-top">
-                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">
-                    <span class="material-symbols-outlined me-2" style="font-size: 18px; vertical-align: middle;">person</span>
-                    Ver Perfil Completo
-                </button>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary px-4" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
 </div>
 
-<!-- ================= FOOTER ================= -->
-<footer class="bg-black border-top border-secondary mt-5 py-4">
-    <div class="container-xl">
-        <div class="row align-items-center gy-3">
-            <div class="col-md">
-                <span class="text-secondary small">© 2024 THE PROGRESA - Progresa Digitech FP</span>
-            </div>
-            <div class="col-md-auto">
-                <div class="row g-3">
-                    <div class="col-auto"><a class="text-secondary text-decoration-none" href="#">Privacidad</a></div>
-                    <div class="col-auto"><a class="text-secondary text-decoration-none" href="#">Términos</a></div>
-                    <div class="col-auto"><a class="text-secondary text-decoration-none" href="#">Soporte</a></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-    // Datos de miembros
-    const membersData = {
-        sarah: {
-            name: 'Sarah.js',
-            role: 'Fullstack Master',
-            avatar: 'https://i.pravatar.cc/150?img=1',
-            xp: 9850,
-            nivel: 12,
-            achievements: 8,
-            bio: 'Desarrolladora fullstack apasionada por crear aplicaciones web escalables. Con más de 5 años de experiencia en JavaScript, React y Node.js.',
-            proyectos: 42,
-            stars: 156,
-            badges: ['Contributor Destacado', 'Mentor Activo', 'Open Source Hero'],
-            proyectosRecientes: [
-                { title: 'E-Commerce Dashboard', desc: 'Panel de admin con gráficos en tiempo real' },
-                { title: 'Chat App', desc: 'Aplicación de chat con WebSockets' },
-                { title: 'Blog Platform', desc: 'Plataforma de blogs con CMS integrado' }
-            ],
-            skills: ['JavaScript', 'React', 'Node.js', 'MongoDB', 'Docker', 'AWS', 'TypeScript', 'GraphQL']
-        },
-        diego: {
-            name: 'Diego.C#',
-            role: 'Backend Developer',
-            avatar: 'https://i.pravatar.cc/150?img=33',
-            xp: 9250,
-            nivel: 11,
-            achievements: 7,
-            bio: 'Especialista en backend con enfoque en arquitectura de microservicios. Experto en C# y .NET Framework.',
-            proyectos: 38,
-            stars: 142,
-            badges: ['Arquitecto de Sistemas', 'Microservicios Expert', 'Optimizador'],
-            proyectosRecientes: [
-                { title: 'API REST', desc: 'API escalable con .NET 6' },
-                { title: 'Sistema de Autenticación', desc: 'OAuth2 con JWT tokens' },
-                { title: 'Database Optimizer', desc: 'Herramienta de optimización SQL' }
-            ],
-            skills: ['C#', '.NET', 'SQL Server', 'Docker', 'Kubernetes', 'Microservicios', 'Azure', 'RabbitMQ']
-        },
-        alex: {
-            name: 'Alex.Js',
-            role: 'Frontend Specialist',
-            avatar: 'https://i.pravatar.cc/150?img=45',
-            xp: 8720,
-            nivel: 10,
-            achievements: 6,
-            bio: 'Diseñador frontend dedicado a crear experiencias de usuario increíbles. Experto en CSS animations y UX.',
-            proyectos: 35,
-            stars: 128,
-            badges: ['UX Master', 'Animation Expert', 'Design Thinker'],
-            proyectosRecientes: [
-                { title: 'UI Component Library', desc: 'Librería de componentes reutilizables' },
-                { title: 'Design System', desc: 'Sistema de diseño completo' },
-                { title: 'Portfolio Website', desc: 'Sitio personal con animaciones avanzadas' }
-            ],
-            skills: ['CSS3', 'SASS', 'Figma', 'Vue.js', 'Tailwind CSS', 'Animations', 'Accessibility', 'UI/UX']
-        },
-        charmander: {
-            name: 'Charmander.Js',
-            role: 'React Developer',
-            avatar: 'https://i.pravatar.cc/150?img=27',
-            xp: 8105,
-            nivel: 9,
-            achievements: 5,
-            bio: 'Desarrollador React especializado en aplicaciones de alto rendimiento. Contribuidor activo en proyectos open source.',
-            proyectos: 30,
-            stars: 115,
-            badges: ['Testing Master', 'Performance Optimizer', 'Open Source'],
-            proyectosRecientes: [
-                { title: 'React Testing Library', desc: 'Suite de testing para componentes' },
-                { title: 'State Management', desc: 'Sistema de estado con Redux' },
-                { title: 'Performance Analyzer', desc: 'Herramienta de análisis de rendimiento' }
-            ],
-            skills: ['React', 'Redux', 'Testing', 'GraphQL', 'Next.js', 'Performance', 'Jest', 'Webpack']
-        },
-        maria: {
-            name: 'Maria.Py',
-            role: 'Data Analyst',
-            avatar: 'https://i.pravatar.cc/150?img=15',
-            xp: 7890,
-            nivel: 9,
-            achievements: 5,
-            bio: 'Analista de datos con pasión por convertir datos en insights. Experta en Python y visualización de datos.',
-            proyectos: 28,
-            stars: 98,
-            badges: ['Data Master', 'ML Expert', 'Visualization Pro'],
-            proyectosRecientes: [
-                { title: 'Data Dashboard', desc: 'Dashboard interactivo con Plotly' },
-                { title: 'ML Model', desc: 'Modelo de predicción con TensorFlow' },
-                { title: 'Analytics Engine', desc: 'Motor de análisis de datos en tiempo real' }
-            ],
-            skills: ['Python', 'Pandas', 'Matplotlib', 'Machine Learning', 'SQL', 'Data Viz', 'TensorFlow', 'Jupyter']
-        },
-        carlos: {
-            name: 'Carlos.Java',
-            role: 'Mobile Developer',
-            avatar: 'https://i.pravatar.cc/150?img=52',
-            xp: 7650,
-            nivel: 8,
-            achievements: 4,
-            bio: 'Desarrollador móvil enfocado en crear apps nativas de alta calidad. Especialista en Android e iOS.',
-            proyectos: 25,
-            stars: 87,
-            badges: ['Mobile Master', 'Android Expert', 'Cross Platform'],
-            proyectosRecientes: [
-                { title: 'Fitness App', desc: 'Aplicación de entrenamiento personalizado' },
-                { title: 'Banking App', desc: 'App segura de banca móvil' },
-                { title: 'Social Network', desc: 'Red social con chat en tiempo real' }
-            ],
-            skills: ['Java', 'Kotlin', 'Swift', 'Firebase', 'ARKit', 'Android Native', 'iOS', 'React Native']
-        },
-        lucas: {
-            name: 'Lucas.Go',
-            role: 'Fullstack Developer',
-            avatar: 'https://i.pravatar.cc/150?img=42',
-            xp: 7420,
-            nivel: 8,
-            achievements: 4,
-            bio: 'Desarrollador Go especializado en sistemas concurrentes y APIs de alto rendimiento.',
-            proyectos: 26,
-            stars: 94,
-            badges: ['Concurrency Master', 'Cloud Native', 'Performance Pro'],
-            proyectosRecientes: [
-                { title: 'Microservice Gateway', desc: 'Gateway escalable con Go' },
-                { title: 'Real-Time Sync', desc: 'Sistema de sincronización en tiempo real' },
-                { title: 'Cloud Deployer', desc: 'Herramienta de despliegue en cloud' }
-            ],
-            skills: ['Go', 'Kubernetes', 'Docker', 'gRPC', 'PostgreSQL', 'Redis', 'AWS', 'Terraform']
-        },
-        emma: {
-            name: 'Emma.Py',
-            role: 'Data Scientist',
-            avatar: 'https://i.pravatar.cc/150?img=8',
-            xp: 7310,
-            nivel: 8,
-            achievements: 5,
-            bio: 'Data Scientist apasionada por el machine learning e IA. Ganadora de múltiples hackathons.',
-            proyectos: 22,
-            stars: 89,
-            badges: ['ML Innovator', 'Data Visualization', 'Research Pioneer'],
-            proyectosRecientes: [
-                { title: 'Predictor IA', desc: 'Modelo de predicción con IA generativa' },
-                { title: 'Neural Network', desc: 'Red neuronal convolucional' },
-                { title: 'Data Mining Tool', desc: 'Herramienta de minería de datos' }
-            ],
-            skills: ['Python', 'TensorFlow', 'PyTorch', 'Scikit-learn', 'Jupyter', 'Pandas', 'Statistics', 'Neural Networks']
-        }
-    };
+const membersData = {
+    sarah: {
+        name: 'Sarah.js',
+        role: 'Fullstack Master',
+        avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=faces',
+        xp: 9850,
+        nivel: 12,
+        achievements: 8,
+        bio: 'Desarrolladora fullstack apasionada por crear aplicaciones web escalables.',
+        proyectos: 42,
+        stars: 156,
+        badges: ['Contributor Destacado', 'Mentor Activo', 'Open Source Hero'],
+        proyectosRecientes: [
+            { title: 'E-Commerce Dashboard', desc: 'Panel de admin con gráficos' },
+            { title: 'Chat App', desc: 'Aplicación de chat con WebSockets' }
+        ],
+        skills: ['JavaScript', 'React', 'Node.js', 'MongoDB', 'Docker', 'AWS']
+    },
+    diego: {
+        name: 'Diego.C#',
+        role: 'Backend Developer',
+        avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=faces',
+        xp: 9250,
+        nivel: 11,
+        achievements: 7,
+        bio: 'Especialista en backend con enfoque en microservicios.',
+        proyectos: 38,
+        stars: 142,
+        badges: ['Arquitecto de Sistemas', 'Microservicios Expert'],
+        proyectosRecientes: [
+            { title: 'API REST', desc: 'API escalable con .NET 6' },
+            { title: 'Sistema de Autenticación', desc: 'OAuth2 con JWT' }
+        ],
+        skills: ['C#', '.NET', 'SQL Server', 'Docker', 'Kubernetes']
+    },
+    alex: {
+        name: 'Alex.Js',
+        role: 'Frontend Specialist',
+        avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=faces',
+        xp: 8720,
+        nivel: 10,
+        achievements: 6,
+        bio: 'Diseñador frontend dedicado a crear experiencias increíbles.',
+        proyectos: 35,
+        stars: 128,
+        badges: ['UX Master', 'Animation Expert'],
+        proyectosRecientes: [
+            { title: 'UI Component Library', desc: 'Librería de componentes' },
+            { title: 'Design System', desc: 'Sistema de diseño completo' }
+        ],
+        skills: ['CSS3', 'SASS', 'Figma', 'Vue.js', 'Tailwind CSS']
+    },
+    maria: {
+        name: 'Maria.Py',
+        role: 'Data Analyst',
+        avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=faces',
+        xp: 7890,
+        nivel: 9,
+        achievements: 5,
+        bio: 'Analista de datos con pasión por convertir datos en insights.',
+        proyectos: 28,
+        stars: 98,
+        badges: ['Data Master', 'ML Expert'],
+        proyectosRecientes: [
+            { title: 'Data Dashboard', desc: 'Dashboard interactivo' },
+            { title: 'ML Model', desc: 'Modelo de predicción' }
+        ],
+        skills: ['Python', 'Pandas', 'Matplotlib', 'Machine Learning']
+    },
+    carlos: {
+        name: 'Carlos.Java',
+        role: 'Mobile Developer',
+        avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=faces',
+        xp: 7650,
+        nivel: 8,
+        achievements: 4,
+        bio: 'Desarrollador móvil enfocado en apps nativas de alta calidad.',
+        proyectos: 25,
+        stars: 87,
+        badges: ['Mobile Master', 'Android Expert'],
+        proyectosRecientes: [
+            { title: 'Fitness App', desc: 'App de entrenamiento' },
+            { title: 'Banking App', desc: 'App de banca móvil' }
+        ],
+        skills: ['Java', 'Kotlin', 'Swift', 'Firebase']
+    },
+    lucas: {
+        name: 'Lucas.Go',
+        role: 'Fullstack Developer',
+        avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&h=150&fit=crop&crop=faces',
+        xp: 7420,
+        nivel: 8,
+        achievements: 4,
+        bio: 'Desarrollador Go especializado en sistemas concurrentes.',
+        proyectos: 26,
+        stars: 94,
+        badges: ['Concurrency Master', 'Cloud Native'],
+        proyectosRecientes: [
+            { title: 'Microservice Gateway', desc: 'Gateway con Go' },
+            { title: 'Real-Time Sync', desc: 'Sincronización en tiempo real' }
+        ],
+        skills: ['Go', 'Kubernetes', 'Docker', 'gRPC']
+    }
+};
 
-    // Función para abrir el modal
-    function openMemberModal(memberId) {
-        const member = membersData[memberId];
+function openMemberModal(memberId) {
+    const member = membersData[memberId];
+    if (!member) return;
+    
+    document.getElementById('modalAvatar').src = member.avatar;
+    document.getElementById('modalName').textContent = member.name;
+    document.getElementById('modalRole').textContent = member.role;
+    document.getElementById('modalBio').textContent = member.bio;
+    document.getElementById('modalProjects').textContent = member.proyectos;
+    document.getElementById('modalStars').textContent = member.stars;
+    document.getElementById('modalXP').textContent = member.xp;
+    document.getElementById('modalLevel').textContent = member.nivel;
+    document.getElementById('modalAchievements').textContent = member.achievements;
+    
+    const xpPct = Math.round((member.xp % 1000) / 10);
+    document.getElementById('modalXPPct').textContent = xpPct;
+    document.getElementById('levelProgress').style.width = xpPct + '%';
+    
+    const proyectosHTML = member.proyectosRecientes.map(p => `
+        <div class="card bg-card mb-2">
+            <div class="card-body p-3">
+                <h6 class="fw-bold mb-1">${p.title}</h6>
+                <small class="text-muted">${p.desc}</small>
+            </div>
+        </div>
+    `).join('');
+    document.getElementById('modalProyectos').innerHTML = proyectosHTML;
+    
+    const skillsHTML = member.skills.map(s => `<span class="badge badge-skill">${s}</span>`).join('');
+    document.getElementById('modalSkills').innerHTML = skillsHTML;
+    
+    const badgesHTML = member.badges.map(b => `
+        <span class="badge bg-warning text-dark me-2 mb-2">
+            <span class="material-symbols-outlined" style="font-size: 14px; vertical-align: middle;">emoji_events</span>
+            ${b}
+        </span>
+    `).join('');
+    document.getElementById('modalBadges').innerHTML = badgesHTML;
+    
+    const modal = new bootstrap.Modal(document.getElementById('memberModal'));
+    modal.show();
+}
+
+function renderMembersCarousel() {
+    const carouselContent = document.getElementById('carouselContent');
+    const carouselIndicators = document.getElementById('carouselIndicators');
+    const memberEntries = Object.entries(membersData);
+    
+    let indicatorsHTML = '';
+    let carouselHTML = '';
+    
+    memberEntries.forEach((entry, idx) => {
+        const [id, member] = entry;
+        const isActive = idx === 0 ? 'active' : '';
         
-        if (!member) {
-            console.error('Member not found:', memberId);
-            return;
-        }
+        indicatorsHTML += `
+            <button type="button" data-bs-target="#membersCarousel" data-bs-slide-to="${idx}" 
+                    class="${isActive}"></button>
+        `;
         
-        // Actualizar datos del modal
-        document.getElementById('modalAvatar').src = member.avatar;
-        document.getElementById('modalName').textContent = member.name;
-        document.getElementById('modalRole').textContent = member.role;
-        document.getElementById('modalBio').textContent = member.bio;
-        document.getElementById('modalProjects').textContent = member.proyectos;
-        document.getElementById('modalStars').textContent = member.stars;
-        document.getElementById('modalXP').textContent = member.xp;
-        document.getElementById('modalLevel').textContent = member.nivel;
-        document.getElementById('modalAchievements').textContent = member.achievements;
-        
-        // Calcular porcentaje de XP
-        const xpPct = Math.round((member.xp % 1000) / 10);
-        document.getElementById('modalXPPct').textContent = xpPct;
-        document.getElementById('levelProgress').style.width = xpPct + '%';
-        
-        // Proyectos recientes
-        const proyectosHTML = member.proyectosRecientes.map(p => `
-            <div class="card bg-card mb-2">
-                <div class="card-body p-3">
-                    <h6 class="fw-bold mb-1">${p.title}</h6>
-                    <small class="text-muted">${p.desc}</small>
+        carouselHTML += `
+            <div class="carousel-item ${isActive}">
+                <div class="carousel-member-card" onclick="openMemberModal('${id}')">
+                    <img src="${member.avatar}" alt="${member.name}" class="member-avatar">
+                    <div class="member-info">
+                        <h5 class="fw-bold">${member.name}</h5>
+                        <p class="text-muted small mb-2">${member.role}</p>
+                        <p class="bio-text">${member.bio}</p>
+                        
+                        <div class="carousel-member-stats">
+                            <div class="stat">
+                                <strong>${member.xp}</strong>
+                                <span>XP</span>
+                            </div>
+                            <div class="stat">
+                                <strong>${member.proyectos}</strong>
+                                <span>Proyectos</span>
+                            </div>
+                            <div class="stat">
+                                <strong>${member.stars}</strong>
+                                <span>Stars</span>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-view-profile">
+                            <span class="material-symbols-outlined me-2" style="font-size: 16px; vertical-align: middle;">person</span>
+                            Ver Perfil Completo
+                        </button>
+                    </div>
                 </div>
             </div>
-        `).join('');
-        document.getElementById('modalProyectos').innerHTML = proyectosHTML;
-        
-        // Skills
-        const skillsHTML = member.skills.map(s => `<span class="badge badge-skill">${s}</span>`).join('');
-        document.getElementById('modalSkills').innerHTML = skillsHTML;
-        
-        // Badges
-        const badgesHTML = member.badges.map(b => `
-            <span class="badge bg-warning text-dark me-2 mb-2">
-                <span class="material-symbols-outlined" style="font-size: 14px; vertical-align: middle;">emoji_events</span>
-                ${b}
-            </span>
-        `).join('');
-        document.getElementById('modalBadges').innerHTML = badgesHTML;
-        
-        // Abrir el modal
-        const modal = new bootstrap.Modal(document.getElementById('memberModal'));
-        modal.show();
-    }
+        `;
+    });
+    
+    carouselIndicators.innerHTML = indicatorsHTML;
+    carouselContent.innerHTML = carouselHTML;
+}
 
-    // Función para renderizar el carrusel
-    function renderMembersCarousel() {
-        const carouselContent = document.getElementById('carouselContent');
-        const carouselIndicators = document.getElementById('carouselIndicators');
-        const memberEntries = Object.entries(membersData);
-        
-        let indicatorsHTML = '';
-        let carouselHTML = '';
-        
-        memberEntries.forEach((entry, idx) => {
-            const [id, member] = entry;
-            const isActive = idx === 0 ? 'active' : '';
-            
-            // Indicadores
-            indicatorsHTML += `
-                <button type="button" data-bs-target="#membersCarousel" data-bs-slide-to="${idx}" 
-                        class="${isActive}" aria-current="${isActive ? 'true' : 'false'}" aria-label="Slide ${idx + 1}"></button>
-            `;
-            
-            // Slides del carrusel
-            carouselHTML += `
-                <div class="carousel-item ${isActive}">
-                    <div class="carousel-member-card" onclick="openMemberModal('${id}')">
-                        <img src="${member.avatar}" alt="${member.name}" class="member-avatar">
-                        <div class="member-info">
-                            <h5 class="fw-bold">${member.name}</h5>
-                            <p class="text-muted small mb-2">${member.role}</p>
-                            <p class="bio-text">${member.bio.substring(0, 120)}...</p>
-                            
-                            <div class="carousel-member-stats">
-                                <div class="stat">
-                                    <strong>${member.xp}</strong>
-                                    <span>XP</span>
-                                </div>
-                                <div class="stat">
-                                    <strong>${member.proyectos}</strong>
-                                    <span>Proyectos</span>
-                                </div>
-                                <div class="stat">
-                                    <strong>${member.stars}</strong>
-                                    <span>Stars</span>
-                                </div>
-                            </div>
-                            
-                            <button class="btn btn-view-profile" onclick="event.stopPropagation(); openMemberModal('${id}')">
-                                <span class="material-symbols-outlined me-2" style="font-size: 16px; vertical-align: middle;">person</span>
-                                Ver Perfil Completo
-                            </button>
+function renderTop3() {
+    const sorted = Object.entries(membersData)
+        .sort((a, b) => b[1].xp - a[1].xp)
+        .slice(0, 3);
+    
+    const medals = ['🥇', '🥈', '🥉'];
+    const topHtml = sorted.map((entry, idx) => {
+        const [id, member] = entry;
+        return `
+            <div class="col-md-4">
+                <div class="top-member-card" onclick="openMemberModal('${id}')" style="cursor: pointer;">
+                    <div style="font-size: 48px; margin-bottom: 8px;">${medals[idx]}</div>
+                    <img src="${member.avatar}" alt="${member.name}">
+                    <h5 class="fw-bold mb-1">${member.name}</h5>
+                    <p class="text-muted small mb-3">${member.role}</p>
+                    <div class="row g-2 text-center">
+                        <div class="col-6">
+                            <small class="text-muted d-block">XP</small>
+                            <strong>${member.xp}</strong>
+                        </div>
+                        <div class="col-6">
+                            <small class="text-muted d-block">Nivel</small>
+                            <strong>${member.nivel}</strong>
                         </div>
                     </div>
                 </div>
-            `;
-        });
-        
-        carouselIndicators.innerHTML = indicatorsHTML;
-        carouselContent.innerHTML = carouselHTML;
-    }
+            </div>
+        `;
+    }).join('');
+    
+    document.getElementById('topRanking').innerHTML = topHtml;
+}
 
-    // Función para renderizar el Top 3
-    function renderTop3() {
-        const sorted = Object.entries(membersData)
-            .sort((a, b) => b[1].xp - a[1].xp)
-            .slice(0, 3);
-        
-        const medals = ['🥇', '🥈', '🥉'];
-        const topHtml = sorted.map((entry, idx) => {
-            const [id, member] = entry;
-            return `
-                <div class="col-md-4">
-                    <div class="top-member-card" onclick="openMemberModal('${id}')" style="cursor: pointer;">
-                        <div style="font-size: 48px; margin-bottom: 8px;">${medals[idx]}</div>
-                        <img src="${member.avatar}" alt="${member.name}">
+function renderAllMembers() {
+    const container = document.getElementById('membersContainer');
+    const memberEntries = Object.entries(membersData);
+    
+    const html = memberEntries.map((entry) => {
+        const [id, member] = entry;
+        return `
+            <div class="col-md-4 col-sm-6 member-animated">
+                <div class="card bg-card neon-hover h-100 member-card" onclick="openMemberModal('${id}')">
+                    <div class="card-body text-center p-4">
+                        <img src="${member.avatar}" 
+                             class="rounded-circle border border-primary mb-3" 
+                             width="80" height="80" alt="${member.name}">
                         <h5 class="fw-bold mb-1">${member.name}</h5>
-                        <p class="text-muted small mb-3">${member.role}</p>
-                        <div class="row g-2 text-center">
-                            <div class="col-6">
-                                <small class="text-muted d-block">XP</small>
-                                <strong>${member.xp}</strong>
-                            </div>
-                            <div class="col-6">
-                                <small class="text-muted d-block">Nivel</small>
-                                <strong>${member.nivel}</strong>
-                            </div>
+                        <p class="text-secondary small mb-3">${member.role}</p>
+                        <div class="mb-3">
+                            <span class="badge bg-primary">${member.xp} XP</span>
                         </div>
-                    </div>
-                </div>
-            `;
-        }).join('');
-        
-        document.getElementById('topRanking').innerHTML = topHtml;
-    }
-
-    // Función para renderizar todos los miembros
-    function renderAllMembers() {
-        const container = document.getElementById('membersContainer');
-        const memberEntries = Object.entries(membersData);
-        
-        const html = memberEntries.map((entry, idx) => {
-            const [id, member] = entry;
-            return `
-                <div class="col-md-4 col-sm-6 member-animated">
-                    <div class="card bg-card neon-hover h-100 member-card" onclick="openMemberModal('${id}')">
-                        <div class="card-body text-center p-4">
-                            <img src="${member.avatar}" 
-                                 class="rounded-circle border border-primary mb-3" 
-                                 width="80" height="80" alt="${member.name}">
-                            <h5 class="fw-bold mb-1">${member.name}</h5>
-                            <p class="text-secondary small mb-3">${member.role}</p>
-                            <div class="mb-3">
-                                <span class="badge bg-primary">${member.xp} XP</span>
-                            </div>
-                            <div class="row g-2">
-                                <div class="col-6">
-                                    <div class="small">
-                                        <span class="material-symbols-outlined text-primary" style="font-size: 16px; vertical-align: middle;">code</span>
-                                        <strong class="ms-1">${member.proyectos}</strong>
-                                        <div class="text-secondary" style="font-size: 10px;">Proyectos</div>
-                                    </div>
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <div class="small">
+                                    <span class="material-symbols-outlined text-primary" style="font-size: 16px;">code</span>
+                                    <strong class="ms-1">${member.proyectos}</strong>
+                                    <div class="text-secondary" style="font-size: 10px;">Proyectos</div>
                                 </div>
-                                <div class="col-6">
-                                    <div class="small">
-                                        <span class="material-symbols-outlined text-primary" style="font-size: 16px; vertical-align: middle;">star</span>
-                                        <strong class="ms-1">${member.stars}</strong>
-                                        <div class="text-secondary" style="font-size: 10px;">Stars</div>
-                                    </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="small">
+                                    <span class="material-symbols-outlined text-primary" style="font-size: 16px;">star</span>
+                                    <strong class="ms-1">${member.stars}</strong>
+                                    <div class="text-secondary" style="font-size: 10px;">Stars</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            `;
-        }).join('');
-        
-        container.innerHTML = html;
-    }
+            </div>
+        `;
+    }).join('');
+    
+    container.innerHTML = html;
+}
 
-    // Búsqueda y filtrado
-    document.getElementById('searchInput').addEventListener('input', function(e) {
-        const query = e.target.value.toLowerCase();
-        const filterRole = document.getElementById('filterRole').value;
-        
-        document.querySelectorAll('.member-animated').forEach(card => {
-            const cardText = card.textContent.toLowerCase();
-            const matchSearch = cardText.includes(query);
-            const matchRole = !filterRole || cardText.includes(filterRole.toLowerCase());
-            
-            card.style.display = (matchSearch && matchRole) ? '' : 'none';
-        });
+document.addEventListener('DOMContentLoaded', function() {
+    renderMembersCarousel();
+    renderTop3();
+    renderAllMembers();
+    
+    new bootstrap.Carousel(document.getElementById('membersCarousel'), {
+        interval: 4000,
+        wrap: true,
+        keyboard: true,
+        pause: 'hover',
+        ride: 'carousel'
     });
-
-    document.getElementById('filterRole').addEventListener('change', function(e) {
-        const filterRole = e.target.value;
-        const searchQuery = document.getElementById('searchInput').value.toLowerCase();
-        
-        document.querySelectorAll('.member-animated').forEach(card => {
-            const cardText = card.textContent.toLowerCase();
-            const matchSearch = cardText.includes(searchQuery);
-            const matchRole = !filterRole || cardText.includes(filterRole.toLowerCase());
-            
-            card.style.display = (matchSearch && matchRole) ? '' : 'none';
-        });
-    });
-
-    document.getElementById('sortBy').addEventListener('change', function(e) {
-        const sortBy = e.target.value;
-        const container = document.getElementById('membersContainer');
-        const cards = Array.from(container.querySelectorAll('.member-animated'));
-        
-        cards.sort((a, b) => {
-            const getNumber = (card, type) => {
-                const text = card.textContent;
-                if (type === 'xp') {
-                    const match = text.match(/(\d+)\s*XP/);
-                    return match ? parseInt(match[1]) : 0;
-                }
-                if (type === 'proyectos') {
-                    const match = text.match(/(\d+)\s*Proyectos/);
-                    return match ? parseInt(match[1]) : 0;
-                }
-                if (type === 'stars') {
-                    const match = text.match(/(\d+)\s*Stars/);
-                    return match ? parseInt(match[1]) : 0;
-                }
-                return 0;
-            };
-            
-            if (sortBy === 'nombre') {
-                const nameA = a.querySelector('h5').textContent;
-                const nameB = b.querySelector('h5').textContent;
-                return nameA.localeCompare(nameB);
-            }
-            
-            return getNumber(b, sortBy) - getNumber(a, sortBy);
-        });
-        
-        cards.forEach(card => container.appendChild(card));
-    });
-
-    // Inicializar al cargar la página
-    document.addEventListener('DOMContentLoaded', function() {
-        renderMembersCarousel();
-        renderTop3();
-        renderAllMembers();
-        
-        // Inicializar el carrusel de Bootstrap
-        const carouselElement = document.getElementById('membersCarousel');
-        const carousel = new bootstrap.Carousel(carouselElement, {
-            interval: 4000,  // Cambia cada 4 segundos
-            wrap: true,
-            keyboard: true,
-            pause: 'hover',  // Se pausa al hacer hover
-            ride: 'carousel'  // Inicia automáticamente
-        });
-    });
+});
 </script>
 
 </body>
