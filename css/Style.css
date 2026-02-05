@@ -767,4 +767,60 @@ body.demo-fallback {
 
 .demo-btn:hover { background: #4a7ff7; }
 
+/* ========== FORZAR TEXTOS BLANCOS EN MODO OSCURO ========== */
+:root[data-theme="dark"] body,
+:root[data-theme="dark"] h1,
+:root[data-theme="dark"] h2,
+:root[data-theme="dark"] h3,
+:root[data-theme="dark"] h4,
+:root[data-theme="dark"] h5,
+:root[data-theme="dark"] h6,
+:root[data-theme="dark"] p,
+:root[data-theme="dark"] span:not(.badge):not(.material-symbols-outlined),
+:root[data-theme="dark"] div,
+:root[data-theme="dark"] a:not(.btn),
+:root[data-theme="dark"] li,
+:root[data-theme="dark"] strong,
+:root[data-theme="dark"] .fw-bold,
+:root[data-theme="dark"] label,
+:root[data-theme="dark"] input::placeholder {
+  color: #ffffff !important;
+}
+
+:root[data-theme="dark"] .text-secondary,
+:root[data-theme="dark"] .text-muted,
+:root[data-theme="dark"] small.text-muted {
+  color: #9ca3af !important;
+}
+
+/* Excepciones para elementos con colores específicos */
+:root[data-theme="dark"] .text-danger {
+  color: #ef4444 !important;
+}
+
+:root[data-theme="dark"] .text-warning {
+  color: #fbbf24 !important;
+}
+
+:root[data-theme="dark"] .text-primary {
+  color: #5a8fff !important;
+}
+
+/* Terminal mantiene sus colores propios */
+:root[data-theme="dark"] .terminal-body,
+:root[data-theme="dark"] .terminal-body * {
+  color: inherit !important;
+}
+
+:root[data-theme="dark"] .prompt {
+  color: #00ff88 !important;
+}
+
+:root[data-theme="dark"] .accent {
+  color: #ff5bb3 !important;
+}
+
+:root[data-theme="dark"] .time {
+  color: #888 !important;
+}
 /* End moved styles */

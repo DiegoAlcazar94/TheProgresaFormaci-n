@@ -56,8 +56,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // Call once on init
   updateDisplay();
 
-  // No extra single-element listeners needed; updateDisplay called after toggle above
-  
   // ========== CARGAR MÁS PROYECTOS ==========
   const loadMoreBtn = document.getElementById('load-more-btn');
   const closeProjectsBtn = document.getElementById('close-projects-btn');
@@ -101,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // Efecto de scroll en el header (opcional)
+  // ========== EFECTO DE SCROLL EN EL HEADER ==========
   const header = document.querySelector('header.glass');
   if (header) {
     window.addEventListener('scroll', function() {
@@ -110,6 +108,76 @@ document.addEventListener('DOMContentLoaded', function() {
       } else {
         header.classList.remove('scrolled');
       }
+    });
+  }
+
+  // ========== LOGIN/LOGOUT FUNCTIONALITY ==========
+  const loginForm = document.getElementById('login-form');
+  const logoutBtn = document.getElementById('logout-btn');
+  const loginBtnContainer = document.getElementById('login-btn-container');
+  const userAvatarContainer = document.getElementById('user-avatar-container');
+  const userNameEl = document.getElementById('user-name');
+  const userEmailEl = document.getElementById('user-email');
+
+  // Verificar si hay sesión guardada
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  const userName = localStorage.getItem('userName');
+  const userEmail = localStorage.getItem('userEmail');
+
+  // Mostrar/ocultar elementos según estado de sesión
+  if (isLoggedIn && userName && userEmail) {
+    loginBtnContainer?.classList.add('d-none');
+    userAvatarContainer?.classList.remove('d-none');
+    if (userNameEl) userNameEl.textContent = userName;
+    if (userEmailEl) userEmailEl.textContent = userEmail;
+  } else {
+    loginBtnContainer?.classList.remove('d-none');
+    userAvatarContainer?.classList.add('d-none');
+  }
+
+  // Login
+  if (loginForm) {
+    loginForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+      
+      // Simulación de login (en producción esto iría a un backend)
+      if (email && password) {
+        const name = email.split('@')[0];
+        
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('userName', name);
+        localStorage.setItem('userEmail', email);
+        
+        // Cerrar modal
+        const modal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+        modal.hide();
+        
+        // Actualizar UI
+        loginBtnContainer?.classList.add('d-none');
+        userAvatarContainer?.classList.remove('d-none');
+        if (userNameEl) userNameEl.textContent = name;
+        if (userEmailEl) userEmailEl.textContent = email;
+        
+        // Limpiar formulario
+        loginForm.reset();
+      }
+    });
+  }
+
+  // Logout
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('userName');
+      localStorage.removeItem('userEmail');
+      
+      loginBtnContainer?.classList.remove('d-none');
+      userAvatarContainer?.classList.add('d-none');
     });
   }
 });
