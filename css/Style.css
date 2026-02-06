@@ -681,3 +681,49 @@ footer {
   .carousel-control-prev { left: 0; }
   .carousel-control-next { right: 0; }
 }
+
+/* ================= ADDITIONAL COMMUNITY STYLES ================= */
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.member-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.member-card:hover {
+  transform: translateY(-8px) rotateX(5deg) rotateY(5deg);
+  box-shadow: 0 12px 24px rgba(37, 89, 244, 0.2);
+}
+
+.carousel-member-card h5 {
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+}
+
+.carousel-member-card .text-muted {
+  color: var(--text-muted) !important;
+  font-size: 14px;
+}
+
+.carousel-member-card .bio-text {
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 15px 0;
+}
+
+.typing-text {
+  display: inline-block;
+}
