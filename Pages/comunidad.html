@@ -111,10 +111,11 @@
         .member-card {
             cursor: pointer;
             transition: all 0.3s ease;
+            transform-style: preserve-3d;
         }
 
         .member-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-8px) rotateX(5deg) rotateY(5deg);
             box-shadow: 0 12px 24px rgba(37, 89, 244, 0.2);
         }
 
@@ -372,6 +373,10 @@
         .bg-primary {
             background-color: var(--primary) !important;
         }
+
+        .typing-text {
+            display: inline-block;
+        }
     </style>
 </head>
 <body class="font-display">
@@ -402,60 +407,32 @@
 <main class="container-xl my-5">
     <div class="text-center mb-5">
         <h1 class="display-4 fw-bold neon-text mb-3">
-            Nuestra <span class="gradient-text">Comunidad</span>
+            <span class="typing-text"></span>
         </h1>
         <p class="text-secondary fs-5 col-md-6 mx-auto">
             Conoce a los miembros destacados de nuestra comunidad de desarrolladores.
         </p>
     </div>
 
-    <div class="card bg-card p-4 mb-5">
-        <div class="row g-3 align-items-center">
-            <div class="col-md-6">
-                <div class="input-group">
-                    <span class="input-group-text border-primary">
-                        <span class="material-symbols-outlined">search</span>
-                    </span>
-                    <input type="text" id="searchInput" class="form-control border-primary" placeholder="Buscar por nombre o rol...">
-                </div>
-            </div>
-            <div class="col-md-3">
-                <select id="filterRole" class="form-select border-primary">
-                    <option value="">Todos los roles</option>
-                    <option value="Fullstack">Fullstack</option>
-                    <option value="Backend">Backend</option>
-                    <option value="Frontend">Frontend</option>
-                </select>
-            </div>
-            <div class="col-md-3">
-                <select id="sortBy" class="form-select border-primary">
-                    <option value="xp">Ordenar por XP</option>
-                    <option value="proyectos">Por Proyectos</option>
-                    <option value="stars">Por Stars</option>
-                </select>
-            </div>
-        </div>
-    </div>
-
     <div class="row g-3 mb-5">
         <div class="col-md-4">
             <div class="card bg-card p-4 text-center neon-hover">
                 <span class="material-symbols-outlined text-primary mb-2" style="font-size: 48px;">person</span>
-                <h3 class="fw-bold mb-0">150+</h3>
+                <h3 class="fw-bold mb-0"><span class="counter" data-target="150">0</span>+</h3>
                 <p class="text-secondary mb-0">Estudiantes</p>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card bg-card p-4 text-center neon-hover">
                 <span class="material-symbols-outlined text-primary mb-2" style="font-size: 48px;">code</span>
-                <h3 class="fw-bold mb-0">320+</h3>
+                <h3 class="fw-bold mb-0"><span class="counter" data-target="320">0</span>+</h3>
                 <p class="text-secondary mb-0">Proyectos</p>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card bg-card p-4 text-center neon-hover">
                 <span class="material-symbols-outlined text-primary mb-2" style="font-size: 48px;">emoji_events</span>
-                <h3 class="fw-bold mb-0">50+</h3>
+                <h3 class="fw-bold mb-0"><span class="counter" data-target="50">0</span>+</h3>
                 <p class="text-secondary mb-0">Certificaciones</p>
             </div>
         </div>
@@ -835,6 +812,74 @@ function renderAllMembers() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Animación de typing effect para "Nuestra Comunidad"
+    const typingElement = document.querySelector('.typing-text');
+    const fullText = "Nuestra Comunidad";
+    let i = 0;
+    
+    function typeWriter() {
+        if (i < fullText.length) {
+            const char = fullText.charAt(i);
+            // Aplicar gradient solo a "Comunidad"
+            if (i >= 8) { // "Nuestra " tiene 8 caracteres
+                if (i === 8) {
+                    typingElement.innerHTML += '<span class="gradient-text">';
+                }
+                typingElement.lastChild.textContent += char;
+                if (i === fullText.length - 1) {
+                    typingElement.innerHTML += '</span>';
+                }
+            } else {
+                typingElement.textContent += char;
+            }
+            i++;
+            setTimeout(typeWriter, 100);
+        }
+    }
+    
+    setTimeout(typeWriter, 300);
+    
+    // Animación de contador
+    function animateCounter(element) {
+        const target = parseInt(element.getAttribute('data-target'));
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        let current = 0;
+        
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                element.textContent = target;
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(current);
+            }
+        }, 16);
+    }
+    
+    // Observer para iniciar contadores cuando sean visibles
+    const observerOptions = {
+        threshold: 0.5
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counters = entry.target.querySelectorAll('.counter');
+                counters.forEach(counter => {
+                    if (counter.textContent === '0') {
+                        animateCounter(counter);
+                    }
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('.row.g-3.mb-5').forEach(row => {
+        observer.observe(row);
+    });
+    
     renderMembersCarousel();
     renderTop3();
     renderAllMembers();
