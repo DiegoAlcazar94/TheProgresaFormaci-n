@@ -823,4 +823,46 @@ body.demo-fallback {
 :root[data-theme="dark"] .time {
   color: #888 !important;
 }
+
+/* ========== SOLUCIÓN FORZADA MODO OSCURO ========== */
+html[data-theme="dark"] *:not(.badge):not(.btn):not(.material-symbols-outlined) {
+  color: #ffffff !important;
+}
+
+html[data-theme="dark"] .text-secondary,
+html[data-theme="dark"] .text-muted {
+  color: #9ca3af !important;
+}
+
+html[data-theme="dark"] .text-danger {
+  color: #ef4444 !important;
+}
+
+html[data-theme="dark"] .text-warning {
+  color: #fbbf24 !important;
+}
+
+html[data-theme="dark"] .badge {
+  color: white !important;
+}
+
+html[data-theme="dark"] .btn-primary {
+  color: white !important;
+}
+
+html[data-theme="dark"] .terminal-body * {
+  color: inherit !important;
+}
+
+html[data-theme="dark"] .prompt {
+  color: #00ff88 !important;
+}
+
+html[data-theme="dark"] .accent {
+  color: #ff5bb3 !important;
+}
+
+html[data-theme="dark"] .time {
+  color: #888 !important;
+}
 /* End moved styles */
