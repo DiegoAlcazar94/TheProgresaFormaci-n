@@ -445,7 +445,7 @@ html[data-theme="dark"] .time { color: #888 !important; }
 
 @keyframes moonPulse {
   0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.25; }
-  50% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.35; }
+  50% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.25; }
 }
 
 :root[data-theme="dark"] header, :root[data-theme="dark"] main, :root[data-theme="dark"] footer, :root[data-theme="dark"] section { position: relative; z-index: 1; }
