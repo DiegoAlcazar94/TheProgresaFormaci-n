@@ -166,7 +166,7 @@ html[data-theme="dark"] .time { color: #888 !important; }
 @keyframes moonPulse { 0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.25; } 50% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.35; } }
 :root[data-theme="dark"] header, :root[data-theme="dark"] main, :root[data-theme="dark"] footer, :root[data-theme="dark"] section { position: relative; z-index: 1; }
 
-:root[data-theme="dark"] header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(90deg, transparent 0%, rgba(0, 200, 150, 0.08) 20%, rgba(0, 220, 180, 0.1) 40%, rgba(0, 200, 150, 0.08) 60%, rgba(0, 180, 150, 0.06) 80%, transparent 100%); pointer-events: none; animation: auroraWave 8s ease-in-out infinite; z-index: 0; }
+:root[data-theme="dark"] header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(90deg, transparent 0%, rgba(0, 200, 150, 0.18) 20%, rgba(0, 220, 180, 0.22) 40%, rgba(0, 200, 150, 0.18) 60%, rgba(0, 180, 150, 0.14) 80%, transparent 100%); pointer-events: none; animation: auroraWave 8s ease-in-out infinite; z-index: 0; }
 
 :root[data-theme="dark"] header > * { position: relative; z-index: 1; }
 
@@ -180,6 +180,6 @@ html[data-theme="dark"] .time { color: #888 !important; }
 }
 
 @keyframes auroraWave {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.8; }
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
 }
