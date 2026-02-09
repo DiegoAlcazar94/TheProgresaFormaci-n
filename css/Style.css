@@ -139,22 +139,22 @@ html[data-theme="dark"] .time { color: #888 !important; }
 :root[data-theme="dark"] body::before { content: ''; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; background: radial-gradient(circle at 35% 35%, #f5f5f5, #e8e8e8, #c9c9c9); border-radius: 50%; pointer-events: none; z-index: 0; opacity: 0.25; box-shadow: 0 0 200px rgba(255, 255, 255, 0.3), inset -40px -40px 80px rgba(0, 0, 0, 0.3), inset -80px -60px 40px rgba(0, 0, 0, 0.25), -120px -100px 0 -180px rgba(0, 0, 0, 0.4), -150px -130px 0 -170px rgba(0, 0, 0, 0.35), -70px -120px 0 -190px rgba(0, 0, 0, 0.3), 100px -140px 0 -185px rgba(0, 0, 0, 0.32), 80px 120px 0 -188px rgba(0, 0, 0, 0.28); animation: moonAppear 0.8s ease-out, moonPulse 30s ease-in-out 0.8s infinite; }
 
 :root[data-theme="dark"] body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0; background-image: 
-    radial-gradient(4px circle at 20% 30%, white, rgba(255,255,255,0.8) 4px, transparent 4px),
-    radial-gradient(3px circle at 60% 20%, white, rgba(255,255,255,0.9) 3px, transparent 3px),
-    radial-gradient(3.5px circle at 85% 40%, white, rgba(255,255,255,0.85) 3.5px, transparent 3.5px),
-    radial-gradient(3px circle at 15% 70%, white, rgba(255,255,255,0.8) 3px, transparent 3px),
-    radial-gradient(4px circle at 75% 75%, white, rgba(255,255,255,0.9) 4px, transparent 4px),
-    radial-gradient(3px circle at 40% 85%, white, rgba(255,255,255,0.8) 3px, transparent 3px),
-    radial-gradient(3.2px circle at 90% 65%, white, rgba(255,255,255,0.85) 3.2px, transparent 3.2px),
-    radial-gradient(3px circle at 25% 50%, white, rgba(255,255,255,0.8) 3px, transparent 3px),
-    radial-gradient(4.2px circle at 70% 45%, white, rgba(255,255,255,0.9) 4.2px, transparent 4.2px),
-    radial-gradient(3px circle at 50% 25%, white, rgba(255,255,255,0.8) 3px, transparent 3px),
-    radial-gradient(3.8px circle at 35% 15%, white, rgba(255,255,255,0.85) 3.8px, transparent 3.8px),
-    radial-gradient(3px circle at 80% 15%, white, rgba(255,255,255,0.8) 3px, transparent 3px),
-    radial-gradient(4px circle at 10% 40%, white, rgba(255,255,255,0.9) 4px, transparent 4px),
-    radial-gradient(3px circle at 65% 60%, white, rgba(255,255,255,0.8) 3px, transparent 3px),
-    radial-gradient(3.5px circle at 45% 65%, white, rgba(255,255,255,0.85) 3.5px, transparent 3.5px),
-    radial-gradient(3px circle at 55% 40%, white, rgba(255,255,255,0.8) 3px, transparent 3px);
+    radial-gradient(4px circle at 10% 10%, white, rgba(255,255,255,0.8) 4px, transparent 4px),
+    radial-gradient(3px circle at 90% 5%, white, rgba(255,255,255,0.9) 3px, transparent 3px),
+    radial-gradient(3.5px circle at 95% 25%, white, rgba(255,255,255,0.85) 3.5px, transparent 3.5px),
+    radial-gradient(3px circle at 5% 65%, white, rgba(255,255,255,0.8) 3px, transparent 3px),
+    radial-gradient(4px circle at 88% 90%, white, rgba(255,255,255,0.9) 4px, transparent 4px),
+    radial-gradient(3px circle at 15% 88%, white, rgba(255,255,255,0.8) 3px, transparent 3px),
+    radial-gradient(3.2px circle at 92% 35%, white, rgba(255,255,255,0.85) 3.2px, transparent 3.2px),
+    radial-gradient(3px circle at 8% 40%, white, rgba(255,255,255,0.8) 3px, transparent 3px),
+    radial-gradient(4.2px circle at 85% 15%, white, rgba(255,255,255,0.9) 4.2px, transparent 4.2px),
+    radial-gradient(3px circle at 12% 25%, white, rgba(255,255,255,0.8) 3px, transparent 3px),
+    radial-gradient(3.8px circle at 5% 85%, white, rgba(255,255,255,0.85) 3.8px, transparent 3.8px),
+    radial-gradient(3px circle at 90% 80%, white, rgba(255,255,255,0.8) 3px, transparent 3px),
+    radial-gradient(4px circle at 3% 15%, white, rgba(255,255,255,0.9) 4px, transparent 4px),
+    radial-gradient(3px circle at 78% 8%, white, rgba(255,255,255,0.8) 3px, transparent 3px),
+    radial-gradient(3.5px circle at 15% 92%, white, rgba(255,255,255,0.85) 3.5px, transparent 3.5px),
+    radial-gradient(3px circle at 92% 62%, white, rgba(255,255,255,0.8) 3px, transparent 3px);
   background-size: 100% 100%;
   background-position: 0 0;
   animation: twinkle 4s ease-in-out infinite, twinkleOffset 7s ease-in-out 2s infinite;
