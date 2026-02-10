@@ -1,3 +1,14 @@
+// Inicializar tema ANTES de que el DOM se cargue completamente
+(function() {
+  const root = document.documentElement;
+  const savedTheme = localStorage.getItem('theme') || 
+                     (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  root.setAttribute('data-theme', savedTheme);
+  if (document.body) {
+    document.body.classList.add('theme-' + savedTheme);
+  }
+})();
+
 document.addEventListener('DOMContentLoaded', function() {
   console.log('Script cargado - Inicializando tema');
   
