@@ -36,6 +36,88 @@
                     <div class="col-auto"><a class="nav-link fw-bold border-bottom border-primary" style="color: var(--primary) !important;">Comunidad</a></div>
                 </div>
             </div>
+            
+            <!-- Theme Toggle -->
+            <div class="col-auto">
+                <button id="theme-toggle" class="theme-toggle-btn" title="Cambiar tema">
+                    <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+                        <circle cx="12" cy="12" r="4" fill="currentColor"></circle>
+                        <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                          <line x1="12" y1="1" x2="12" y2="4"></line>
+                          <line x1="12" y1="20" x2="12" y2="23"></line>
+                          <line x1="1" y1="12" x2="4" y2="12"></line>
+                          <line x1="20" y1="12" x2="23" y2="12"></line>
+                          <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line>
+                          <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line>
+                          <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line>
+                          <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>
+                        </g>
+                    </svg>
+                    <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- User -->
+            <div class="col-auto">
+                <div class="row align-items-center g-2">
+                    <div class="col-auto">
+                        <button class="btn btn-outline-primary btn-sm">
+                            <span class="material-symbols-outlined">login</span>
+                        </button>
+                    </div>
+                    <div class="col-auto dropdown">
+                        <img class="rounded-circle border border-primary dropdown-toggle" 
+                             width="40"
+                             src="https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png" 
+                             alt="User avatar"
+                             id="userDropdown"
+                             data-bs-toggle="dropdown"
+                             aria-expanded="false"
+                             style="cursor: pointer;">
+                        <ul class="dropdown-menu dropdown-menu-end user-dropdown" aria-labelledby="userDropdown">
+                            <li class="dropdown-header">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle me-2" width="32" 
+                                         src="https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png" 
+                                         alt="User">
+                                    <div>
+                                        <strong class="d-block">Usuario</strong>
+                                        <small class="text-secondary">user@progresa.com</small>
+                                    </div>
+                                </div>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <span class="material-symbols-outlined me-2">person</span>
+                                    Mi Perfil
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <span class="material-symbols-outlined me-2">settings</span>
+                                    Configuración
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <span class="material-symbols-outlined me-2">emoji_events</span>
+                                    Mis Logros
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item text-danger" href="#">
+                                    <span class="material-symbols-outlined me-2">logout</span>
+                                    Cerrar Sesión
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </header>
