@@ -702,9 +702,9 @@ footer {
 
 .typing-text {
   display: inline-block;
-=======
+}
+
 @keyframes auroraWave {
   0%, 100% { opacity: 0.6; }
   50% { opacity: 1; }
->>>>>>> origin/Alejandro
 }
