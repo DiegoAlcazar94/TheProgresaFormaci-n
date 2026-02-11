@@ -1,395 +1,556 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <title>THE PROGRESA - Progresa Digitech FP </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="THE PROGRESA - Arquitectos del futuro digital. Comunidad de desarrollo web y programación.">
+    <meta name="keywords" content="programación, desarrollo web, DAW, código, tecnología">
+    <meta name="author" content="THE PROGRESA">
 
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>THE PROGRESA - Progresa Digitech FP</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;900&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Material Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;900&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/Style.css">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/Style.css">
+
+    <!-- Favicon (opcional) -->
+    <link rel="icon" type="image/png" href="https://www.micole.net/imagenes/colegio/logo/32624/progresa_200.png">
 </head>
+
 <body class="font-display">
+
 <!-- ================= HEADER ================= -->
 <header class="sticky-top glass border-bottom">
-  <div class="container-xl py-3">
-    <div class="row align-items-center">
-
-      <!-- Logo -->
-      <div class="col-auto">
+    <div class="container-xl py-3">
         <div class="row align-items-center g-3">
-            <img src="https://www.micole.net/imagenes/colegio/logo/32624/progresa_200.png" alt="Logo" class="logo-img">
-          <div class="col-auto">
-            <h2 class="mb-0 fw-bold">THE PROGRESA</h2>
-          </div>
-        </div>
-      </div>
 
-      <!-- Nav -->
-      <div class="col d-none d-md-block">
-        <div class="row justify-content-center">
-          <div class="col-auto"><a class="nav-link fw-bold border-bottom border-primary" href="#" style="color: var(--primary) !important;">Inicio</a></div>
-          <div class="col-auto"><a class="nav-link text-muted" href="https://github.com" target="_blank">Proyectos</a></div>
-          <div class="col-auto"><a class="nav-link text-muted" href="Pages/contacto.html">Contacto</a></div>
-          <div class="col-auto"><a class="nav-link text-muted" href="Pages/comunidad.html">Comunidad</a></div>
-        </div>
-      </div>
-
-      <!-- Theme Toggle -->
-      <div class="col-auto">
-        <button id="theme-toggle" class="theme-toggle-btn" title="Cambiar tema">
-          <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
-            <circle cx="12" cy="12" r="4" fill="currentColor"></circle>
-            <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
-              <line x1="12" y1="1" x2="12" y2="4"></line>
-              <line x1="12" y1="20" x2="12" y2="23"></line>
-              <line x1="1" y1="12" x2="4" y2="12"></line>
-              <line x1="20" y1="12" x2="23" y2="12"></line>
-              <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line>
-              <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line>
-              <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line>
-              <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>
-            </g>
-          </svg>
-          <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-        </button>
-      </div>
-
-      <!-- User -->
-      <div class="col-auto">
-        <div class="row align-items-center g-2">
-          <!-- Login Button (visible cuando NO hay sesión) -->
-          <div class="col-auto d-none" id="login-btn-container">
-            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#loginModal">
-              <span class="material-symbols-outlined">login</span>
-            </button>
-          </div>
-          
-          <!-- User Avatar Dropdown (visible cuando HAY sesión) -->
-          <div class="col-auto dropdown" id="user-avatar-container">
-            <img class="rounded-circle border border-primary dropdown-toggle" 
-                 width="40"
-                 src="https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png" 
-                 alt="User avatar"
-                 id="userDropdown"
-                 data-bs-toggle="dropdown"
-                 aria-expanded="false"
-                 style="cursor: pointer;">
-            <ul class="dropdown-menu dropdown-menu-end user-dropdown" aria-labelledby="userDropdown">
-              <li class="dropdown-header">
-                <div class="d-flex align-items-center">
-                  <img class="rounded-circle me-2" width="32" 
-                       src="https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png" 
-                       alt="User">
-                  <div>
-                    <strong class="d-block" id="user-name">Usuario</strong>
-                    <small id="user-email" class="text-muted">user@progresa.com</small>
-                  </div>
+            <!-- Logo -->
+            <div class="col-6 col-md-auto">
+                <div class="row align-items-center g-2 g-md-3">
+                    <div class="col-auto">
+                        <img src="https://www.micole.net/imagenes/colegio/logo/32624/progresa_200.png"
+                             alt="Logo THE PROGRESA"
+                             class="logo-img">
+                    </div>
+                    <div class="col-auto d-none d-sm-block">
+                        <h2 class="mb-0 fw-bold">THE PROGRESA</h2>
+                    </div>
                 </div>
-              </li>
-              <li><hr class="dropdown-divider"></li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  <span class="material-symbols-outlined me-2">person</span>
-                  Mi Perfil
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  <span class="material-symbols-outlined me-2">settings</span>
-                  Configuración
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  <span class="material-symbols-outlined me-2">emoji_events</span>
-                  Mis Logros
-                </a>
-              </li>
-              <li><hr class="dropdown-divider"></li>
-              <li>
-                <a class="dropdown-item text-danger" href="#" id="logout-btn">
-                  <span class="material-symbols-outlined me-2">logout</span>
-                  Cerrar Sesión
-                </a>
-              </li>
-            </ul>
-          </div>
+            </div>
+
+            <!-- Navigation (Desktop) -->
+            <div class="col d-none d-lg-block">
+                <nav class="row justify-content-center g-0">
+                    <div class="col-auto">
+                        <a class="nav-link fw-bold border-bottom border-primary"
+                           href="#"
+                           style="color: var(--primary) !important;">
+                            Inicio
+                        </a>
+                    </div>
+                    <div class="col-auto">
+                        <a class="nav-link text-muted"
+                           href="https://github.com"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Proyectos
+                        </a>
+                    </div>
+                    <div class="col-auto">
+                        <a class="nav-link text-muted"
+                           href="Pages/contacto.html">
+                            Contacto
+                        </a>
+                    </div>
+                    <div class="col-auto">
+                        <a class="nav-link text-muted"
+                           href="Pages/comunidad.html">
+                            Comunidad
+                        </a>
+                    </div>
+                </nav>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="col-auto d-lg-none ms-auto">
+                <button class="btn btn-outline-primary btn-sm"
+                        type="button"
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#mobileMenu"
+                        aria-controls="mobileMenu">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+
+            <!-- Theme Toggle -->
+            <div class="col-auto d-none d-sm-block">
+                <button id="theme-toggle"
+                        class="theme-toggle-btn"
+                        title="Cambiar tema"
+                        aria-label="Cambiar tema">
+                    <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4" fill="currentColor"></circle>
+                        <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                            <line x1="12" y1="1" x2="12" y2="4"></line>
+                            <line x1="12" y1="20" x2="12" y2="23"></line>
+                            <line x1="1" y1="12" x2="4" y2="12"></line>
+                            <line x1="20" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line>
+                            <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line>
+                            <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line>
+                            <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>
+                        </g>
+                    </svg>
+                    <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- User Avatar / Login -->
+            <div class="col-auto">
+                <div class="row align-items-center g-2">
+                    <!-- Login Button (cuando NO hay sesión) -->
+                    <div class="col-auto d-none" id="login-btn-container">
+                        <button class="btn btn-outline-primary btn-sm"
+                                data-bs-toggle="modal"
+                                data-bs-target="#loginModal">
+                            <span class="material-symbols-outlined">login</span>
+                        </button>
+                    </div>
+
+                    <!-- User Avatar Dropdown (cuando HAY sesión) -->
+                    <div class="col-auto dropdown" id="user-avatar-container">
+                        <img class="rounded-circle border border-2 border-primary dropdown-toggle"
+                             width="40"
+                             height="40"
+                             src="https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png"
+                             alt="Avatar de usuario"
+                             id="userDropdown"
+                             data-bs-toggle="dropdown"
+                             aria-expanded="false"
+                             style="cursor: pointer; object-fit: cover;">
+
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li class="dropdown-header">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle me-2"
+                                         width="32"
+                                         height="32"
+                                         src="https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png"
+                                         alt="Avatar">
+                                    <div>
+                                        <strong class="d-block" id="user-name">Usuario</strong>
+                                        <small id="user-email" class="text-muted">user@progresa.com</small>
+                                    </div>
+                                </div>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <span class="material-symbols-outlined me-2">person</span>
+                                    Mi Perfil
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <span class="material-symbols-outlined me-2">settings</span>
+                                    Configuración
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <span class="material-symbols-outlined me-2">emoji_events</span>
+                                    Mis Logros
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item text-danger" href="#" id="logout-btn">
+                                    <span class="material-symbols-outlined me-2">logout</span>
+                                    Cerrar Sesión
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
         </div>
-      </div>
     </div>
-  </div>
 </header>
 
-<!-- ================= HERO ================= -->
+<!-- ================= MOBILE MENU (Offcanvas) ================= -->
+<div class="offcanvas offcanvas-end bg-card" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title fw-bold" id="mobileMenuLabel">
+            <span class="material-symbols-outlined align-middle me-2">menu</span>
+            Menú
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+    </div>
+    <div class="offcanvas-body">
+        <nav class="nav flex-column gap-2">
+            <a class="nav-link fw-bold border-bottom border-primary py-3" href="#" style="color: var(--primary) !important;">
+                <span class="material-symbols-outlined me-2 align-middle">home</span>
+                Inicio
+            </a>
+            <a class="nav-link text-muted py-3" href="https://github.com" target="_blank" rel="noopener noreferrer">
+                <span class="material-symbols-outlined me-2 align-middle">code</span>
+                Proyectos
+            </a>
+            <a class="nav-link text-muted py-3" href="Pages/contacto.html">
+                <span class="material-symbols-outlined me-2 align-middle">mail</span>
+                Contacto
+            </a>
+            <a class="nav-link text-muted py-3" href="Pages/comunidad.html">
+                <span class="material-symbols-outlined me-2 align-middle">groups</span>
+                Comunidad
+            </a>
+        </nav>
+
+        <!-- Theme Toggle en Mobile -->
+        <div class="mt-4 pt-4 border-top">
+            <button class="theme-toggle-btn mx-auto d-block"
+                    title="Cambiar tema"
+                    aria-label="Cambiar tema">
+                <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4" fill="currentColor"></circle>
+                    <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <line x1="12" y1="1" x2="12" y2="4"></line>
+                        <line x1="12" y1="20" x2="12" y2="23"></line>
+                        <line x1="1" y1="12" x2="4" y2="12"></line>
+                        <line x1="20" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line>
+                        <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line>
+                        <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line>
+                        <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>
+                    </g>
+                </svg>
+                <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ================= HERO SECTION ================= -->
 <section class="container-xl my-4">
-  <div class="hero rounded-4 p-5 position-relative overflow-hidden fade-in-up">
+    <div class="hero rounded-4 p-4 p-md-5 position-relative overflow-hidden fade-in-up">
 
-    <div class="row mb-3">
-      <div class="col-auto"><span class="badge bg-danger animate-badge">Live Session</span></div>
-      <div class="col-auto"><span class="badge bg-primary animate-badge">V 2.0.4</span></div>
+        <div class="row mb-3 g-2">
+            <div class="col-auto">
+                <span class="badge bg-danger animate-badge">Live Session</span>
+            </div>
+            <div class="col-auto">
+                <span class="badge bg-primary animate-badge">V 2.0.4</span>
+            </div>
+        </div>
+
+        <h1 class="display-4 display-3-md fw-black neon-text animate-title">
+            DAW <span class="gradient-text">NETRUNNERS</span>
+        </h1>
+
+        <p class="text-dark fs-5 fs-6-sm col-12 col-md-8 col-lg-7 fw-medium animate-subtitle">
+            Arquitectos del futuro digital. Explora el código de la nueva generación.
+        </p>
+
+        <div class="row mt-4 g-3">
+            <div class="col-12 col-sm-auto">
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn-primary btn-lg w-100 w-sm-auto">
+                    <span class="material-symbols-outlined me-2 align-middle">travel_explore</span>
+                    Explorar Repositorios
+                </a>
+            </div>
+        </div>
+
     </div>
-
-    <h1 class="display-4 fw-black neon-text animate-title">
-      DAW <span class="gradient-text">NETRUNNERS</span>
-    </h1>
-
-    <p class="text-dark fs-5 col-md-7 fw-medium animate-subtitle">
-      Arquitectos del futuro digital. Explora el código de la nueva generación.
-    </p>
-
-    <div class="row mt-4 g-3">
-      <div class="col-auto">
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1" target="_blank" class="btn btn-primary btn-lg">Explorar Repositorios</a>
-      </div>
-      <!-- <div class="col-auto">
-        <button class="btn btn-outline-light btn-lg">
-          <span class="material-symbols-outlined me-1">terminal</span>
-          Consola
-        </button>
-      </div> -->
-    </div>
-
-  </div>
 </section>
 
-<!-- ================= MAIN ================= -->
+<!-- ================= MAIN CONTENT ================= -->
+<main class="container-xl mb-5">
+    <div class="row g-4">
 
-<main class="container-xl">
-  <div class="row g-4">
+        <!-- ========= LEFT COLUMN ========= -->
+        <section class="col-lg-8">
 
-    <!-- ========= LEFT COLUMN ========= -->
-    <section class="col-lg-8">
-
-      <!-- Search -->
-      <div class="card bg-card p-3 mb-3 sticky-top search-bar">
-        <div class="input-group">
+            <!-- Search Bar -->
+            <div class="card bg-card p-3 mb-4 sticky-top search-bar">
+                <div class="input-group">
           <span class="input-group-text">
             <span class="material-symbols-outlined">search</span>
           </span>
-          <input class="form-control"
-                 placeholder="Buscar repositorio, stack o estudiante">
-        </div>
+                    <input class="form-control"
+                           type="search"
+                           placeholder="Buscar repositorio, stack o estudiante"
+                           aria-label="Buscar">
+                </div>
 
-        <!-- Chips -->
-        <div class="row mt-3 flex-nowrap overflow-auto">
-          <div class="col-auto"><span class="chip active">All Systems</span></div>
-          <div class="col-auto"><span class="chip">Frontend</span></div>
-          <div class="col-auto"><span class="chip">Backend</span></div>
-          <div class="col-auto"><span class="chip">React</span></div>
-          <div class="col-auto"><span class="chip">Node</span></div>
-          <div class="col-auto"><span class="chip">Docker</span></div>
-        </div>
-      </div>
-
-      <!-- Projects --> 
-      <h3 class="fw-bold mb-3">Proyectos Destacados</h3>
-
-      <div class="row g-4">
-        <div class="col-md-6">
-          <div class="card bg-card neon-hover h-100">
-            <div class="project-img"
-              style="background-image:url('https://www.casinogranvia.es/img/logos/pragmatic/gates-of-olympus.webp')"></div>
-            <div class="card-body">
-              <h5 class="fw-bold">Casino App</h5>
-              <p class="text-secondary small">
-                Roulette game built with React and Node.js.
-              </p>
+                <!-- Filter Chips -->
+                <div class="row mt-3 flex-nowrap overflow-auto pb-2">
+                    <div class="col-auto"><span class="chip active">All Systems</span></div>
+                    <div class="col-auto"><span class="chip">Frontend</span></div>
+                    <div class="col-auto"><span class="chip">Backend</span></div>
+                    <div class="col-auto"><span class="chip">React</span></div>
+                    <div class="col-auto"><span class="chip">Node</span></div>
+                    <div class="col-auto"><span class="chip">Docker</span></div>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <div class="col-md-6">
-          <div class="card bg-card neon-hover h-100">
-            <div class="project-img"
-              style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_qAUTZZ0nmtuPUi4SF0CW5DPl6EfVeFvhZA&s')"></div>
-            <div class="card-body">
-              <h5 class="fw-bold">Tower Defense</h5>
-              <p class="text-secondary small">
-                Unity Game Development.
-              </p>
+            <!-- Featured Projects -->
+            <h3 class="fw-bold mb-4">
+                <span class="material-symbols-outlined align-middle me-2">star</span>
+                Proyectos Destacados
+            </h3>
+
+            <div class="row g-4" id="featured-projects">
+                <!-- Project Card 1 -->
+                <div class="col-12 col-md-6">
+                    <article class="card bg-card neon-hover h-100">
+                        <div class="project-img"
+                             style="background-image:url('https://www.casinogranvia.es/img/logos/pragmatic/gates-of-olympus.webp')"
+                             role="img"
+                             aria-label="Casino App Project"></div>
+                        <div class="card-body">
+                            <h5 class="fw-bold mb-2">Casino App</h5>
+                            <p class="text-secondary small mb-3">
+                                Roulette game built with React and Node.js.
+                            </p>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <span class="badge bg-primary">React</span>
+                                <span class="badge bg-primary">Node.js</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="col-12 col-md-6">
+                    <article class="card bg-card neon-hover h-100">
+                        <div class="project-img"
+                             style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_qAUTZZ0nmtuPUi4SF0CW5DPl6EfVeFvhZA&s')"
+                             role="img"
+                             aria-label="Tower Defense Project"></div>
+                        <div class="card-body">
+                            <h5 class="fw-bold mb-2">Tower Defense</h5>
+                            <p class="text-secondary small mb-3">
+                                Unity Game Development.
+                            </p>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <span class="badge bg-primary">Unity</span>
+                                <span class="badge bg-primary">C#</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- ===== More projects (hidden) ===== -->
-<div id="more-projects" class="row g-4 mt-4 d-none">
+            <!-- More Projects (Hidden Initially) -->
+            <div id="more-projects" class="row g-4 mt-2 d-none">
+                <div class="col-12 col-md-6">
+                    <article class="card bg-card neon-hover h-100">
+                        <div class="project-img"
+                             style="background-image:url('https://picsum.photos/500/300?3')"
+                             role="img"
+                             aria-label="Web Page Project"></div>
+                        <div class="card-body">
+                            <h5 class="fw-bold mb-2">Lenguaje Página Web</h5>
+                            <p class="text-secondary small mb-3">
+                                Backend API con Node y Express.
+                            </p>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <span class="badge bg-primary">Node</span>
+                                <span class="badge bg-primary">Express</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
 
-  <div class="col-md-6">
-    <div class="card bg-card neon-hover h-100">
-      <div class="project-img"
-           style="background-image:url('https://picsum.photos/500/300?3')"></div>
-      <div class="card-body">
-        <h5 class="fw-bold">Lenguaje Página Web</h5>
-        <p class="text-secondary small">
-          Backend API con Node y Express.
-        </p>
-      </div>
+                <div class="col-12 col-md-6">
+                    <article class="card bg-card neon-hover h-100">
+                        <div class="project-img"
+                             style="background-image:url('https://picsum.photos/500/300?4')"
+                             role="img"
+                             aria-label="Portfolio Project"></div>
+                        <div class="card-body">
+                            <h5 class="fw-bold mb-2">Portfolio Web</h5>
+                            <p class="text-secondary small mb-3">
+                                Web personal con Bootstrap y animaciones.
+                            </p>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <span class="badge bg-primary">Bootstrap</span>
+                                <span class="badge bg-primary">CSS3</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Load More / Close Buttons -->
+            <button id="load-more-btn" class="btn btn-outline-secondary w-100 mt-4">
+                <span class="material-symbols-outlined me-2 align-middle">expand_more</span>
+                Cargar más proyectos
+            </button>
+
+            <button id="close-projects-btn" class="btn btn-outline-danger w-100 mt-3 d-none">
+                <span class="material-symbols-outlined me-2 align-middle">expand_less</span>
+                Cerrar proyectos
+            </button>
+
+        </section>
+
+        <!-- ========= RIGHT SIDEBAR ========= -->
+        <aside class="col-lg-4">
+
+            <!-- Leaderboard -->
+            <div class="card bg-card p-4 mb-4">
+                <h5 class="fw-bold mb-4">
+                    <span class="material-symbols-outlined text-warning align-middle me-2">trophy</span>
+                    Top Alumnos
+                </h5>
+
+                <div class="leader-item gold">
+                    <span class="fw-bold">#1</span>
+                    <strong>Gold.Sarah.js</strong>
+                    <span class="text-secondary">9850 XP</span>
+                </div>
+
+                <div class="leader-item silver">
+                    <span class="fw-bold">#2</span>
+                    <strong>Silver.Diego.C#</strong>
+                    <span class="text-secondary">9250 XP</span>
+                </div>
+
+                <div class="leader-item bronze">
+                    <span class="fw-bold">#3</span>
+                    <strong>Cooper.Alex.Js</strong>
+                    <span class="text-secondary">8720 XP</span>
+                </div>
+            </div>
+
+            <!-- Terminal -->
+            <div class="terminal">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="ms-2">activity_log.sh</span>
+                </div>
+                <div class="terminal-body">
+                    <p><span class="prompt">➜</span> last_commits --watch</p>
+                    <p><span class="time">2m</span> public class start <span class="accent">(eventArgs e)</span></p>
+                    <p><span class="time">15m</span> position = position * 10;</p>
+                </div>
+            </div>
+
+        </aside>
+
     </div>
-  </div>
-
-  <div class="col-md-6">
-    <div class="card bg-card neon-hover h-100">
-      <div class="project-img"
-           style="background-image:url('https://picsum.photos/500/300?4')"></div>
-      <div class="card-body">
-        <h5 class="fw-bold">Portfolio Web</h5>
-        <p class="text-secondary small">
-          Web personal con Bootstrap y animaciones.
-        </p>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-
-      <button id="load-more-btn" class="btn btn-outline-secondary w-100 mt-4">
-  Cargar más proyectos
-</button>
-
-<button id="close-projects-btn"
-        class="btn btn-outline-danger w-100 mt-2 d-none">
-  Cerrar proyectos
-</button>
-
-    </section>
-
-    <!-- ========= SIDEBAR ========= -->
-    <aside class="col-lg-4">
-
-      <!-- Leaderboard -->
-      <div class="card bg-card p-4 mb-4">
-        <h5 class="fw-bold mb-3">
-          <span class="material-symbols-outlined text-warning">trophy</span>
-          Top Alumnos
-        </h5>
-
-        <div class="leader-item gold">
-          <span class="fw-bold">#1</span>
-          <strong>Gold.Sarah.js</strong>
-          <span class="text-secondary">9850 XP</span>
-        </div>
-        <div class="leader-item silver">
-          <span class="fw-bold">#2</span>
-          <strong>Silver.Diego.C#</strong>
-          <span class="text-secondary">9250 XP</span>
-        </div>
-        <div class="leader-item bronze">
-          <span class="fw-bold">#3</span>
-          <strong>Cooper.Alex.Js</strong>
-          <span class="text-secondary">8720 XP</span>
-        </div>
-      </div>
-
-      <!-- Terminal -->
-      <div class="terminal">
-        <div class="terminal-header">
-          <span class="dot red"></span>
-          <span class="dot yellow"></span>
-          <span class="dot green"></span>
-          <span class="ms-2">activity_log.sh</span>
-        </div>
-        <div class="terminal-body">
-          <p><span class="prompt">➜</span> last_commits --watch</p>
-          <p><span class="time">2m</span> public class start <span class="accent">(eventArgs e)</span></p>
-          <p><span class="time">15m</span> position = position * 10;</p>
-        </div>
-      </div>
-
-    </aside>
-
-  </div>
 </main>
 
 <!-- ================= FOOTER ================= -->
-<footer class="bg-black border-top border-secondary mt-5 py-4">
-  <div class="container-xl">
-    <div class="row align-items-center gy-3">
-      <div class="col-md">
-        <span class="text-secondary small">© 2026 THE PROGRESA - Progresa Digitech FP</span>
-      </div>
-      <div class="col-md-auto">
-        <div class="row g-3">
-          <div class="col-auto"><a class="text-secondary text-decoration-none" href="#">Privacidad</a></div>
-          <div class="col-auto"><a class="text-secondary text-decoration-none" href="#">Términos</a></div>
-          <div class="col-auto"><a class="text-secondary text-decoration-none" href="#">Soporte</a></div>
+<footer class="bg-black border-top border-secondary py-4 mt-5">
+    <div class="container-xl">
+        <div class="row align-items-center gy-3">
+            <div class="col-12 col-md text-center text-md-start">
+                <span class="text-secondary small">© 2026 THE PROGRESA - Progresa Digitech FP</span>
+            </div>
+            <div class="col-12 col-md-auto">
+                <div class="row g-3 justify-content-center">
+                    <div class="col-auto">
+                        <a class="text-secondary text-decoration-none" href="#">Privacidad</a>
+                    </div>
+                    <div class="col-auto">
+                        <a class="text-secondary text-decoration-none" href="#">Términos</a>
+                    </div>
+                    <div class="col-auto">
+                        <a class="text-secondary text-decoration-none" href="#">Soporte</a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </footer>
 
 <!-- ================= LOGIN MODAL ================= -->
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content bg-card">
-      <div class="modal-header border-0">
-        <h5 class="modal-title fw-bold" id="loginModalLabel">
-          <span class="material-symbols-outlined align-middle me-2">login</span>
-          Iniciar Sesión
-        </h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body p-4">
-        <form id="login-form">
-          <div class="mb-3">
-            <label for="login-email" class="form-label fw-bold">
-              <span class="material-symbols-outlined" style="font-size: 18px; vertical-align: middle;">mail</span>
-              Correo electrónico
-            </label>
-            <input type="email" class="form-control form-control-lg" id="login-email" 
-                   placeholder="tu@email.com" required>
-          </div>
-          
-          <div class="mb-4">
-            <label for="login-password" class="form-label fw-bold">
-              <span class="material-symbols-outlined" style="font-size: 18px; vertical-align: middle;">lock</span>
-              Contraseña
-            </label>
-            <input type="password" class="form-control form-control-lg" id="login-password" 
-                   placeholder="••••••••" required>
-          </div>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-card">
+            <div class="modal-header border-0">
+                <h5 class="modal-title fw-bold" id="loginModalLabel">
+                    <span class="material-symbols-outlined align-middle me-2">login</span>
+                    Iniciar Sesión
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body p-4">
+                <form id="login-form">
+                    <div class="mb-3">
+                        <label for="login-email" class="form-label fw-bold">
+                            <span class="material-symbols-outlined align-middle me-1" style="font-size: 18px;">mail</span>
+                            Correo electrónico
+                        </label>
+                        <input type="email"
+                               class="form-control form-control-lg"
+                               id="login-email"
+                               placeholder="tu@email.com"
+                               required
+                               autocomplete="email">
+                    </div>
 
-          <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="remember-me">
-            <label class="form-check-label" for="remember-me">
-              Recordarme
-            </label>
-          </div>
+                    <div class="mb-4">
+                        <label for="login-password" class="form-label fw-bold">
+                            <span class="material-symbols-outlined align-middle me-1" style="font-size: 18px;">lock</span>
+                            Contraseña
+                        </label>
+                        <input type="password"
+                               class="form-control form-control-lg"
+                               id="login-password"
+                               placeholder="••••••••"
+                               required
+                               autocomplete="current-password">
+                    </div>
 
-          <button type="submit" class="btn btn-primary btn-lg w-100 mb-3">
-            <span class="material-symbols-outlined me-2" style="font-size: 20px; vertical-align: middle;">login</span>
-            Iniciar Sesión
-          </button>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="remember-me">
+                        <label class="form-check-label" for="remember-me">
+                            Recordarme
+                        </label>
+                    </div>
 
-          <div class="text-center">
-            <a href="#" class="text-secondary text-decoration-none small">¿Olvidaste tu contraseña?</a>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer border-0">
-        <small class="text-muted">¿No tienes cuenta? <a href="#" class="text-primary">Regístrate aquí</a></small>
-      </div>
+                    <button type="submit" class="btn btn-primary btn-lg w-100 mb-3">
+                        <span class="material-symbols-outlined me-2 align-middle" style="font-size: 20px;">login</span>
+                        Iniciar Sesión
+                    </button>
+
+                    <div class="text-center">
+                        <a href="#" class="text-secondary text-decoration-none small">¿Olvidaste tu contraseña?</a>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer border-0">
+                <small class="text-muted">¿No tienes cuenta? <a href="#" class="text-primary">Regístrate aquí</a></small>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
-<!-- Bootstrap JS -->
+<!-- Bootstrap JS Bundle -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Custom JS -->
+<!-- Custom JavaScript -->
 <script src="js/script.js"></script>
 
 </body>
