@@ -21,7 +21,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/Style.css">
 
-    <!-- Favicon (opcional) -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://www.micole.net/imagenes/colegio/logo/32624/progresa_200.png">
 </head>
 
@@ -30,56 +30,44 @@
 <!-- ================= HEADER ================= -->
 <header class="sticky-top glass border-bottom">
     <div class="container-xl py-3">
-        <div class="row align-items-center g-3">
+        <div class="row align-items-center g-2 g-md-3">
 
             <!-- Logo -->
-            <div class="col-6 col-md-auto">
-                <div class="row align-items-center g-2 g-md-3">
-                    <div class="col-auto">
-                        <img src="https://www.micole.net/imagenes/colegio/logo/32624/progresa_200.png"
-                             alt="Logo THE PROGRESA"
-                             class="logo-img">
-                    </div>
-                    <div class="col-auto d-none d-sm-block">
-                        <h2 class="mb-0 fw-bold">THE PROGRESA</h2>
-                    </div>
+            <div class="col-6 col-sm-5 col-md-auto">
+                <div class="d-flex align-items-center gap-2 gap-md-3">
+                    <img src="https://www.micole.net/imagenes/colegio/logo/32624/progresa_200.png"
+                         alt="Logo THE PROGRESA"
+                         class="logo-img">
+                    <h2 class="mb-0 fw-bold d-none d-sm-block">THE PROGRESA</h2>
                 </div>
             </div>
 
             <!-- Navigation (Desktop) -->
             <div class="col d-none d-lg-block">
-                <nav class="row justify-content-center g-3">
-                    <div class="col-auto">
-                        <a class="nav-link fw-bold border-bottom border-primary"
-                           href="#"
-                           style="color: var(--primary) !important;">
-                            Inicio
-                        </a>
-                    </div>
-                    <div class="col-auto">
-                        <a class="nav-link text-muted"
-                           href="/Pages/proyectos.html"
-                           rel="noopener noreferrer">
-                            Proyectos
-                        </a>
-                    </div>
-                    <div class="col-auto">
-                        <a class="nav-link text-muted"
-                           href="Pages/contacto.html">
-                            Contacto
-                        </a>
-                    </div>
-                    <div class="col-auto">
-                        <a class="nav-link text-muted"
-                           href="Pages/comunidad.html">
-                            Comunidad
-                        </a>
-                    </div>
+                <nav class="d-flex justify-content-center gap-3">
+                    <a class="nav-link fw-bold border-bottom border-primary"
+                       href="#"
+                       style="color: var(--primary) !important;">
+                        Inicio
+                    </a>
+                    <a class="nav-link text-muted"
+                       href="/Pages/proyectos.html"
+                       rel="noopener noreferrer">
+                        Proyectos
+                    </a>
+                    <a class="nav-link text-muted"
+                       href="Pages/contacto.html">
+                        Contacto
+                    </a>
+                    <a class="nav-link text-muted"
+                       href="Pages/comunidad.html">
+                        Comunidad
+                    </a>
                 </nav>
             </div>
 
             <!-- Mobile Menu Button -->
-            <div class="col-auto d-lg-none ms-auto">
+            <div class="col-auto d-lg-none ms-auto order-lg-last">
                 <button class="btn btn-outline-primary btn-sm"
                         type="button"
                         data-bs-toggle="offcanvas"
@@ -90,7 +78,7 @@
             </div>
 
             <!-- Theme Toggle -->
-            <div class="col-auto d-none d-sm-block">
+            <div class="col-auto">
                 <button id="theme-toggle"
                         class="theme-toggle-btn"
                         title="Cambiar tema"
@@ -116,70 +104,68 @@
 
             <!-- User Avatar / Login -->
             <div class="col-auto">
-                <div class="row align-items-center g-2">
-                    <!-- Login Button (cuando NO hay sesión) -->
-                    <div class="col-auto d-none" id="login-btn-container">
-                        <button class="btn btn-outline-primary btn-sm"
-                                data-bs-toggle="modal"
-                                data-bs-target="#loginModal">
-                            <span class="material-symbols-outlined">login</span>
-                        </button>
-                    </div>
+                <!-- Login Button (cuando NO hay sesión) -->
+                <div class="d-none" id="login-btn-container">
+                    <button class="btn btn-outline-primary btn-sm"
+                            data-bs-toggle="modal"
+                            data-bs-target="#loginModal">
+                        <span class="material-symbols-outlined">login</span>
+                    </button>
+                </div>
 
-                    <!-- User Avatar Dropdown (cuando HAY sesión) -->
-                    <div class="col-auto dropdown" id="user-avatar-container">
-                        <img class="rounded-circle border border-2 border-primary dropdown-toggle"
-                             width="40"
-                             height="40"
-                             src="https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png"
-                             alt="Avatar de usuario"
-                             id="userDropdown"
-                             data-bs-toggle="dropdown"
-                             aria-expanded="false"
-                             style="cursor: pointer; object-fit: cover;">
+                <!-- User Avatar Dropdown (cuando HAY sesión) -->
+                <div class="dropdown" id="user-avatar-container">
+                    <img class="rounded-circle border border-2 border-primary dropdown-toggle"
+                         width="40"
+                         height="40"
+                         src="https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png"
+                         alt="Avatar de usuario"
+                         id="userDropdown"
+                         data-bs-toggle="dropdown"
+                         aria-expanded="false"
+                         style="cursor: pointer; object-fit: cover;">
 
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                            <li class="dropdown-header">
-                                <div class="d-flex align-items-center">
-                                    <img class="rounded-circle me-2"
-                                         width="32"
-                                         height="32"
-                                         src="https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png"
-                                         alt="Avatar">
-                                    <div>
-                                        <strong class="d-block" id="user-name">Usuario</strong>
-                                        <small id="user-email" class="text-muted">user@progresa.com</small>
-                                    </div>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                        <li class="dropdown-header">
+                            <div class="d-flex align-items-center">
+                                <img class="rounded-circle me-2"
+                                     width="32"
+                                     height="32"
+                                     src="https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png"
+                                     alt="Avatar">
+                                <div>
+                                    <strong class="d-block" id="user-name">Usuario</strong>
+                                    <small id="user-email" class="text-muted">user@progresa.com</small>
                                 </div>
-                            </li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <span class="material-symbols-outlined me-2">person</span>
-                                    Mi Perfil
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <span class="material-symbols-outlined me-2">settings</span>
-                                    Configuración
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <span class="material-symbols-outlined me-2">emoji_events</span>
-                                    Mis Logros
-                                </a>
-                            </li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li>
-                                <a class="dropdown-item text-danger" href="#" id="logout-btn">
-                                    <span class="material-symbols-outlined me-2">logout</span>
-                                    Cerrar Sesión
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                            </div>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <span class="material-symbols-outlined me-2">person</span>
+                                Mi Perfil
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <span class="material-symbols-outlined me-2">settings</span>
+                                Configuración
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <span class="material-symbols-outlined me-2">emoji_events</span>
+                                Mis Logros
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item text-danger" href="#" id="logout-btn">
+                                <span class="material-symbols-outlined me-2">logout</span>
+                                Cerrar Sesión
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
@@ -188,38 +174,45 @@
 </header>
 
 <!-- ================= MOBILE MENU (Offcanvas) ================= -->
-
+<div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title fw-bold" id="mobileMenuLabel">Menú</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+    </div>
+    <div class="offcanvas-body">
+        <nav class="d-flex flex-column gap-3">
+            <a class="nav-link fw-bold text-primary" href="#">Inicio</a>
+            <a class="nav-link" href="/Pages/proyectos.html">Proyectos</a>
+            <a class="nav-link" href="Pages/contacto.html">Contacto</a>
+            <a class="nav-link" href="Pages/comunidad.html">Comunidad</a>
+        </nav>
+    </div>
+</div>
 
 <!-- ================= HERO SECTION ================= -->
-<section class="container-xl my-4">
-    <div class="hero rounded-4 p-4 p-md-5 position-relative overflow-hidden fade-in-up">
+<section class="container-xl my-3 my-md-4">
+    <div class="hero rounded-4 p-3 p-sm-4 p-md-5 position-relative overflow-hidden fade-in-up">
 
-        <div class="row mb-3 g-2">
-            <div class="col-auto">
-                <span class="badge bg-danger animate-badge">Live Session</span>
-            </div>
-            <div class="col-auto">
-                <span class="badge bg-primary animate-badge">V 2.0.4</span>
-            </div>
+        <div class="d-flex flex-wrap gap-2 mb-3">
+            <span class="badge bg-danger animate-badge">Live Session</span>
+            <span class="badge bg-primary animate-badge">V 2.0.4</span>
         </div>
 
-        <h1 class="display-4 display-3-md fw-black neon-text animate-title">
+        <h1 class="display-4 fw-black neon-text animate-title">
             DAW <span class="gradient-text">NETRUNNERS</span>
         </h1>
 
-        <p class="text-dark fs-5 fs-6-sm col-12 col-md-8 col-lg-7 fw-medium animate-subtitle">
+        <p class="text-dark fs-5 fw-medium animate-subtitle mb-4" style="max-width: 700px;">
             Arquitectos del futuro digital. Explora el código de la nueva generación.
         </p>
 
-        <div class="row mt-4 g-3">
-            <div class="col-12 col-sm-auto">
-                <a href="/Pages/proyectos.html"
-                   rel="noopener noreferrer"
-                   class="btn btn-primary btn-lg w-100 w-sm-auto">
-                    <span class="material-symbols-outlined me-2 align-middle">travel_explore</span>
-                    Explorar Proyectos
-                </a>
-            </div>
+        <div class="d-flex flex-wrap gap-3">
+            <a href="/Pages/proyectos.html"
+               rel="noopener noreferrer"
+               class="btn btn-primary btn-lg">
+                <span class="material-symbols-outlined me-2 align-middle">travel_explore</span>
+                Explorar Proyectos
+            </a>
         </div>
 
     </div>
@@ -227,17 +220,17 @@
 
 <!-- ================= MAIN CONTENT ================= -->
 <main class="container-xl mb-5">
-    <div class="row g-4">
+    <div class="row g-3 g-md-4">
 
         <!-- ========= LEFT COLUMN ========= -->
         <section class="col-lg-8">
 
             <!-- Search Bar -->
-            <div class="card bg-card p-3 mb-4  search-bar">
+            <div class="card bg-card p-3 mb-4 search-bar">
                 <div class="input-group">
-          <span class="input-group-text">
-            <span class="material-symbols-outlined">search</span>
-          </span>
+                    <span class="input-group-text">
+                        <span class="material-symbols-outlined">search</span>
+                    </span>
                     <input class="form-control"
                            type="search"
                            placeholder="Buscar repositorio, stack o estudiante"
@@ -245,25 +238,25 @@
                 </div>
 
                 <!-- Filter Chips -->
-                <div class="row mt-3 flex-nowrap overflow-auto pb-2">
-                    <div class="col-auto"><span class="chip active">All Systems</span></div>
-                    <div class="col-auto"><span class="chip">Frontend</span></div>
-                    <div class="col-auto"><span class="chip">Backend</span></div>
-                    <div class="col-auto"><span class="chip">React</span></div>
-                    <div class="col-auto"><span class="chip">Node</span></div>
-                    <div class="col-auto"><span class="chip">Docker</span></div>
+                <div class="d-flex flex-nowrap overflow-auto gap-2 mt-3 pb-2 chip-container">
+                    <span class="chip active">All Systems</span>
+                    <span class="chip">Frontend</span>
+                    <span class="chip">Backend</span>
+                    <span class="chip">React</span>
+                    <span class="chip">Node</span>
+                    <span class="chip">Docker</span>
                 </div>
             </div>
 
             <!-- Featured Projects -->
-            <h3 class="fw-bold mb-4">
+            <h3 class="fw-bold mb-3 mb-md-4">
                 <span class="material-symbols-outlined align-middle me-2">star</span>
                 Proyectos Destacados
             </h3>
 
-            <div class="row g-4" id="featured-projects">
+            <div class="row g-3 g-md-4" id="featured-projects">
                 <!-- Project Card 1 -->
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-sm-6">
                     <article class="card bg-card neon-hover h-100">
                         <div class="project-img"
                              style="background-image:url('https://www.casinogranvia.es/img/logos/pragmatic/gates-of-olympus.webp')"
@@ -283,7 +276,7 @@
                 </div>
 
                 <!-- Project Card 2 -->
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-sm-6">
                     <article class="card bg-card neon-hover h-100">
                         <div class="project-img"
                              style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_qAUTZZ0nmtuPUi4SF0CW5DPl6EfVeFvhZA&s')"
@@ -304,8 +297,8 @@
             </div>
 
             <!-- More Projects (Hidden Initially) -->
-            <div id="more-projects" class="row g-4 mt-2 d-none">
-                <div class="col-12 col-md-6">
+            <div id="more-projects" class="row g-3 g-md-4 mt-2 d-none">
+                <div class="col-12 col-sm-6">
                     <article class="card bg-card neon-hover h-100">
                         <div class="project-img"
                              style="background-image:url('https://picsum.photos/500/300?3')"
@@ -324,7 +317,7 @@
                     </article>
                 </div>
 
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-sm-6">
                     <article class="card bg-card neon-hover h-100">
                         <div class="project-img"
                              style="background-image:url('https://picsum.photos/500/300?4')"
@@ -345,7 +338,7 @@
             </div>
 
             <!-- Load More / Close Buttons -->
-            <button id="load-more-btn" class="btn btn-outline-secondary w-100 mt-4">
+            <button id="load-more-btn" class="btn btn-outline-secondary w-100 mt-3 mt-md-4">
                 <span class="material-symbols-outlined me-2 align-middle">expand_more</span>
                 Cargar más proyectos
             </button>
@@ -361,8 +354,8 @@
         <aside class="col-lg-4">
 
             <!-- Leaderboard -->
-            <div class="card bg-card p-4 mb-4">
-                <h5 class="fw-bold mb-4">
+            <div class="card bg-card p-3 p-md-4 mb-3 mb-md-4">
+                <h5 class="fw-bold mb-3 mb-md-4">
                     <span class="material-symbols-outlined text-warning align-middle me-2">trophy</span>
                     Top Alumnos
                 </h5>
@@ -414,16 +407,10 @@
                 <span class="text-secondary small">© 2026 THE PROGRESA - Progresa Digitech FP</span>
             </div>
             <div class="col-12 col-md-auto">
-                <div class="row g-3 justify-content-center">
-                    <div class="col-auto">
-                        <a class="text-secondary text-decoration-none" href="#">Privacidad</a>
-                    </div>
-                    <div class="col-auto">
-                        <a class="text-secondary text-decoration-none" href="#">Términos</a>
-                    </div>
-                    <div class="col-auto">
-                        <a class="text-secondary text-decoration-none" href="#">Soporte</a>
-                    </div>
+                <div class="d-flex flex-wrap gap-3 justify-content-center">
+                    <a class="text-secondary text-decoration-none" href="#">Privacidad</a>
+                    <a class="text-secondary text-decoration-none" href="#">Términos</a>
+                    <a class="text-secondary text-decoration-none" href="#">Soporte</a>
                 </div>
             </div>
         </div>
