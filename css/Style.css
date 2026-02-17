@@ -181,3 +181,14 @@ html[data-theme="dark"] .modal-content .form-control,
 html[data-theme="dark"] .modal-content .form-select{background:var(--bg-white)!important;color:#f0f2f5!important;border-color:var(--card-border)!important}
 html[data-theme="dark"] .modal-content .form-select option{background:var(--card);color:#f0f2f5}
 html[data-theme="dark"] .offcanvas-title{color:#f0f2f5!important}
+/* Modal Login */
+html[data-theme="dark"] #loginModal .modal-title,
+html[data-theme="dark"] #loginModal label,
+html[data-theme="dark"] #loginModal .form-check-label{color:#f0f2f5!important}
+html[data-theme="dark"] #loginModal .form-control{background:var(--bg-white)!important;color:#f0f2f5!important;border-color:var(--card-border)!important}
+html[data-theme="dark"] #loginModal .form-control::placeholder{color:#6b7280!important}
+html[data-theme="dark"] #loginModal .text-secondary,
+html[data-theme="dark"] #loginModal .text-muted{color:#9ca3af!important}
+html[data-theme="dark"] #loginModal small{color:#9ca3af!important}
+html[data-theme="dark"] #loginModal a.text-primary{color:var(--primary)!important}
+html[data-theme="dark"] #loginModal a.text-secondary{color:#9ca3af!important}
