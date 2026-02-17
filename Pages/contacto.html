@@ -5,57 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - THE PROGRESA</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;900&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    
+
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="../css/Style.css">
 </head>
 <body class="font-display">
 
 <!-- ================= HEADER ================= -->
-<header class="sticky-top glass border-bottom border-primary-subtle">
+<header class="sticky-top glass border-bottom">
     <div class="container-xl py-3">
-        <div class="row align-items-center">
+        <div class="row align-items-center g-2 g-md-3">
 
             <!-- Logo -->
-            <div class="col-auto">
-                <div class="row align-items-center g-3">
+            <div class="col-6 col-sm-5 col-md-auto">
+                <div class="d-flex align-items-center gap-2 gap-md-3">
                     <img src="https://www.micole.net/imagenes/colegio/logo/32624/progresa_200.png"
                          alt="Logo" class="logo-img">
-                    <div class="col-auto">
-                        <h2 class="mb-0 fw-bold">THE PROGRESA</h2>
-                    </div>
+                    <h2 class="mb-0 fw-bold d-none d-sm-block">THE PROGRESA</h2>
                 </div>
             </div>
 
-            <!-- Nav -->
-            <div class="col d-none d-md-block">
-                <div class="row justify-content-center">
-                    <div class="col-auto"><a class="nav-link text-secondary" href="../index.html">Inicio</a></div>
-                    <div class="col-auto"><a class="nav-link text-secondary" href="proyectos.html">Proyectos</a></div>
-                    <div class="col-auto"><a class="nav-link text-dark fw-bold border-bottom border-primary" href="contacto.html">Contacto</a></div>
-                    <div class="col-auto"><a class="nav-link text-secondary" href="comunidad.html">Comunidad</a></div>
-                </div>
+            <!-- Nav (Desktop) -->
+            <div class="col d-none d-lg-block">
+                <nav class="d-flex justify-content-center gap-3">
+                    <a class="nav-link" href="../index.html">Inicio</a>
+                    <a class="nav-link" href="proyectos.html">Proyectos</a>
+                    <a class="nav-link fw-bold border-bottom border-primary" style="color: var(--primary) !important;" href="contacto.html">Contacto</a>
+                    <a class="nav-link" href="comunidad.html">Comunidad</a>
+                </nav>
             </div>
-            
+
+            <!-- Mobile Menu Button -->
+            <div class="col-auto d-lg-none ms-auto">
+                <button class="btn btn-outline-primary btn-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+
             <!-- Theme Toggle -->
             <div class="col-auto">
                 <button id="theme-toggle" class="theme-toggle-btn" title="Cambiar tema">
-                    <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+                    <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="12" cy="12" r="4" fill="currentColor"></circle>
                         <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                          <line x1="12" y1="1" x2="12" y2="4"></line>
-                          <line x1="12" y1="20" x2="12" y2="23"></line>
-                          <line x1="1" y1="12" x2="4" y2="12"></line>
-                          <line x1="20" y1="12" x2="23" y2="12"></line>
-                          <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line>
-                          <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line>
-                          <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line>
-                          <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>
+                            <line x1="12" y1="1" x2="12" y2="4"></line>
+                            <line x1="12" y1="20" x2="12" y2="23"></line>
+                            <line x1="1" y1="12" x2="4" y2="12"></line>
+                            <line x1="20" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line>
+                            <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line>
+                            <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line>
+                            <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>
                         </g>
                     </svg>
                     <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -66,61 +71,33 @@
 
             <!-- User -->
             <div class="col-auto">
-                <div class="row align-items-center g-3">
-                    <div class="col-auto dropdown">
-                        <img class="rounded-circle border border-primary dropdown-toggle" 
-                             width="45"
-                             src="https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png" 
-                             alt="User avatar"
-                             id="userDropdown"
-                             data-bs-toggle="dropdown"
-                             aria-expanded="false"
-                             style="cursor: pointer;">
-                    </div>
-                    <div class="col-auto">
-                        <button class="btn btn-outline-primary btn-sm">
-                            <span class="material-symbols-outlined">login</span>
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-end user-dropdown" aria-labelledby="userDropdown">
-                            <li class="dropdown-header">
-                                <div class="d-flex align-items-center">
-                                    <img class="rounded-circle me-2" width="32" 
-                                         src="https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png" 
-                                         alt="User">
-                                    <div>
-                                        <strong class="d-block">Usuario</strong>
-                                        <small class="text-secondary">user@progresa.com</small>
-                                    </div>
+                <div class="dropdown">
+                    <img class="rounded-circle border border-2 border-primary dropdown-toggle"
+                         width="40" height="40"
+                         src="https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png"
+                         alt="User avatar"
+                         id="userDropdown"
+                         data-bs-toggle="dropdown"
+                         style="cursor: pointer; object-fit: cover;">
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                        <li class="dropdown-header">
+                            <div class="d-flex align-items-center">
+                                <img class="rounded-circle me-2" width="32" height="32"
+                                     src="https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png"
+                                     alt="User">
+                                <div>
+                                    <strong class="d-block">Usuario</strong>
+                                    <small class="text-muted">user@progresa.com</small>
                                 </div>
-                            </li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <span class="material-symbols-outlined me-2">person</span>
-                                    Mi Perfil
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <span class="material-symbols-outlined me-2">settings</span>
-                                    Configuración
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <span class="material-symbols-outlined me-2">emoji_events</span>
-                                    Mis Logros
-                                </a>
-                            </li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li>
-                                <a class="dropdown-item text-danger" href="#">
-                                    <span class="material-symbols-outlined me-2">logout</span>
-                                    Cerrar Sesión
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                            </div>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#"><span class="material-symbols-outlined me-2">person</span>Mi Perfil</a></li>
+                        <li><a class="dropdown-item" href="#"><span class="material-symbols-outlined me-2">settings</span>Configuración</a></li>
+                        <li><a class="dropdown-item" href="#"><span class="material-symbols-outlined me-2">emoji_events</span>Mis Logros</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-danger" href="#"><span class="material-symbols-outlined me-2">logout</span>Cerrar Sesión</a></li>
+                    </ul>
                 </div>
             </div>
 
@@ -128,55 +105,71 @@
     </div>
 </header>
 
+<!-- Mobile Menu (Offcanvas) -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title fw-bold">Menú</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+        <nav class="d-flex flex-column gap-3">
+            <a class="nav-link" href="../index.html">Inicio</a>
+            <a class="nav-link" href="proyectos.html">Proyectos</a>
+            <a class="nav-link fw-bold text-primary" href="contacto.html">Contacto</a>
+            <a class="nav-link" href="comunidad.html">Comunidad</a>
+        </nav>
+    </div>
+</div>
+
 <!-- ================= MAIN ================= -->
-<main class="container-xl my-5">
+<main class="container-xl my-4 my-md-5">
     <!-- Header Section -->
-    <div class="text-center mb-5">
+    <div class="text-center mb-4 mb-md-5">
         <h1 class="display-4 fw-bold neon-text mb-3">
             Contáctanos
         </h1>
-        <p class="text-secondary fs-5 col-md-6 mx-auto">
+        <p class="text-secondary fs-5 col-md-8 col-lg-6 mx-auto">
             ¿Tienes alguna pregunta o sugerencia? Nos encantaría escucharte.
         </p>
     </div>
 
     <div class="row justify-content-center">
         <div class="col-lg-6 col-md-8">
-            <div class="card bg-card p-4 p-md-5 neon-hover">
+            <div class="card bg-card p-3 p-sm-4 p-md-5 neon-hover">
                 <form>
-                    <div class="mb-4">
+                    <div class="mb-3 mb-md-4">
                         <label for="nombre" class="form-label fw-bold">
                             <span class="material-symbols-outlined" style="font-size: 18px; vertical-align: middle;">person</span>
                             Nombre
                         </label>
-                        <input type="text" class="form-control form-control-lg" id="nombre" 
+                        <input type="text" class="form-control form-control-lg" id="nombre"
                                placeholder="Tu nombre completo" required>
                     </div>
 
-                    <div class="mb-4">
+                    <div class="mb-3 mb-md-4">
                         <label for="email" class="form-label fw-bold">
                             <span class="material-symbols-outlined" style="font-size: 18px; vertical-align: middle;">mail</span>
                             Correo electrónico
                         </label>
-                        <input type="email" class="form-control form-control-lg" id="email" 
+                        <input type="email" class="form-control form-control-lg" id="email"
                                placeholder="tucorreo@ejemplo.com" required>
                     </div>
 
-                    <div class="mb-4">
+                    <div class="mb-3 mb-md-4">
                         <label for="asunto" class="form-label fw-bold">
                             <span class="material-symbols-outlined" style="font-size: 18px; vertical-align: middle;">subject</span>
                             Asunto
                         </label>
-                        <input type="text" class="form-control form-control-lg" id="asunto" 
+                        <input type="text" class="form-control form-control-lg" id="asunto"
                                placeholder="¿De qué se trata tu mensaje?">
                     </div>
 
-                    <div class="mb-4">
+                    <div class="mb-3 mb-md-4">
                         <label for="mensaje" class="form-label fw-bold">
                             <span class="material-symbols-outlined" style="font-size: 18px; vertical-align: middle;">description</span>
                             Mensaje
                         </label>
-                        <textarea class="form-control form-control-lg" id="mensaje" rows="6" 
+                        <textarea class="form-control form-control-lg" id="mensaje" rows="6"
                                   placeholder="Escribe tu mensaje aquí..." required></textarea>
                     </div>
 
@@ -188,18 +181,18 @@
             </div>
 
             <!-- Contact Info Cards -->
-            <div class="row g-3 mt-4">
-                <div class="col-md-6">
-                    <div class="card bg-card p-3 text-center">
+            <div class="row g-3 mt-3 mt-md-4">
+                <div class="col-sm-6">
+                    <div class="card bg-card p-3 text-center neon-hover">
                         <span class="material-symbols-outlined text-primary mb-2" style="font-size: 32px;">mail</span>
                         <h6 class="fw-bold mb-1">Email</h6>
-                        <a href="/cdn-cgi/l/email-protection#bed7d0d8d1fececcd1d9ccdbcddf90ddd1d3" class="text-secondary text-decoration-none small">
-                            <span class="__cf_email__" data-cfemail="137a7d757c5363617c74617660723d707c7e">[email&#160;protected]</span>
+                        <a href="mailto:info@progresa.com" class="text-secondary text-decoration-none small">
+                            info@progresa.com
                         </a>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card bg-card p-3 text-center">
+                <div class="col-sm-6">
+                    <div class="card bg-card p-3 text-center neon-hover">
                         <span class="material-symbols-outlined text-primary mb-2" style="font-size: 32px;">location_on</span>
                         <h6 class="fw-bold mb-1">Ubicación</h6>
                         <p class="text-secondary small mb-0">Madrid, España</p>
@@ -211,17 +204,17 @@
 </main>
 
 <!-- ================= FOOTER ================= -->
-<footer class="border-top mt-5 py-4">
+<footer class="bg-black border-top border-secondary py-4 mt-5">
     <div class="container-xl">
         <div class="row align-items-center gy-3">
-            <div class="col-md">
-                <span class="text-secondary small">© 2024 THE PROGRESA - Progresa Digitech FP</span>
+            <div class="col-12 col-md text-center text-md-start">
+                <span class="text-secondary small">© 2026 THE PROGRESA - Progresa Digitech FP</span>
             </div>
-            <div class="col-md-auto">
-                <div class="row g-3">
-                    <div class="col-auto"><a class="text-secondary text-decoration-none" href="#">Privacidad</a></div>
-                    <div class="col-auto"><a class="text-secondary text-decoration-none" href="#">Términos</a></div>
-                    <div class="col-auto"><a class="text-secondary text-decoration-none" href="#">Soporte</a></div>
+            <div class="col-12 col-md-auto">
+                <div class="d-flex flex-wrap gap-3 justify-content-center">
+                    <a class="text-secondary text-decoration-none" href="#">Privacidad</a>
+                    <a class="text-secondary text-decoration-none" href="#">Términos</a>
+                    <a class="text-secondary text-decoration-none" href="#">Soporte</a>
                 </div>
             </div>
         </div>
