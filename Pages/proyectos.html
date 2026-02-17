@@ -5,57 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyectos - THE PROGRESA</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;900&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    
+
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="../css/Style.css">
 </head>
 <body class="font-display">
 
 <!-- ================= HEADER ================= -->
-<header class="sticky-top glass border-bottom border-primary-subtle">
+<header class="sticky-top glass border-bottom">
     <div class="container-xl py-3">
-        <div class="row align-items-center">
+        <div class="row align-items-center g-2 g-md-3">
 
             <!-- Logo -->
-            <div class="col-auto">
-                <div class="row align-items-center g-3">
+            <div class="col-6 col-sm-5 col-md-auto">
+                <div class="d-flex align-items-center gap-2 gap-md-3">
                     <img src="https://www.micole.net/imagenes/colegio/logo/32624/progresa_200.png"
                          alt="Logo" class="logo-img">
-                    <div class="col-auto">
-                        <h2 class="mb-0 fw-bold">THE PROGRESA</h2>
-                    </div>
+                    <h2 class="mb-0 fw-bold d-none d-sm-block">THE PROGRESA</h2>
                 </div>
             </div>
 
-            <!-- Nav -->
-            <div class="col d-none d-md-block">
-                <div class="row justify-content-center">
-                    <div class="col-auto"><a class="nav-link text-secondary" href="../index.html">Inicio</a></div>
-                    <div class="col-auto"><a class="nav-link text-dark fw-bold border-bottom border-primary" href="proyectos.html">Proyectos</a></div>
-                    <div class="col-auto"><a class="nav-link text-secondary" href="contacto.html">Contacto</a></div>
-                    <div class="col-auto"><a class="nav-link text-secondary" href="comunidad.html">Comunidad</a></div>
-                </div>
+            <!-- Nav (Desktop) -->
+            <div class="col d-none d-lg-block">
+                <nav class="d-flex justify-content-center gap-3">
+                    <a class="nav-link" href="../index.html">Inicio</a>
+                    <a class="nav-link fw-bold border-bottom border-primary" style="color: var(--primary) !important;" href="proyectos.html">Proyectos</a>
+                    <a class="nav-link" href="contacto.html">Contacto</a>
+                    <a class="nav-link" href="comunidad.html">Comunidad</a>
+                </nav>
             </div>
-            
+
+            <!-- Mobile Menu Button -->
+            <div class="col-auto d-lg-none ms-auto">
+                <button class="btn btn-outline-primary btn-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+
             <!-- Theme Toggle -->
             <div class="col-auto">
                 <button id="theme-toggle" class="theme-toggle-btn" title="Cambiar tema">
-                    <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+                    <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="12" cy="12" r="4" fill="currentColor"></circle>
                         <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                          <line x1="12" y1="1" x2="12" y2="4"></line>
-                          <line x1="12" y1="20" x2="12" y2="23"></line>
-                          <line x1="1" y1="12" x2="4" y2="12"></line>
-                          <line x1="20" y1="12" x2="23" y2="12"></line>
-                          <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line>
-                          <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line>
-                          <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line>
-                          <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>
+                            <line x1="12" y1="1" x2="12" y2="4"></line>
+                            <line x1="12" y1="20" x2="12" y2="23"></line>
+                            <line x1="1" y1="12" x2="4" y2="12"></line>
+                            <line x1="20" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line>
+                            <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line>
+                            <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line>
+                            <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>
                         </g>
                     </svg>
                     <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -66,61 +71,33 @@
 
             <!-- User -->
             <div class="col-auto">
-                <div class="row align-items-center g-2">
-                    <div class="col-auto d-none" id="login-btn-container">
-                        <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#loginModal">
-                            <span class="material-symbols-outlined">login</span>
-                        </button>
-                    </div>
-                    <div class="col-auto dropdown" id="user-avatar-container">
-                        <img class="rounded-circle border border-primary dropdown-toggle" 
-                             width="40"
-                             src="https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png" 
-                             alt="User avatar"
-                             id="userDropdown"
-                             data-bs-toggle="dropdown"
-                             aria-expanded="false"
-                             style="cursor: pointer;">
-                        <ul class="dropdown-menu dropdown-menu-end user-dropdown" aria-labelledby="userDropdown">
-                            <li class="dropdown-header">
-                                <div class="d-flex align-items-center">
-                                    <img class="rounded-circle me-2" width="32" 
-                                         src="https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png" 
-                                         alt="User">
-                                    <div>
-                                        <strong class="d-block" id="user-name">Usuario</strong>
-                                        <small class="text-secondary" id="user-email">user@progresa.com</small>
-                                    </div>
+                <div class="dropdown" id="user-avatar-container">
+                    <img class="rounded-circle border border-2 border-primary dropdown-toggle"
+                         width="40" height="40"
+                         src="https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png"
+                         alt="User avatar"
+                         id="userDropdown"
+                         data-bs-toggle="dropdown"
+                         style="cursor: pointer; object-fit: cover;">
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                        <li class="dropdown-header">
+                            <div class="d-flex align-items-center">
+                                <img class="rounded-circle me-2" width="32" height="32"
+                                     src="https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png"
+                                     alt="User">
+                                <div>
+                                    <strong class="d-block" id="user-name">Usuario</strong>
+                                    <small class="text-muted" id="user-email">user@progresa.com</small>
                                 </div>
-                            </li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <span class="material-symbols-outlined me-2">person</span>
-                                    Mi Perfil
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <span class="material-symbols-outlined me-2">settings</span>
-                                    Configuración
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <span class="material-symbols-outlined me-2">emoji_events</span>
-                                    Mis Logros
-                                </a>
-                            </li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li>
-                                <a class="dropdown-item text-danger" href="#" id="logout-btn">
-                                    <span class="material-symbols-outlined me-2">logout</span>
-                                    Cerrar Sesión
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                            </div>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#"><span class="material-symbols-outlined me-2">person</span>Mi Perfil</a></li>
+                        <li><a class="dropdown-item" href="#"><span class="material-symbols-outlined me-2">settings</span>Configuración</a></li>
+                        <li><a class="dropdown-item" href="#"><span class="material-symbols-outlined me-2">emoji_events</span>Mis Logros</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-danger" href="#" id="logout-btn"><span class="material-symbols-outlined me-2">logout</span>Cerrar Sesión</a></li>
+                    </ul>
                 </div>
             </div>
 
@@ -128,69 +105,83 @@
     </div>
 </header>
 
+<!-- Mobile Menu (Offcanvas) -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title fw-bold">Menú</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+        <nav class="d-flex flex-column gap-3">
+            <a class="nav-link" href="../index.html">Inicio</a>
+            <a class="nav-link fw-bold text-primary" href="proyectos.html">Proyectos</a>
+            <a class="nav-link" href="contacto.html">Contacto</a>
+            <a class="nav-link" href="comunidad.html">Comunidad</a>
+        </nav>
+    </div>
+</div>
+
 <!-- ================= HERO SECTION ================= -->
-<section class="container-xl my-4">
-    <div class="hero rounded-4 p-5 position-relative overflow-hidden">
-        <div class="row mb-3">
-            <div class="col-auto"><span class="badge bg-success animate-badge">Activo</span></div>
-            <div class="col-auto"><span class="badge bg-primary animate-badge">320+ Proyectos</span></div>
+<section class="container-xl my-3 my-md-4">
+    <div class="hero rounded-4 p-3 p-sm-4 p-md-5 position-relative overflow-hidden">
+        <div class="d-flex flex-wrap gap-2 mb-3">
+            <span class="badge bg-success animate-badge">Activo</span>
+            <span class="badge bg-primary animate-badge">320+ Proyectos</span>
         </div>
 
         <h1 class="display-4 fw-black neon-text">
             Nuestros <span class="gradient-text">PROYECTOS</span>
         </h1>
 
-        <p class="text-dark fs-5 col-md-7 fw-medium">
+        <p class="text-dark fs-5 fw-medium mb-4" style="max-width: 700px;">
             Explora las creaciones de nuestra comunidad. Desde aplicaciones web hasta juegos y herramientas innovadoras.
         </p>
 
-        <div class="row mt-4 g-3">
-            <div class="col-auto">
-                <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#submitProjectModal">
-                    <span class="material-symbols-outlined me-2" style="vertical-align: middle;">add</span>
-                    Subir Proyecto
-                </button>
-            </div>
+        <div class="d-flex flex-wrap gap-3">
+            <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#submitProjectModal">
+                <span class="material-symbols-outlined me-2" style="vertical-align: middle;">add</span>
+                Subir Proyecto
+            </button>
         </div>
     </div>
 </section>
 
 <!-- ================= MAIN CONTENT ================= -->
 <main class="container-xl mb-5">
-    
+
     <!-- Stats Section -->
-    <div class="row g-3 mb-5">
-        <div class="col-md-3 col-sm-6">
-            <div class="card bg-card p-4 text-center neon-hover">
-                <span class="material-symbols-outlined text-primary mb-2" style="font-size: 48px;">code</span>
+    <div class="row g-3 g-md-4 mb-4 mb-md-5">
+        <div class="col-6 col-md-3">
+            <div class="card bg-card p-3 p-md-4 text-center neon-hover">
+                <span class="material-symbols-outlined text-primary mb-2" style="font-size: 40px;">code</span>
                 <h3 class="fw-bold mb-0"><span class="counter" data-target="320">0</span>+</h3>
-                <p class="text-secondary mb-0">Proyectos</p>
+                <p class="text-secondary mb-0 small">Proyectos</p>
             </div>
         </div>
-        <div class="col-md-3 col-sm-6">
-            <div class="card bg-card p-4 text-center neon-hover">
-                <span class="material-symbols-outlined text-primary mb-2" style="font-size: 48px;">group</span>
+        <div class="col-6 col-md-3">
+            <div class="card bg-card p-3 p-md-4 text-center neon-hover">
+                <span class="material-symbols-outlined text-primary mb-2" style="font-size: 40px;">group</span>
                 <h3 class="fw-bold mb-0"><span class="counter" data-target="150">0</span>+</h3>
-                <p class="text-secondary mb-0">Contribuidores</p>
+                <p class="text-secondary mb-0 small">Contribuidores</p>
             </div>
         </div>
-        <div class="col-md-3 col-sm-6">
-            <div class="card bg-card p-4 text-center neon-hover">
-                <span class="material-symbols-outlined text-primary mb-2" style="font-size: 48px;">star</span>
+        <div class="col-6 col-md-3">
+            <div class="card bg-card p-3 p-md-4 text-center neon-hover">
+                <span class="material-symbols-outlined text-primary mb-2" style="font-size: 40px;">star</span>
                 <h3 class="fw-bold mb-0"><span class="counter" data-target="1250">0</span>+</h3>
-                <p class="text-secondary mb-0">Stars</p>
+                <p class="text-secondary mb-0 small">Stars</p>
             </div>
         </div>
-        <div class="col-md-3 col-sm-6">
-            <div class="card bg-card p-4 text-center neon-hover">
-                <span class="material-symbols-outlined text-primary mb-2" style="font-size: 48px;">fork_right</span>
+        <div class="col-6 col-md-3">
+            <div class="card bg-card p-3 p-md-4 text-center neon-hover">
+                <span class="material-symbols-outlined text-primary mb-2" style="font-size: 40px;">fork_right</span>
                 <h3 class="fw-bold mb-0"><span class="counter" data-target="420">0</span>+</h3>
-                <p class="text-secondary mb-0">Forks</p>
+                <p class="text-secondary mb-0 small">Forks</p>
             </div>
         </div>
     </div>
 
-    <div class="row g-4">
+    <div class="row g-3 g-md-4">
         <!-- ========= LEFT COLUMN - PROJECTS ========= -->
         <section class="col-lg-8">
 
@@ -201,17 +192,17 @@
                         <span class="material-symbols-outlined">search</span>
                     </span>
                     <input class="form-control" id="searchInput"
-                           placeholder="Buscar por nombre, tecnología o categoría...">
+                           placeholder="Buscar por nombre, tecnología...">
                 </div>
 
                 <!-- Filter Chips -->
-                <div class="row mt-2 flex-nowrap overflow-auto g-2">
-                    <div class="col-auto"><span class="chip active" data-filter="all">Todos</span></div>
-                    <div class="col-auto"><span class="chip" data-filter="web">Web Apps</span></div>
-                    <div class="col-auto"><span class="chip" data-filter="game">Juegos</span></div>
-                    <div class="col-auto"><span class="chip" data-filter="mobile">Móvil</span></div>
-                    <div class="col-auto"><span class="chip" data-filter="tool">Herramientas</span></div>
-                    <div class="col-auto"><span class="chip" data-filter="ai">IA/ML</span></div>
+                <div class="d-flex flex-nowrap overflow-auto gap-2 pb-2 chip-container">
+                    <span class="chip active" data-filter="all">Todos</span>
+                    <span class="chip" data-filter="web">Web Apps</span>
+                    <span class="chip" data-filter="game">Juegos</span>
+                    <span class="chip" data-filter="mobile">Móvil</span>
+                    <span class="chip" data-filter="tool">Herramientas</span>
+                    <span class="chip" data-filter="ai">IA/ML</span>
                 </div>
             </div>
 
@@ -221,7 +212,7 @@
                 Todos los Proyectos
             </h3>
 
-            <div id="projects-container" class="row g-4">
+            <div id="projects-container" class="row g-3 g-md-4">
                 <!-- Los proyectos se cargarán dinámicamente aquí -->
             </div>
 
@@ -239,7 +230,7 @@
         <aside class="col-lg-4">
 
             <!-- Featured Project -->
-            <div class="card bg-card p-4 mb-4">
+            <div class="card bg-card p-3 p-md-4 mb-3 mb-md-4">
                 <h5 class="fw-bold mb-3">
                     <span class="material-symbols-outlined text-warning align-middle me-2">star</span>
                     Proyecto Destacado
@@ -249,7 +240,7 @@
                 <p class="text-secondary small mb-3">
                     Aplicación para monitoreo de huella de carbono personal con recomendaciones IA.
                 </p>
-                <div class="d-flex gap-2 mb-3">
+                <div class="d-flex gap-2 mb-3 flex-wrap">
                     <span class="badge bg-success">React</span>
                     <span class="badge bg-info">Node.js</span>
                     <span class="badge bg-warning">TensorFlow</span>
@@ -260,7 +251,7 @@
             </div>
 
             <!-- Top Technologies -->
-            <div class="card bg-card p-4 mb-4">
+            <div class="card bg-card p-3 p-md-4 mb-3 mb-md-4">
                 <h5 class="fw-bold mb-3">
                     <span class="material-symbols-outlined align-middle me-2">code</span>
                     Tecnologías Populares
@@ -274,8 +265,6 @@
                     <span class="badge bg-secondary">Docker</span>
                     <span class="badge bg-primary">TypeScript</span>
                     <span class="badge bg-success">Vue.js</span>
-                    <span class="badge bg-info">Django</span>
-                    <span class="badge bg-warning">PostgreSQL</span>
                 </div>
             </div>
 
@@ -292,7 +281,6 @@
                     <p><span class="time">2m</span> Sarah.js <span class="accent">pushed</span> to Casino-App</p>
                     <p><span class="time">15m</span> Diego.C# <span class="accent">created</span> TowerDefense-v2</p>
                     <p><span class="time">1h</span> Alex.Js <span class="accent">starred</span> EcoTrack</p>
-                    <p><span class="time">2h</span> Maria.Py <span class="accent">forked</span> AI-Chatbot</p>
                 </div>
             </div>
 
@@ -301,82 +289,41 @@
 </main>
 
 <!-- ================= FOOTER ================= -->
-<footer class="border-top mt-5 py-4">
+<footer class="bg-black border-top border-secondary py-4 mt-5">
     <div class="container-xl">
         <div class="row align-items-center gy-3">
-            <div class="col-md">
-                <span class="text-secondary small">© 2024 THE PROGRESA - Progresa Digitech FP</span>
+            <div class="col-12 col-md text-center text-md-start">
+                <span class="text-secondary small">© 2026 THE PROGRESA - Progresa Digitech FP</span>
             </div>
-            <div class="col-md-auto">
-                <div class="row g-3">
-                    <div class="col-auto"><a class="text-secondary text-decoration-none" href="#">Privacidad</a></div>
-                    <div class="col-auto"><a class="text-secondary text-decoration-none" href="#">Términos</a></div>
-                    <div class="col-auto"><a class="text-secondary text-decoration-none" href="#">Soporte</a></div>
+            <div class="col-12 col-md-auto">
+                <div class="d-flex flex-wrap gap-3 justify-content-center">
+                    <a class="text-secondary text-decoration-none" href="#">Privacidad</a>
+                    <a class="text-secondary text-decoration-none" href="#">Términos</a>
+                    <a class="text-secondary text-decoration-none" href="#">Soporte</a>
                 </div>
             </div>
         </div>
     </div>
 </footer>
 
-<!-- ================= LOGIN MODAL ================= -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content bg-card">
-            <div class="modal-header border-0">
-                <h5 class="modal-title fw-bold" id="loginModalLabel">
-                    <span class="material-symbols-outlined align-middle me-2">login</span>
-                    Iniciar Sesión
-                </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body p-4">
-                <form id="login-form">
-                    <div class="mb-3">
-                        <label for="login-email" class="form-label fw-bold">
-                            <span class="material-symbols-outlined" style="font-size: 18px; vertical-align: middle;">mail</span>
-                            Correo electrónico
-                        </label>
-                        <input type="email" class="form-control form-control-lg" id="login-email" 
-                               placeholder="tu@email.com" required>
-                    </div>
-                    
-                    <div class="mb-4">
-                        <label for="login-password" class="form-label fw-bold">
-                            <span class="material-symbols-outlined" style="font-size: 18px; vertical-align: middle;">lock</span>
-                            Contraseña
-                        </label>
-                        <input type="password" class="form-control form-control-lg" id="login-password" 
-                               placeholder="••••••••" required>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary btn-lg w-100 mb-3">
-                        <span class="material-symbols-outlined me-2" style="font-size: 20px; vertical-align: middle;">login</span>
-                        Iniciar Sesión
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!-- ================= SUBMIT PROJECT MODAL ================= -->
-<div class="modal fade" id="submitProjectModal" tabindex="-1" aria-labelledby="submitProjectModalLabel" aria-hidden="true">
+<div class="modal fade" id="submitProjectModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content bg-card">
             <div class="modal-header border-0">
-                <h5 class="modal-title fw-bold" id="submitProjectModalLabel">
+                <h5 class="modal-title fw-bold">
                     <span class="material-symbols-outlined align-middle me-2">upload</span>
                     Subir Nuevo Proyecto
                 </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
-            <div class="modal-body p-4">
+            <div class="modal-body p-3 p-md-4">
                 <form id="submit-project-form">
                     <div class="mb-3">
                         <label for="project-name" class="form-label fw-bold">Nombre del Proyecto</label>
                         <input type="text" class="form-control" id="project-name" required>
                     </div>
-                    
+
                     <div class="mb-3">
                         <label for="project-description" class="form-label fw-bold">Descripción</label>
                         <textarea class="form-control" id="project-description" rows="3" required></textarea>
@@ -395,14 +342,14 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="project-tech" class="form-label fw-bold">Tecnologías (separadas por comas)</label>
-                        <input type="text" class="form-control" id="project-tech" 
+                        <label for="project-tech" class="form-label fw-bold">Tecnologías</label>
+                        <input type="text" class="form-control" id="project-tech"
                                placeholder="React, Node.js, MongoDB" required>
                     </div>
 
                     <div class="mb-4">
                         <label for="project-url" class="form-label fw-bold">URL del Repositorio</label>
-                        <input type="url" class="form-control" id="project-url" 
+                        <input type="url" class="form-control" id="project-url"
                                placeholder="https://github.com/..." required>
                     </div>
 
@@ -417,19 +364,28 @@
 </div>
 
 <!-- ================= PROJECT DETAIL MODAL ================= -->
-<div class="modal fade" id="projectDetailModal" tabindex="-1" aria-labelledby="projectDetailModalLabel" aria-hidden="true">
+<div class="modal fade" id="projectDetailModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content bg-card">
             <div class="modal-header border-0">
-                <h5 class="modal-title fw-bold" id="projectDetailModalLabel">
+                <h5 class="modal-title fw-bold">
                     <span class="material-symbols-outlined align-middle me-2">info</span>
                     Detalles del Proyecto
                 </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
-            <div class="modal-body p-4">
+            <div class="modal-body p-3 p-md-4">
                 <div id="project-detail-content">
-                    <!-- Se llenará dinámicamente -->
+                    <h4 class="fw-bold mb-3">EcoTrack - Sostenibilidad</h4>
+                    <p class="text-secondary">
+                        Aplicación para monitoreo de huella de carbono personal con recomendaciones personalizadas mediante IA.
+                    </p>
+                    <div class="d-flex gap-2 mb-3 flex-wrap">
+                        <span class="badge bg-success">React</span>
+                        <span class="badge bg-info">Node.js</span>
+                        <span class="badge bg-warning">TensorFlow</span>
+                    </div>
+                    <a href="#" class="btn btn-primary">Ver en GitHub</a>
                 </div>
             </div>
         </div>
@@ -438,6 +394,40 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../js/script.js"></script>
-<script src="../js/proyectos.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.counter');
+                    counters.forEach(counter => {
+                        if (counter.textContent === '0') animateCounter(counter);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.row.g-3').forEach(row => observer.observe(row));
+    });
+</script>
+
 </body>
 </html>
