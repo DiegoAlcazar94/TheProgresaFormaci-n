@@ -71,6 +71,14 @@
 
             <!-- User -->
             <div class="col-auto">
+                <!-- Botón login (sin sesión) -->
+                <div id="login-btn-container" class="d-none">
+                    <button class="btn btn-outline-primary btn-sm"
+                            data-bs-toggle="modal" data-bs-target="#loginModal">
+                        <span class="material-symbols-outlined" style="vertical-align: middle;">login</span>
+                    </button>
+                </div>
+                <!-- Avatar (con sesión) -->
                 <div class="dropdown" id="user-avatar-container">
                     <img class="rounded-circle border border-2 border-primary dropdown-toggle"
                          width="40" height="40"
@@ -323,12 +331,10 @@
                         <label for="project-name" class="form-label fw-bold">Nombre del Proyecto</label>
                         <input type="text" class="form-control" id="project-name" required>
                     </div>
-
                     <div class="mb-3">
                         <label for="project-description" class="form-label fw-bold">Descripción</label>
                         <textarea class="form-control" id="project-description" rows="3" required></textarea>
                     </div>
-
                     <div class="mb-3">
                         <label for="project-category" class="form-label fw-bold">Categoría</label>
                         <select class="form-select" id="project-category" required>
@@ -340,19 +346,16 @@
                             <option value="ai">IA/ML</option>
                         </select>
                     </div>
-
                     <div class="mb-3">
                         <label for="project-tech" class="form-label fw-bold">Tecnologías</label>
                         <input type="text" class="form-control" id="project-tech"
                                placeholder="React, Node.js, MongoDB" required>
                     </div>
-
                     <div class="mb-4">
                         <label for="project-url" class="form-label fw-bold">URL del Repositorio</label>
                         <input type="url" class="form-control" id="project-url"
                                placeholder="https://github.com/..." required>
                     </div>
-
                     <button type="submit" class="btn btn-primary btn-lg w-100">
                         <span class="material-symbols-outlined me-2" style="font-size: 20px; vertical-align: middle;">upload</span>
                         Publicar Proyecto
@@ -387,6 +390,55 @@
                     </div>
                     <a href="#" class="btn btn-primary">Ver en GitHub</a>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ================= LOGIN MODAL ================= -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-card">
+            <div class="modal-header border-0">
+                <h5 class="modal-title fw-bold" id="loginModalLabel">
+                    <span class="material-symbols-outlined align-middle me-2">login</span>
+                    Iniciar Sesión
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body p-4">
+                <form id="login-form">
+                    <div class="mb-3">
+                        <label for="login-email" class="form-label fw-bold">
+                            <span class="material-symbols-outlined align-middle me-1" style="font-size: 18px;">mail</span>
+                            Correo electrónico
+                        </label>
+                        <input type="email" class="form-control form-control-lg" id="login-email"
+                               placeholder="tu@email.com" required autocomplete="email">
+                    </div>
+                    <div class="mb-4">
+                        <label for="login-password" class="form-label fw-bold">
+                            <span class="material-symbols-outlined align-middle me-1" style="font-size: 18px;">lock</span>
+                            Contraseña
+                        </label>
+                        <input type="password" class="form-control form-control-lg" id="login-password"
+                               placeholder="••••••••" required autocomplete="current-password">
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="remember-me">
+                        <label class="form-check-label" for="remember-me">Recordarme</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg w-100 mb-3">
+                        <span class="material-symbols-outlined me-2 align-middle" style="font-size: 20px;">login</span>
+                        Iniciar Sesión
+                    </button>
+                    <div class="text-center">
+                        <a href="#" class="text-secondary text-decoration-none small">¿Olvidaste tu contraseña?</a>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer border-0">
+                <small class="text-muted">¿No tienes cuenta? <a href="#" class="text-primary">Regístrate aquí</a></small>
             </div>
         </div>
     </div>
