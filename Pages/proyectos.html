@@ -71,14 +71,6 @@
 
             <!-- User -->
             <div class="col-auto">
-                <!-- Botón login (sin sesión) -->
-                <div id="login-btn-container" class="d-none">
-                    <button class="btn btn-outline-primary btn-sm"
-                            data-bs-toggle="modal" data-bs-target="#loginModal">
-                        <span class="material-symbols-outlined" style="vertical-align: middle;">login</span>
-                    </button>
-                </div>
-                <!-- Avatar (con sesión) -->
                 <div class="dropdown" id="user-avatar-container">
                     <img class="rounded-circle border border-2 border-primary dropdown-toggle"
                          width="40" height="40"
@@ -95,7 +87,7 @@
                                      alt="User">
                                 <div>
                                     <strong class="d-block" id="user-name">Usuario</strong>
-                                    <small class="text-muted" id="user-email">user@progresa.com</small>
+                                    <small class="text-muted" id="user-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d1a4a2b4a391a1a3beb6a3b4a2b0ffb2bebc">[email&#160;protected]</a></small>
                                 </div>
                             </div>
                         </li>
@@ -221,7 +213,85 @@
             </h3>
 
             <div id="projects-container" class="row g-3 g-md-4">
-                <!-- Los proyectos se cargarán dinámicamente aquí -->
+                <!-- Project Card 1 -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <article class="card bg-card neon-hover h-100">
+                        <div class="project-img"
+                             style="background-image:url('https://www.casinogranvia.es/img/logos/pragmatic/gates-of-olympus.webp')"
+                             role="img"
+                             aria-label="Casino App Project"></div>
+                        <div class="card-body">
+                            <h5 class="fw-bold mb-2">Casino App</h5>
+                            <p class="text-secondary small mb-3">
+                                Roulette game built with React and Node.js.
+                            </p>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <span class="badge bg-primary">React</span>
+                                <span class="badge bg-primary">Node.js</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <article class="card bg-card neon-hover h-100">
+                        <div class="project-img"
+                             style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_qAUTZZ0nmtuPUi4SF0CW5DPl6EfVeFvhZA&s')"
+                             role="img"
+                             aria-label="Tower Defense Project"></div>
+                        <div class="card-body">
+                            <h5 class="fw-bold mb-2">Tower Defense</h5>
+                            <p class="text-secondary small mb-3">
+                                Unity Game Development.
+                            </p>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <span class="badge bg-primary">Unity</span>
+                                <span class="badge bg-primary">C#</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <article class="card bg-card neon-hover h-100">
+                        <div class="project-img"
+                             style="background-image:url('https://picsum.photos/500/300?3')"
+                             role="img"
+                             aria-label="Web Page Project"></div>
+                        <div class="card-body">
+                            <h5 class="fw-bold mb-2">Lenguaje Página Web</h5>
+                            <p class="text-secondary small mb-3">
+                                Backend API con Node y Express.
+                            </p>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <span class="badge bg-primary">Node</span>
+                                <span class="badge bg-primary">Express</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Project Card 4 -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <article class="card bg-card neon-hover h-100">
+                        <div class="project-img"
+                             style="background-image:url('https://picsum.photos/500/300?4')"
+                             role="img"
+                             aria-label="Portfolio Project"></div>
+                        <div class="card-body">
+                            <h5 class="fw-bold mb-2">Portfolio Web</h5>
+                            <p class="text-secondary small mb-3">
+                                Web personal con Bootstrap y animaciones.
+                            </p>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <span class="badge bg-primary">Bootstrap</span>
+                                <span class="badge bg-primary">CSS3</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
             </div>
 
             <!-- Load More Button -->
@@ -331,10 +401,12 @@
                         <label for="project-name" class="form-label fw-bold">Nombre del Proyecto</label>
                         <input type="text" class="form-control" id="project-name" required>
                     </div>
+
                     <div class="mb-3">
                         <label for="project-description" class="form-label fw-bold">Descripción</label>
                         <textarea class="form-control" id="project-description" rows="3" required></textarea>
                     </div>
+
                     <div class="mb-3">
                         <label for="project-category" class="form-label fw-bold">Categoría</label>
                         <select class="form-select" id="project-category" required>
@@ -346,16 +418,19 @@
                             <option value="ai">IA/ML</option>
                         </select>
                     </div>
+
                     <div class="mb-3">
                         <label for="project-tech" class="form-label fw-bold">Tecnologías</label>
                         <input type="text" class="form-control" id="project-tech"
                                placeholder="React, Node.js, MongoDB" required>
                     </div>
+
                     <div class="mb-4">
                         <label for="project-url" class="form-label fw-bold">URL del Repositorio</label>
                         <input type="url" class="form-control" id="project-url"
                                placeholder="https://github.com/..." required>
                     </div>
+
                     <button type="submit" class="btn btn-primary btn-lg w-100">
                         <span class="material-symbols-outlined me-2" style="font-size: 20px; vertical-align: middle;">upload</span>
                         Publicar Proyecto
@@ -395,56 +470,7 @@
     </div>
 </div>
 
-<!-- ================= LOGIN MODAL ================= -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content bg-card">
-            <div class="modal-header border-0">
-                <h5 class="modal-title fw-bold" id="loginModalLabel">
-                    <span class="material-symbols-outlined align-middle me-2">login</span>
-                    Iniciar Sesión
-                </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-            </div>
-            <div class="modal-body p-4">
-                <form id="login-form">
-                    <div class="mb-3">
-                        <label for="login-email" class="form-label fw-bold">
-                            <span class="material-symbols-outlined align-middle me-1" style="font-size: 18px;">mail</span>
-                            Correo electrónico
-                        </label>
-                        <input type="email" class="form-control form-control-lg" id="login-email"
-                               placeholder="tu@email.com" required autocomplete="email">
-                    </div>
-                    <div class="mb-4">
-                        <label for="login-password" class="form-label fw-bold">
-                            <span class="material-symbols-outlined align-middle me-1" style="font-size: 18px;">lock</span>
-                            Contraseña
-                        </label>
-                        <input type="password" class="form-control form-control-lg" id="login-password"
-                               placeholder="••••••••" required autocomplete="current-password">
-                    </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="remember-me">
-                        <label class="form-check-label" for="remember-me">Recordarme</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-lg w-100 mb-3">
-                        <span class="material-symbols-outlined me-2 align-middle" style="font-size: 20px;">login</span>
-                        Iniciar Sesión
-                    </button>
-                    <div class="text-center">
-                        <a href="#" class="text-secondary text-decoration-none small">¿Olvidaste tu contraseña?</a>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer border-0">
-                <small class="text-muted">¿No tienes cuenta? <a href="#" class="text-primary">Regístrate aquí</a></small>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../js/script.js"></script>
 
 <script>
@@ -471,15 +497,3 @@
                     const counters = entry.target.querySelectorAll('.counter');
                     counters.forEach(counter => {
                         if (counter.textContent === '0') animateCounter(counter);
-                    });
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        document.querySelectorAll('.row.g-3').forEach(row => observer.observe(row));
-    });
-</script>
-
-</body>
-</html>
