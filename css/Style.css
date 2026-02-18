@@ -1,34 +1,9 @@
 :root{--primary:#2559f5;--primary-light:#4a7ff7;--primary-dark:#1a42c4;--secondary:#f42588;--secondary-light:#ff5bb3;--bg:#f8f9fa;--bg-white:#ffffff;--card:#ffffff;--card-border:#e1e8f0;--cyan:#00d4ff;--text-dark:#1a1d26;--text-muted:#6c757d;--shadow-sm:rgba(37,89,244,0.08);--shadow-md:rgba(37,89,244,0.15);--shadow-lg:rgba(37,89,244,0.25)}
-:root[data-theme="dark"]{--primary:#5a8fff;--primary-light:#7ba3ff;--primary-dark:#3d6fe6;--secondary:#ff5bb3;--bg:#0f1419;--bg-white:#1a1f2e;--card:#1f2937;--card-border:#2d3748;--cyan:#00d9ff;--text-dark:#f0f2f5;--text-muted:#9ca3af;--shadow-sm:rgba(90,143,255,0.1);--shadow-md:rgba(90,143,255,0.2);--shadow-lg:rgba(90,143,255,0.3)}
+:root[data-theme="dark"]{--primary:#5a8fff;--primary-light:#7ba3ff;--primary-dark:#3d6fe6;--secondary:#ff5bb3;--bg:#0f1419;--bg-white:#1a1f2e;--card:#1f2937;--card-border:#2d3748;--cyan:#00d9ff;--text-dark:#e4e6eb;--text-muted:#9ca3af;--shadow-sm:rgba(90,143,255,0.1);--shadow-md:rgba(90,143,255,0.2);--shadow-lg:rgba(90,143,255,0.3)}
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--bg);font-family:'Noto Sans',sans-serif;color:var(--text-dark);transition:all 0.3s ease;overflow-x:hidden;min-height:100vh}
 .font-display{font-family:'Space Grotesk',sans-serif}
 html{scroll-behavior:smooth}
-
-/* ===============================================
-   DARK THEME - Global text fix (FIX PRINCIPAL)
-   =============================================== */
-:root[data-theme="dark"] body{color:#f0f2f5}
-:root[data-theme="dark"] h1,
-:root[data-theme="dark"] h2,
-:root[data-theme="dark"] h3,
-:root[data-theme="dark"] h4,
-:root[data-theme="dark"] h5,
-:root[data-theme="dark"] h6{color:#f0f2f5!important}
-:root[data-theme="dark"] p{color:#f0f2f5}
-:root[data-theme="dark"] label{color:#f0f2f5}
-:root[data-theme="dark"] .nav-link{color:#f0f2f5!important}
-:root[data-theme="dark"] .nav-link:hover{color:var(--primary)!important}
-:root[data-theme="dark"] .dropdown-item{color:#f0f2f5!important}
-:root[data-theme="dark"] .dropdown-item:hover{color:var(--primary)!important}
-:root[data-theme="dark"] .form-control{color:#f0f2f5!important}
-:root[data-theme="dark"] .card-body p,
-:root[data-theme="dark"] .card-body h5{color:#f0f2f5!important}
-:root[data-theme="dark"] .leader-item span,
-:root[data-theme="dark"] .leader-item strong{color:#f0f2f5!important}
-:root[data-theme="dark"] .leader-item .text-secondary{color:#9ca3af!important}
-:root[data-theme="dark"] .offcanvas .nav-link{color:#f0f2f5!important}
-
 .glass{background:rgba(255,255,255,0.75);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border:1px solid rgba(255,255,255,0.3);transition:all 0.4s ease}
 :root[data-theme="dark"] .glass{background:rgba(15,20,25,0.85);border-color:var(--card-border)}
 .glass.scrolled{background:rgba(255,255,255,0.95);box-shadow:0 8px 32px rgba(37,89,244,0.12)}
@@ -60,21 +35,26 @@ html{scroll-behavior:smooth}
 .badge{font-weight:500;padding:8px 16px;border-radius:20px;transition:all 0.3s ease;position:relative;overflow:hidden;font-size:0.875rem}
 .animate-badge{animation:bounceIn 0.8s cubic-bezier(0.68,-0.55,0.265,1.55)}
 @keyframes bounceIn{0%{opacity:0;transform:scale(0.3) rotate(-15deg)}50%{transform:scale(1.05) rotate(5deg)}100%{opacity:1;transform:scale(1) rotate(0deg)}}
-.bg-card{background:var(--card);border:1px solid var(--card-border);box-shadow:0 2px 8px var(--shadow-sm);transition:all 0.4s ease;position:relative;border-radius:12px}
-/* overflow:hidden eliminado de .bg-card para que el hover no se recorte.
-   El shimmer de ::before lo limitamos solo a la search-bar */
-.search-bar.bg-card{overflow:hidden}
-.neon-hover{transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);position:relative}
-.neon-hover:hover{transform:translateY(-8px);box-shadow:0 15px 35px var(--shadow-md),0 5px 15px var(--shadow-sm);border-color:var(--primary-light)}
-.project-img{height:200px;background-size:cover;background-position:center;border-radius:12px 12px 0 0;position:relative;overflow:hidden;transition:transform 0.5s ease}
-.project-img::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(37,89,244,0.3),rgba(0,212,255,0.3));opacity:0;transition:opacity 0.4s ease}
+.bg-card{background:var(--card);border:1px solid var(--card-border);box-shadow:0 2px 8px var(--shadow-sm);transition:all 0.4s ease;position:relative;overflow:hidden;border-radius:12px}
+.neon-hover{transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);position:relative;overflow:hidden}
+.neon-hover::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(37,89,244,0.05),rgba(0,212,255,0.05));opacity:0;transition:opacity 0.4s ease;pointer-events:none;border-radius:12px;z-index:1}
+.neon-hover:hover{transform:translateY(-12px) scale(1.02);box-shadow:0 20px 40px var(--shadow-lg),0 8px 20px var(--shadow-md),0 0 0 1px var(--primary-light);border-color:var(--primary-light)}
+.neon-hover:hover::after{opacity:1}
+.neon-hover .card-body{position:relative;z-index:2;transition:all 0.3s ease}
+.neon-hover:hover .card-body{transform:translateY(-2px)}
+.neon-hover:hover .card-body h5{color:var(--primary)!important;transform:scale(1.05);transition:all 0.3s ease}
+.neon-hover:hover .badge{transform:translateY(-2px) scale(1.05);box-shadow:0 4px 12px rgba(37,89,244,0.3)}
+.project-img{height:200px;background-size:cover;background-position:center;border-radius:12px 12px 0 0;position:relative;overflow:hidden;transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1)}
+.project-img::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(37,89,244,0.4),rgba(0,212,255,0.4));opacity:0;transition:all 0.4s ease;z-index:1}
+.project-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,rgba(0,0,0,0.3) 100%);opacity:0;transition:opacity 0.4s ease;z-index:2}
+.neon-hover:hover .project-img{transform:scale(1.15);filter:brightness(1.1)}
 .neon-hover:hover .project-img::before{opacity:1}
-.neon-hover:hover .project-img{transform:scale(1.1)}
+.neon-hover:hover .project-img::after{opacity:1}
 .card-body{background:var(--bg-white);transition:background 0.3s ease}
 .input-group-text,.form-control{background:var(--bg-white);border-color:var(--card-border);color:var(--text-dark);transition:all 0.3s ease}
 .form-control:focus{border-color:var(--primary);box-shadow:0 0 0 0.25rem rgba(37,89,244,0.15);background:var(--bg-white);color:var(--text-dark)}
 .input-group:focus-within .input-group-text{border-color:var(--primary);color:var(--primary)}
-.chip-container{-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:4px 2px}
+.chip-container{-webkit-overflow-scrolling:touch;scrollbar-width:none}
 .chip-container::-webkit-scrollbar{display:none}
 .chip{padding:8px 16px;border-radius:25px;border:2px solid var(--card-border);font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap;background:var(--bg-white);color:var(--text-dark);transition:all 0.3s ease;flex-shrink:0}
 .chip:hover{border-color:var(--primary);color:var(--primary);transform:translateY(-3px);box-shadow:0 5px 15px var(--shadow-sm)}
@@ -140,55 +120,10 @@ footer a:hover{color:var(--primary)!important;transform:translateY(-2px)}
 ::-webkit-scrollbar-thumb{background:var(--primary);border-radius:5px}
 ::-webkit-scrollbar-thumb:hover{background:var(--primary-light)}
 html[data-theme="dark"] .text-secondary,html[data-theme="dark"] .text-muted{color:#9ca3af!important}
-html[data-theme="dark"] .text-dark{color:#f0f2f5!important}
+html[data-theme="dark"] .text-dark{color:#e4e6eb!important}
 html[data-theme="dark"] .text-danger{color:#ef4444!important}
 html[data-theme="dark"] .badge,html[data-theme="dark"] .btn-primary{color:white!important}
 html[data-theme="dark"] .terminal-body *{color:inherit!important}
 html[data-theme="dark"] .prompt{color:#00ff88!important}
 html[data-theme="dark"] .accent{color:#ff5bb3!important}
 html[data-theme="dark"] .time{color:#888!important}
-/* ===============================================
-   DARK THEME - Páginas interiores (contacto, proyectos, comunidad)
-   =============================================== */
-html[data-theme="dark"] main h1,
-html[data-theme="dark"] main h2,
-html[data-theme="dark"] main h3,
-html[data-theme="dark"] main h4,
-html[data-theme="dark"] main h5,
-html[data-theme="dark"] main h6{color:#f0f2f5!important}
-html[data-theme="dark"] main p{color:#f0f2f5!important}
-html[data-theme="dark"] main label{color:#f0f2f5!important}
-html[data-theme="dark"] main .text-secondary,
-html[data-theme="dark"] main .text-muted{color:#9ca3af!important}
-html[data-theme="dark"] main .form-control,
-html[data-theme="dark"] main .form-select{background:var(--bg-white)!important;color:#f0f2f5!important;border-color:var(--card-border)!important}
-html[data-theme="dark"] main .form-control::placeholder,
-html[data-theme="dark"] main .form-select::placeholder{color:#6b7280!important}
-html[data-theme="dark"] main .form-select option{background:var(--card);color:#f0f2f5}
-html[data-theme="dark"] main .card-body h3,
-html[data-theme="dark"] main .card-body h5,
-html[data-theme="dark"] main .card-body h6,
-html[data-theme="dark"] main .card-body p{color:#f0f2f5!important}
-html[data-theme="dark"] main a:not(.btn):not(.badge){color:#9ca3af}
-html[data-theme="dark"] main a:not(.btn):not(.badge):hover{color:var(--primary)!important}
-html[data-theme="dark"] .modal-content h4,
-html[data-theme="dark"] .modal-content h5,
-html[data-theme="dark"] .modal-content p,
-html[data-theme="dark"] .modal-content label{color:#f0f2f5!important}
-html[data-theme="dark"] .modal-content .text-secondary,
-html[data-theme="dark"] .modal-content .text-muted{color:#9ca3af!important}
-html[data-theme="dark"] .modal-content .form-control,
-html[data-theme="dark"] .modal-content .form-select{background:var(--bg-white)!important;color:#f0f2f5!important;border-color:var(--card-border)!important}
-html[data-theme="dark"] .modal-content .form-select option{background:var(--card);color:#f0f2f5}
-html[data-theme="dark"] .offcanvas-title{color:#f0f2f5!important}
-/* Modal Login */
-html[data-theme="dark"] #loginModal .modal-title,
-html[data-theme="dark"] #loginModal label,
-html[data-theme="dark"] #loginModal .form-check-label{color:#f0f2f5!important}
-html[data-theme="dark"] #loginModal .form-control{background:var(--bg-white)!important;color:#f0f2f5!important;border-color:var(--card-border)!important}
-html[data-theme="dark"] #loginModal .form-control::placeholder{color:#6b7280!important}
-html[data-theme="dark"] #loginModal .text-secondary,
-html[data-theme="dark"] #loginModal .text-muted{color:#9ca3af!important}
-html[data-theme="dark"] #loginModal small{color:#9ca3af!important}
-html[data-theme="dark"] #loginModal a.text-primary{color:var(--primary)!important}
-html[data-theme="dark"] #loginModal a.text-secondary{color:#9ca3af!important}
