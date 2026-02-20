@@ -706,3 +706,27 @@ html[data-theme="dark"] .time    { color: #888 !important; }
   h3                { font-size: 1.25rem; }
   h5                { font-size: 1rem; }
 }
+/* ── MODO OSCURO: TEXTO Y PLACEHOLDERS ── */
+:root[data-theme="dark"] body,
+:root[data-theme="dark"] body * {
+    color: #e4e6eb !important;
+}
+
+:root[data-theme="dark"] input::placeholder,
+:root[data-theme="dark"] textarea::placeholder {
+    color: #9ca3af !important;
+    opacity: 1;
+}
+
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] textarea {
+    background-color: #1a1f2e !important;
+    color: #e4e6eb !important;
+    border-color: #2d3748 !important;
+}
+
+:root[data-theme="dark"] select {
+    background-color: #1a1f2e !important;
+    color: #e4e6eb !important;
+    border-color: #2d3748 !important;
+}
