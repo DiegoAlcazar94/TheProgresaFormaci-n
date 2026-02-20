@@ -402,6 +402,10 @@ body {
   display: flex;
   align-items: center;
 }
+.terminal-header span.ms-2 {
+  color: var(--cyan);
+  text-shadow: 0 0 8px var(--cyan);
+}
 
 .dot {
   width: 12px;
