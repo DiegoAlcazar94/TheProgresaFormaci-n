@@ -176,21 +176,21 @@
 
     <div class="row g-3 g-md-4 mb-4 mb-md-5">
         <div class="col-md-4 col-sm-6">
-            <div class="card bg-card p-3 p-md-4 text-center neon-hover">
+            <div class="card bg-card p-3 p-md-4 text-center neon-hover position-relative overflow-hidden rounded-3">
                 <span class="material-symbols-outlined text-primary mb-2" style="font-size: 40px;">person</span>
                 <h3 class="fw-bold mb-0"><span class="counter" data-target="150">0</span>+</h3>
                 <p class="text-secondary mb-0">Estudiantes</p>
             </div>
         </div>
         <div class="col-md-4 col-sm-6">
-            <div class="card bg-card p-3 p-md-4 text-center neon-hover">
+            <div class="card bg-card p-3 p-md-4 text-center neon-hover position-relative overflow-hidden rounded-3">
                 <span class="material-symbols-outlined text-primary mb-2" style="font-size: 40px;">code</span>
                 <h3 class="fw-bold mb-0"><span class="counter" data-target="320">0</span>+</h3>
                 <p class="text-secondary mb-0">Proyectos</p>
             </div>
         </div>
         <div class="col-md-4 col-sm-6">
-            <div class="card bg-card p-3 p-md-4 text-center neon-hover">
+            <div class="card bg-card p-3 p-md-4 text-center neon-hover position-relative overflow-hidden rounded-3">
                 <span class="material-symbols-outlined text-primary mb-2" style="font-size: 40px;">emoji_events</span>
                 <h3 class="fw-bold mb-0"><span class="counter" data-target="50">0</span>+</h3>
                 <p class="text-secondary mb-0">Certificaciones</p>
@@ -221,7 +221,7 @@
     <div class="row g-3 g-md-4" id="membersContainer"></div>
 </main>
 
-<footer class="bg-black border-top border-secondary py-4 mt-5">
+<footer class="border-top py-4 mt-5">
     <div class="container-xl">
         <div class="row align-items-center gy-3">
             <div class="col-12 col-md text-center text-md-start">
@@ -422,7 +422,7 @@
         const container = document.getElementById('membersContainer');
         const html = Object.entries(membersData).map((entry) => {
             const [id, member] = entry;
-            return `<div class="col-lg-4 col-md-6"><div class="card bg-card neon-hover h-100 member-card" onclick="openMemberModal('${id}')"><div class="card-body text-center p-3 p-md-4"><img src="${member.avatar}" class="rounded-circle border border-primary mb-3" width="80" height="80" alt="${member.name}"><h5 class="fw-bold mb-1">${member.name}</h5><p class="text-secondary small mb-3">${member.role}</p><div class="mb-3"><span class="badge bg-primary">${member.xp} XP</span></div><div class="row g-2"><div class="col-6"><div class="small"><span class="material-symbols-outlined text-primary" style="font-size: 16px;">code</span><strong class="ms-1">${member.proyectos}</strong><div class="text-secondary" style="font-size: 10px;">Proyectos</div></div></div><div class="col-6"><div class="small"><span class="material-symbols-outlined text-primary" style="font-size: 16px;">star</span><strong class="ms-1">${member.stars}</strong><div class="text-secondary" style="font-size: 10px;">Stars</div></div></div></div></div></div></div>`;
+            return `<div class="col-lg-4 col-md-6"><div class="card bg-card neon-hover h-100 member-card position-relative overflow-hidden rounded-3" onclick="openMemberModal('${id}')"><div class="card-body text-center p-3 p-md-4"><img src="${member.avatar}" class="rounded-circle border border-primary mb-3" width="80" height="80" alt="${member.name}"><h5 class="fw-bold mb-1">${member.name}</h5><p class="text-secondary small mb-3">${member.role}</p><div class="mb-3"><span class="badge bg-primary">${member.xp} XP</span></div><div class="row g-2"><div class="col-6"><div class="small"><span class="material-symbols-outlined text-primary" style="font-size: 16px;">code</span><strong class="ms-1">${member.proyectos}</strong><div class="text-secondary" style="font-size: 10px;">Proyectos</div></div></div><div class="col-6"><div class="small"><span class="material-symbols-outlined text-primary" style="font-size: 16px;">star</span><strong class="ms-1">${member.stars}</strong><div class="text-secondary" style="font-size: 10px;">Stars</div></div></div></div></div></div></div>`;
         }).join('');
         container.innerHTML = html;
     }
