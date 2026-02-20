@@ -144,8 +144,7 @@ body {
 
 /* ── HERO ── */
 .hero {
-  background: linear-gradient(135deg, rgba(37, 89, 244, 0.08), rgba(0, 212, 255, 0.05)),
-              url("https://cieep.com/wp-content/uploads/2021/06/aulashome-1.jpeg");
+  background: url("https://cieep.com/wp-content/uploads/2021/06/aulashome-1.jpeg");
   background-size: cover;
   background-position: center;
   border: 1px solid var(--card-border);
@@ -153,19 +152,17 @@ body {
 }
 
 :root[data-theme="dark"] .hero {
-  background: linear-gradient(135deg, rgba(90, 143, 255, 0.15), rgba(0, 217, 255, 0.1)),
-              url("https://cieep.com/wp-content/uploads/2021/06/aulashome-1.jpeg");
-  background-size: cover;
-  background-position: center;
+  border: 1px solid var(--card-border);
+  min-height: 400px;
 }
 
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(37, 89, 244, 0.1) 0%, rgba(0, 212, 255, 0.05) 50%, transparent 100%);
+  background: rgba(37, 89, 244, 0.3);
   pointer-events: none;
-  animation: gradientShift 8s ease infinite;
+  border-radius: inherit;
 }
 
 @keyframes gradientShift {
