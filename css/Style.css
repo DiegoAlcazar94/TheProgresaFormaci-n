@@ -379,6 +379,15 @@ body {
 .silver { border-left: 4px solid #c0c0c0; }
 .bronze { border-left: 4px solid #cd7f32; }
 
+:root[data-theme="dark"] .leader-item {
+  color: var(--text-dark);
+}
+
+:root[data-theme="dark"] .leader-item strong,
+:root[data-theme="dark"] .leader-item span {
+  color: var(--text-dark);
+}
+
 /* ── TERMINAL ── */
 .terminal {
   background: #1a1d26;
