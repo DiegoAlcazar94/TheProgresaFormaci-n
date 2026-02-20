@@ -191,8 +191,7 @@
                     <span class="input-group-text">
                         <span class="material-symbols-outlined">search</span>
                     </span>
-                    <input class="form-control" id="searchInput"
-                           placeholder="Buscar por nombre, tecnología...">
+                    <input class="form-control" id="searchInput"placeholder="Buscar por nombre, tecnología...">
                 </div>
 
                 <!-- Filter Chips -->
@@ -497,3 +496,16 @@
                     const counters = entry.target.querySelectorAll('.counter');
                     counters.forEach(counter => {
                         if (counter.textContent === '0') animateCounter(counter);
+                    });
+                }
+            });
+        });
+
+        document.querySelectorAll('.counter-container').forEach(container => {
+            observer.observe(container);
+        });
+    });
+</script>
+
+</body>
+</html>
